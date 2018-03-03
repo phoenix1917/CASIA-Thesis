@@ -1,0 +1,86 @@
+\contentsline {chapter}{摘要}{vii}{chapter*.1}
+\contentsline {chapter}{Abstract}{ix}{chapter*.2}
+\contentsline {chapter}{目录}{xi}{section*.3}
+\contentsline {chapter}{\numberline {第一章\hspace {0.3em}}绪论}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}引言}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}论文的研究背景和意义}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}论文的组织}{3}{section.1.3}
+\contentsline {chapter}{\numberline {第二章\hspace {0.3em}}人机交互式机器翻译方法综述}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}概述}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}机器翻译}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}统计机器翻译}{9}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}神经网络机器翻译}{15}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}计算机辅助翻译}{16}{section.2.3}
+\contentsline {section}{\numberline {2.4}人机交互式机器翻译}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}译后编辑}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}交互式机器翻译}{19}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}术语翻译}{19}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}融合翻译记忆的统计机器翻译}{21}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}在线自适应}{22}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}本文的研究思路}{22}{section.2.5}
+\contentsline {section}{\numberline {2.6}本章小结}{23}{section.2.6}
+\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}融合统计机器翻译技术的中文输入方法}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}基于对数线性模型的输入方法}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}输入一个汉字需要按多少键}{27}{section.3.2}
+\contentsline {section}{\numberline {3.3}融合统计机器翻译技术的输入方法}{28}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}输入法短语生成模型}{29}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}N元文法提示模型}{31}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}面向输入方法的译文自动评价指标}{33}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}MinKSR}{34}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}译文长度惩罚因子}{36}{subsection.3.4.2}
+\contentsline {section}{\numberline {3.5}相关工作}{38}{section.3.5}
+\contentsline {section}{\numberline {3.6}实验}{39}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}实验设置}{39}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}数据清洗}{41}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}数据处理}{41}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}结果分析}{41}{subsection.3.6.4}
+\contentsline {section}{\numberline {3.7}本章小结}{48}{section.3.7}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于术语识别边界信息的术语识别和翻译方法}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}融合双语术语识别的联合词对齐方法}{52}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}词对齐的四个阶段}{53}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}联合模型}{59}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}重要推导细节}{59}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}基于双语括号句子的术语翻译挖掘方法}{62}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}主题爬虫}{64}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}双语括号句子过滤器}{65}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}术语左边界分类器}{66}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}术语翻译概率生成器}{67}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}基于术语识别边界信息的统计翻译术语解码方法}{68}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}抽取多种类型的术语翻译知识}{69}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}优化统计机器翻译解码器}{71}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}实验}{71}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}实验数据}{71}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}实验设置}{71}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}融合双语术语识别的联合词对齐方法的实验结果}{72}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}基于双语括号句子的术语翻译挖掘方法的实验结果}{75}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}基于术语识别边界信息的统计翻译术语解码方法的实验结果}{76}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}本章小结}{79}{section.4.5}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}基于随机森林的统计翻译在线学习方法}{81}{chapter.5}
+\contentsline {section}{\numberline {5.1}基于随机森林的统计翻译模型}{82}{section.5.1}
+\contentsline {section}{\numberline {5.2}基于在线随机森林的统计翻译在线学习方法}{86}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}在线Bagging}{87}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}在线随机决策树}{87}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}动态加权}{88}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}案例研究}{89}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}基于锚点的隐马尔可夫增量式词对齐方法}{90}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}搜索锚点}{91}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}双语短语划分}{94}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}联合词对齐}{94}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}基于锚点的隐马尔可夫词对齐模型推导过程}{96}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}实验}{98}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}实验数据}{98}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}实验设置}{98}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}实验结果}{98}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}本章小结}{102}{section.5.5}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}人机交互式机器翻译系统设计与实现}{103}{chapter.6}
+\contentsline {section}{\numberline {6.1}基本思想}{103}{section.6.1}
+\contentsline {section}{\numberline {6.2}系统设计}{104}{section.6.2}
+\contentsline {section}{\numberline {6.3}系统实现}{105}{section.6.3}
+\contentsline {section}{\numberline {6.4}经验总结}{107}{section.6.4}
+\contentsline {section}{\numberline {6.5}本章小结}{108}{section.6.5}
+\contentsline {chapter}{\numberline {第七章\hspace {0.3em}}结束语与展望}{109}{chapter.7}
+\contentsline {section}{\numberline {7.1}工作总结}{109}{section.7.1}
+\contentsline {section}{\numberline {7.2}工作展望}{111}{section.7.2}
+\contentsline {chapter}{参考文献}{113}{section*.67}
+\contentsline {chapter}{致谢}{125}{chapter*.69}
+\contentsline {chapter}{作者简历}{127}{chapter*.70}

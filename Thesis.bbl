@@ -1,0 +1,1063 @@
+\begin{thebibliography}{190}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI: #1}\else
+  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[张家俊\ 等(2013)张家俊 and 宗成庆]{zhangzong:2013}
+张家俊, 宗成庆, 2013.
+\newblock
+  机器翻译研究进展与趋势\allowbreak[R]//\allowbreak{}2012年度中国计算机科学技术年度报告B卷.
+\newblock 北京机械工业出版社.
+
+\bibitem[冯志伟(1984)]{feng:1984}
+冯志伟, 1984.
+\newblock 汉字的熵\allowbreak[J].
+\newblock 文字改革\penalty0 (04): 12--17.
+
+\bibitem[陈原(1997)]{chen:1997}
+陈原, 1997.
+\newblock 汉字语言文字信息处理\allowbreak[M].
+\newblock 上海上海教育出版社.
+
+\bibitem[李栋(2006)]{lidong:2006}
+李栋, 2006.
+\newblock 一种具有英译辅助翻译功能的拼音输入法\allowbreak[D].
+\newblock 福建厦门大学.
+
+\bibitem[刘洋(2007)]{liuyangphd:2007}
+刘洋, 2007.
+\newblock 树到串统计翻译模型研究\allowbreak[D].
+\newblock 北京清华大学.
+
+\bibitem[米海涛(2009)]{mihaitao:2009}
+米海涛, 2009.
+\newblock 容错统计机器翻译关键技术研究\allowbreak[D].
+\newblock 北京中国科学院计算技术研究所.
+
+\bibitem[张家俊(2011)]{zhangjiajun:2011}
+张家俊, 2011.
+\newblock
+  融合源语言句法知识的统计机器翻译方法研究\allowbreak[D].
+\newblock 北京中国科学院自动化研究所.
+
+\bibitem[吴军(2012)]{wujun:2012}
+吴军, 2012.
+\newblock 数学之美\allowbreak[M].
+\newblock 北京人民邮电出版社.
+
+\bibitem[方瑞玉(2013)]{fang:2013}
+方瑞玉, 2013.
+\newblock 基于输入法的辅助翻译工具研究和实现\allowbreak[D].
+\newblock 福建厦门大学.
+
+\bibitem[汪昆(2013)]{wangkun:2013}
+汪昆, 2013.
+\newblock 融合翻译记忆的统计机器翻译方法研究\allowbreak[D].
+\newblock 北京中国科学院自动化研究所.
+
+\bibitem[宗成庆(2013)]{zong:2013}
+宗成庆, 2013.
+\newblock 统计自然语言处理（第2版）\allowbreak[M].
+\newblock 北京清华大学出版社.
+
+\bibitem[Ananiadou(1994)]{Ananiadou:1994}
+ANANIADOU S, 1994.
+\newblock A methodology for automatic term
+  recognition\allowbreak[C]//\allowbreak{}Proc. of COLING 1994.
+
+\bibitem[Austermühl(2014)]{Austermuhl:2014}
+AUSTERMüHL, 2014.
+\newblock Electronic tools for translator\allowbreak[M].
+\newblock LondonRoutledge.
+
+\bibitem[Aziz\ et~al.(2011)Aziz, Rios, and Specia]{Aziz:2011}
+AZIZ W, RIOS M, SPECIA L, 2011.
+\newblock Shallow semantic trees for smt\allowbreak[C]//\allowbreak{}Proc. of
+  the Sixth Workshop on Statistical Machine Translation (WMT 2011).
+
+\bibitem[Bahdanau\ et~al.(2015)Bahdanau, Cho, and Bengio]{Bahdanau:2015}
+BAHDANAU D, CHO K, BENGIO Y, 2015.
+\newblock Neural machine translation by jointly learning to align and
+  translate\allowbreak[C]//\allowbreak{}Proc. of ICLR 2015.
+
+\bibitem[Barrachina\ et~al.(2009)Barrachina, Bender, Casacuberta, Civera,
+  Cubel, Khadivi, Lagarda, Ney, Tomás, Vidal, and Vilar]{Barrachina:2009}
+BARRACHINA S, BENDER O, CASACUBERTA F, et~al., 2009.
+\newblock Statistical approaches to computer-assisted
+  translation\allowbreak[J].
+\newblock Computational Linguistics, 35\penalty0 (1): 3--28.
+
+\bibitem[Berger\ et~al.(1996)Berger, Pietra, and Pietra]{Berger:1996}
+BERGER A L, PIETRA V J D, PIETRA S A D, 1996.
+\newblock A maximum entropy approach to natural langauge
+  processing\allowbreak[J].
+\newblock Computational Linguistics, 22\penalty0 (1): 39--71.
+
+\bibitem[Bertoldi\ et~al.(2014)Bertoldi, Cettolo, and Federico]{Bertoldi:2014}
+BERTOLDI N, CETTOLO M, FEDERICO M, 2014.
+\newblock Online adaptation to post-edits for phrase-based statistical machine
+  translation\allowbreak[J].
+\newblock Machine Translation, 28\penalty0 (3-4): 309--339.
+
+\bibitem[Biçici\ et~al.(2008)Biçici and Dymetman]{Bicici:2008}
+BIçICI E, DYMETMAN M, 2008.
+\newblock Dynamic translation memory: Using statistical machine translation to
+  improve translation memory fuzzy matches\allowbreak[C]//\allowbreak{}Proc. of
+  the 9th International Conference on Itelligent Text Processing and
+  Computational Linguistics (CICLing 2008).
+
+\bibitem[Blain\ et~al.(2012)Blain, Schwenk, and Senellart]{Blain:2012}
+BLAIN F, SCHWENK H, SENELLART J, 2012.
+\newblock Incremental adaptation using translation information and post-editing
+  analysis\allowbreak[C]//\allowbreak{}Proc. of International Workshop on
+  Spoken Language Translation.
+
+\bibitem[Blunsom\ et~al.(2009)Blunsom, Cohn, Dyer, and Osborne]{Blunsom:2009}
+BLUNSOM P, COHN T, DYER C, et~al., 2009.
+\newblock A gibbs sampler for phrasal synchronous grammar
+  induction\allowbreak[C]//\allowbreak{}Proc. of ACL-IJCNLP 2009.
+
+\bibitem[Bosch\ et~al.(2007)Bosch, Zisserman, and Munoz]{Bosch:2007}
+BOSCH A, ZISSERMAN A, MUNOZ X, 2007.
+\newblock Representing shape with a spatial pyramid
+  kernel\allowbreak[C]//\allowbreak{}Proc. of 6th ACM international conference
+  on Image and video retrieval.
+
+\bibitem[Breiman(2001)]{Breiman:2001}
+BREIMAN L, 2001.
+\newblock Random forests\allowbreak[J].
+\newblock Machine Learning, 45\penalty0 (1): 5--32.
+
+\bibitem[Brown\ et~al.(1990)Brown, Cocke, Pietra, Pietra, Jelinek, Lafferty,
+  Mercer, and Roossin]{Brown:1990}
+BROWN P F, COCKE J, PIETRA S A D, et~al., 1990.
+\newblock A statistical approach to machine translation\allowbreak[J].
+\newblock Computational Linguistics, 16\penalty0 (2): 79--85.
+
+\bibitem[Brown\ et~al.(1993)Brown, Pietra, Pietra, and Mercer]{Brown:1993}
+BROWN P F, PIETRA V J D, PIETRA S A D, et~al., 1993.
+\newblock The mathematics of statistical machine translation: Parameter
+  estimation\allowbreak[J].
+\newblock Computational Linguistics, 19\penalty0 (2): 263--311.
+
+\bibitem[Burkett\ et~al.(2010{\natexlab{a}})Burkett, Blitzer, and
+  Klein]{Burkett:2010b}
+BURKETT D, BLITZER J, KLEIN D, 2010{\natexlab{a}}.
+\newblock Joint parsing and alignment with weakly synchronized
+  grammars\allowbreak[C]//\allowbreak{}Proc. of HLT-NAACL 2010.
+
+\bibitem[Burkett\ et~al.(2010{\natexlab{b}})Burkett, Petrov, Blitzer, and
+  Klein]{Burkett:2010a}
+BURKETT D, PETROV S, BLITZER J, et~al., 2010{\natexlab{b}}.
+\newblock Learning better monolingual models with unannotated bilingual
+  text\allowbreak[C]//\allowbreak{}Proc. of ACL 2010.
+
+\bibitem[Cao\ et~al.(2007)Cao, Gao, and Nie]{Cao:2007}
+CAO G, GAO J, NIE J, 2007.
+\newblock A system to mine large-scale bilingual dictionaries from monolingual
+  web pages\allowbreak[C]//\allowbreak{}Proc. of MT Summit XI.
+
+\bibitem[Carl\ et~al.(2011)Carl, Dragsted, Elming, Hardt, and
+  Jakobsen]{Car:2011}
+CARL M, DRAGSTED B, ELMING J, et~al., 2011.
+\newblock The process of post-editing: A pilot
+  study\allowbreak[C]//\allowbreak{}Proc. of the 8th international NLPSC
+  workshop. Special theme: Human-machine interaction in translation.
+
+\bibitem[Carpuat\ et~al.(2005)Carpuat and Wu]{Carpuat:2005}
+CARPUAT M, WU D, 2005.
+\newblock Word sense disambiguation vs. statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2005.
+
+\bibitem[Carpuat\ et~al.(2007)Carpuat and Wu]{Carpuat:2007}
+CARPUAT M, WU D, 2007.
+\newblock How phrase sense disambiguation outperforms word sense disambiguation
+  for statistical machine translation\allowbreak[C]//\allowbreak{}Proc. of TMI
+  2007.
+
+\bibitem[Cesa-Bianchi\ et~al.(2006)Cesa-Bianchi and Lugosi]{Cesa-Bianchi:2006}
+CESA-BIANCHI N, LUGOSI G, 2006.
+\newblock Prediction, learning, and games\allowbreak[M].
+\newblock CambridgeCambridge University Press.
+
+\bibitem[Chan\ et~al.(2007)Chan, Ng, and Chiang]{Chan:2007}
+CHAN Y S, NG H T, CHIANG D, 2007.
+\newblock Word sense disambiguation improves statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2007.
+
+\bibitem[Chen\ et~al.(2010)Chen, Zong, and Su]{Chen:2010}
+CHEN Y, ZONG C, SU K Y, 2010.
+\newblock On jointly recognizing and aligning bilingual named
+  entities\allowbreak[C]//\allowbreak{}Proc. of ACL 2010.
+
+\bibitem[Chen\ et~al.(2012)Chen, Zong, and Su]{Chen:2012}
+CHEN Y, ZONG C, SU K Y, 2012.
+\newblock A joint model to identify and align bilingual named
+  entities\allowbreak[J].
+\newblock Computational Linguistics, 39\penalty0 (2): 1--64.
+
+\bibitem[Cheng\ et~al.(2016)Cheng, Huang, Chen, Dai, and Chen]{Cheng:2016}
+CHENG S, HUANG S, CHEN H, et~al., 2016.
+\newblock Primt: A pick-revise framework for interactive machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of NAACL-HLT 2016.
+
+\bibitem[Cherry\ et~al.(2007)Cherry and Lin]{Cherry:2007}
+CHERRY C, LIN D, 2007.
+\newblock Inversion transduction grammar for joint phrasal translation
+  modeling\allowbreak[C]//\allowbreak{}Proc. of NAACL-HLT 2007/AMTA Workshop on
+  Syntax and Structure in Statistical Translation.
+
+\bibitem[Chiang(2007)]{Chiang:2007}
+CHIANG D, 2007.
+\newblock Hierarchical phrase-based translation\allowbreak[J].
+\newblock Computational Linguistics, 33\penalty0 (2): 201--228.
+
+\bibitem[Chiang(2010)]{Chiang:2010}
+CHIANG D, 2010.
+\newblock Learning to translate with source and target
+  syntax\allowbreak[C]//\allowbreak{}Proc. of ACL 2010.
+
+\bibitem[Chiang(205)]{Chiang:2005}
+CHIANG D, 205.
+\newblock A hierarchical phrase-based model for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2005.
+
+\bibitem[Chieu\ et~al.(2002)Chieu and Ng]{Chieu:2002}
+CHIEU H L, NG H T, 2002.
+\newblock amed entity recognition: A maximum entropy approach using global
+  information\allowbreak[C]//\allowbreak{}Proc. of ICCL 2002.
+
+\bibitem[Cho\ et~al.(2014)Cho, van Merriënboer, Gulcehre, Bahdanau, Bougares,
+  Schwenk, and Bengio]{Cho:2014}
+CHO K, VAN MERRIëNBOER B, GULCEHRE C, et~al., 2014.
+\newblock Learning phrase representations using rcc encoder-decoder for
+  statistical machine translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP
+  2014.
+
+\bibitem[Cohen(1995)]{Cohen:1995}
+COHEN J D, 1995.
+\newblock Highlights: Language- and domain-independent automatic indexing terms
+  for abstracting\allowbreak[J].
+\newblock Journal of the American Society for Information Science, 46\penalty0
+  (3): 162--174.
+
+\bibitem[Collins\ et~al.(2005)Collins, Koehn, and Kucerova]{Collins:2005}
+COLLINS M, KOEHN P, KUCEROVA I, 2005.
+\newblock Clause restructuring for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2005.
+
+\bibitem[Cui\ et~al.(2014)Cui, Zhang, Liu, Chen, Li, Zhou, and Yang]{Cui:2014}
+CUI L, ZHANG D, LIU S, et~al., 2014.
+\newblock Learning topic representation for smt with neural
+  networks\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Cui(1985)]{Cui:1985}
+CUI W, 1985.
+\newblock Evaluation of chinese character keyboards\allowbreak[J].
+\newblock Computer, 18\penalty0 (1): 54--59.
+
+\bibitem[Dagan\ et~al.(1994)Dagan and Church]{Dagan:1994}
+DAGAN I, CHURCH K, 1994.
+\newblock Termight: Identifying and translating technical
+  terminology\allowbreak[C]//\allowbreak{}Proc. of the 4th Conference on
+  Applied Natural Language Processing.
+
+\bibitem[Daille(1996)]{Daille:1996}
+DAILLE B, 1996.
+\newblock Study and implementation of combined techniques for automatic
+  extraction of terminology\allowbreak[C]//\allowbreak{}Proc. of the Workshop
+  the Balancing Act: Combining Symbolic and Statistical Approaches to Language
+  1996.
+
+\bibitem[Darroch\ et~al.(1972)Darroch and Ratcliff]{Darroch:1972}
+DARROCH J N, RATCLIFF D, 1972.
+\newblock Generalized iterative scaling for log-linear models\allowbreak[J].
+\newblock Annals of Mathematical Statistics, 43\penalty0 (5): 1470--1480.
+
+\bibitem[DeNero\ et~al.(2008)DeNero, Bouchard-Côté, and Klein]{DeNero:2008}
+DENERO J, BOUCHARD-CôTé A, KLEIN D, 2008.
+\newblock Sampling alignment structure under a bayesian translation
+  model\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2008.
+
+\bibitem[Denkowski\ et~al.(2014)Denkowski, Dyer, and Lavie]{Denkowski:2014}
+DENKOWSKI M, DYER C, LAVIE A, 2014.
+\newblock Learning from post-editing: Online model adaptation for statistical
+  machine translation\allowbreak[C]//\allowbreak{}Proc. of EACL 2014.
+
+\bibitem[Devlin\ et~al.(2014)Devlin, Zbib, Huang, Lamar, Schwartz, and
+  Makhoul]{Devlin:2014}
+DEVLIN J, ZBIB R, HUANG Z, et~al., 2014.
+\newblock Fast and robust neural network joint models for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Evans\ et~al.(1995)Evans and Lefferts]{Evans:1995}
+EVANS D A, LEFFERTS R G, 1995.
+\newblock Clarit-trec experiments\allowbreak[J].
+\newblock Information Processing and Management, 32\penalty0 (3): 385--395.
+
+\bibitem[Fahmi\ et~al.(2007)Fahmi, Bouma, and van~der Plas]{Fahmi:2007}
+FAHMI I, BOUMA G, VAN~DER PLAS L, 2007.
+\newblock Improving statistical method using known terms for automatic term
+  extraction\allowbreak[J].
+\newblock Computational Linguistics in the Netherlands, 17: 1--8.
+
+\bibitem[Fan\ et~al.(2009)Fan, Shimizu, and Nakagawa]{Fan:2009}
+FAN X, SHIMIZU N, NAKAGAWA H, 2009.
+\newblock Automatic extraction of bilingual terms from a chinese-japanese
+  parallel corpus\allowbreak[C]//\allowbreak{}Proc. of the 3rd International
+  Universal Communication Symposium.
+
+\bibitem[Farajian\ et~al.(2014)Farajian, Bertoldi, and Federico]{Farajian:2014}
+FARAJIAN A M, BERTOLDI N, FEDERICO M, 2014.
+\newblock Online word alignment for online adaptive machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of EACL 2014 Workshop on Humans
+  and Computer-Assisted Translation.
+
+\bibitem[Foster\ et~al.(2002)Foster and Lapalme]{Foster:2002}
+FOSTER G, LAPALME G, 2002.
+\newblock Text prediction for translators\allowbreak[D].
+\newblock QuebecUniversité de Montréal.
+
+\bibitem[Frantzi\ et~al.(1999)Frantzi and Ananiadou]{Frantzi:1999}
+FRANTZI K T, ANANIADOU S, 1999.
+\newblock The c-value/nc-value domain independent method for multiword term
+  extraction\allowbreak[J].
+\newblock Journal of Natural Language Processing, 6\penalty0 (3): 145--179.
+
+\bibitem[Frantzi\ et~al.(2000)Frantzi, Ananiadou, and Mima]{Frantzi:2000}
+FRANTZI K T, ANANIADOU S, MIMA H, 2000.
+\newblock Automatic recognition of multi-word terms: The c-value/nc-value
+  method\allowbreak[J].
+\newblock International Journal on Digital Libraries, 6\penalty0 (3): 115--130.
+
+\bibitem[Fraser\ et~al.(2007)Fraser and Marcu]{Fraser:2007}
+FRASER A, MARCU D, 2007.
+\newblock Measuring word alignment quality for statistical machine
+  translation\allowbreak[J].
+\newblock Computational Linguistic, 33\penalty0 (3): 293--303.
+
+\bibitem[Fung\ et~al.(1997)Fung and Mckeown]{Fung:1997}
+FUNG P, MCKEOWN K, 1997.
+\newblock A technical word- and term-translation aid using noisy parallel
+  corpora across language groups\allowbreak[J].
+\newblock Machine Translation, 12\penalty0 (1): 53--87.
+
+\bibitem[Fung\ et~al.(2006)Fung, Wang, Yang, and Wu]{Fung:2006}
+FUNG P, WANG Z, YANG Y, et~al., 2006.
+\newblock Automatic learning of chinese english semantic structure
+  mapping\allowbreak[C]//\allowbreak{}Proc. of IEEE/ACL 2006 Workshop on Spoken
+  Language Technology (SLT 2006).
+
+\bibitem[Fung\ et~al.(2007)Fung, Wang, Yang, and Wu]{Fung:2007}
+FUNG P, WANG Z, YANG Y, et~al., 2007.
+\newblock Learning bilingual semantic frames: Shallow semantic sarsing vs.
+  semantic sole projection\allowbreak[C]//\allowbreak{}Proc. of the 11th
+  Conference on Theoretical and Methodological Issues in Machine Translation.
+
+\bibitem[Galley\ et~al.(2004)Galley, Hopkins, Knight, and Marcu]{Galley:2004}
+GALLEY M, HOPKINS M, KNIGHT K, et~al., 2004.
+\newblock What’s in a translation rule?\allowbreak[C]//\allowbreak{}Proc. of
+  HLT-NAACL 2004.
+
+\bibitem[Galley\ et~al.(2006)Galley, Graehl, Knight, Marcu, DeNeefe, Wang, and
+  Thayer]{Galley:2006}
+GALLEY M, GRAEHL J, KNIGHT K, et~al., 2006.
+\newblock Scalable inference and training of context-rich syntactic translation
+  models\allowbreak[C]//\allowbreak{}Proc. of ICCL-ACL 2006.
+
+\bibitem[Gao\ et~al.(2014)Gao, He, tau Yih, and Deng]{Gao:2014}
+GAO J, HE X, TAU YIH W, et~al., 2014.
+\newblock Learning continuous phrase representations for translation
+  modeling\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Gao\ et~al.(2011)Gao and Vogel]{Gao:2011}
+GAO Q, VOGEL, 2011.
+\newblock Utilizing target-side semantic role labels to assist hierarchical
+  phrase-based machine translation\allowbreak[C]//\allowbreak{}Proc. of the
+  Fifth Workshop on Syntax, Semantics and Structure in Statistical Trasnlation
+  (SSST 2011).
+
+\bibitem[Garay-Vitoria\ et~al.(2006)Garay-Vitoria and
+  Abascal]{Garay-Vitoria:2006}
+GARAY-VITORIA N, ABASCAL J, 2006.
+\newblock Text prediction systems: A survey\allowbreak[J].
+\newblock Universal Access in the Information Society, 4\penalty0 (3):
+  188--203.
+
+\bibitem[Geurts\ et~al.(2006)Geurts, Ernst, and Wehenkel]{Geurts:2006}
+GEURTS P, ERNST D, WEHENKEL L, 2006.
+\newblock Extremely randomized trees\allowbreak[J].
+\newblock Machine Learning, 63\penalty0 (1): 3--42.
+
+\bibitem[Green\ et~al.(2014)Green, Wang, Chuang, Heer, Schuster, and
+  Manning]{Green:2014}
+GREEN S, WANG S I, CHUANG J, et~al., 2014.
+\newblock Human effort and machine learnability in computer aided
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2014.
+
+\bibitem[Hardt\ et~al.(2002)Hardt and Elming]{Hardt:2002}
+HARDT D, ELMING J, 2002.
+\newblock Incremental re-training for pose-editing
+  smt\allowbreak[C]//\allowbreak{}Proc. of the 9th Conference of the
+  Association for Machine Translation in the Americas (AMTA 2002).
+
+\bibitem[He\ et~al.(2010{\natexlab{a}})He, Ma, Genabith, and Way]{He:2010a}
+HE Y, MA Y, GENABITH J V, et~al., 2010{\natexlab{a}}.
+\newblock Bridging smt and tm with translation
+  recommendation\allowbreak[C]//\allowbreak{}Proc. of ACL 2010.
+
+\bibitem[He\ et~al.(2010{\natexlab{b}})He, Ma, Way, and Genabith]{He:2010b}
+HE Y, MA Y, WAY A, et~al., 2010{\natexlab{b}}.
+\newblock Integrating n-best smt outputs into a tm
+  system\allowbreak[C]//\allowbreak{}Proc. of COLING 2010.
+
+\bibitem[He\ et~al.(2011)He, Ma, Way, and Genabith]{He:2011}
+HE Y, MA Y, WAY A, et~al., 2011.
+\newblock Rich linguistic features for translation memory-inspired consistent
+  translation\allowbreak[C]//\allowbreak{}Proc. of the Thirteen Machine
+  Translation Summit.
+
+\bibitem[He\ et~al.(2008)He, Liu, and Lin]{He:2008}
+HE Z, LIU Q, LIN S, 2008.
+\newblock Improving statistical machine translation using lexicalized rule
+  selection\allowbreak[C]//\allowbreak{}Proc. of COLING 2008.
+
+\bibitem[Hochreiter\ et~al.(1997)Hochreiter and Schmidhuber]{Hochreiter:1997}
+HOCHREITER S, SCHMIDHUBER J, 1997.
+\newblock Long short term memory\allowbreak[J].
+\newblock Neural Computation, 9\penalty0 (8): 1735--1780.
+
+\bibitem[Huang\ et~al.(2006)Huang, Knight, and Joshi]{Huang:2006}
+HUANG L, KNIGHT K, JOSHI A, 2006.
+\newblock A syntax-directed translator with extended domain of
+  locality\allowbreak[C]//\allowbreak{}Proc. of Workshop on Computationally
+  Hard Problemsand Joint Inference in Speech and Language Processing.
+
+\bibitem[Hutchins(2007)]{Hutchins:2007}
+HUTCHINS W J, 2007.
+\newblock Machine translation: A concise history\allowbreak[J].
+\newblock Computer Aided Translation: Therory and Practice.
+
+\bibitem[Hutchins\ et~al.(1992)Hutchins and Somers]{Hutchins:1992}
+HUTCHINS W J, SOMERS H, 1992.
+\newblock An introduction to machine translation\allowbreak[M].
+\newblock LondonAcademic Press.
+
+\bibitem[Kalchbrenner\ et~al.(2013)Kalchbrenner and Blunsom]{Kalchbrenner:2013}
+KALCHBRENNER N, BLUNSOM P, 2013.
+\newblock Recurrent continuous translation
+  models\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2013.
+
+\bibitem[Kasami(1965)]{Kasami:1965}
+KASAMI T, 1965.
+\newblock An efficient recognition and syntax analysis algorithm for
+  context-free languages\allowbreak[R]//\allowbreak{}Technical Report Technical
+  Report AFCRL-65-758.
+\newblock CambridgeAir Force Cambridge Research Laboratory.
+
+\bibitem[Kay(1980)]{Kay:1980}
+KAY M, 1980.
+\newblock The proper place of men and machines in language
+  translation\allowbreak[R]//\allowbreak{}Research Report CSL-80-11.
+\newblock Palo AltokReprinted in Machine Translation.
+
+\bibitem[Knowles\ et~al.(2016)Knowles and Koehn]{Knowles:2016}
+KNOWLES R, KOEHN P, 2016.
+\newblock Neural interactive translation
+  prediction\allowbreak[C]//\allowbreak{}Proc. of the Conference of the
+  Association for Machine Translation in the Americas (AMTA) 2016.
+
+\bibitem[Koehn(2004{\natexlab{a}})]{Koehn:2004a}
+KOEHN P, 2004{\natexlab{a}}.
+\newblock Pharaoh: A beam search decoder for phrase-based statistical machine
+  translation models\allowbreak[C]//\allowbreak{}Machine Translation: From real
+  users to research.
+
+\bibitem[Koehn(2004{\natexlab{b}})]{Koehn:2004b}
+KOEHN P, 2004{\natexlab{b}}.
+\newblock Statistical significance tests for machine translation
+  evaluation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2004.
+
+\bibitem[Koehn(2009{\natexlab{a}})]{Koehn:2009a}
+KOEHN P, 2009{\natexlab{a}}.
+\newblock A process study of computer-aided translation\allowbreak[J].
+\newblock Machine Translation, 23\penalty0 (4): 241--263.
+
+\bibitem[Koehn(2009{\natexlab{b}})]{Koehn:2009b}
+KOEHN P, 2009{\natexlab{b}}.
+\newblock A web-based interactive computer aided translation
+  tool\allowbreak[C]//\allowbreak{}Proc. of the ACL-IJCNLP 2009 Software
+  Demonstrations.
+
+\bibitem[Koehn(2012)]{Koehn:2012}
+KOEHN P, 2012.
+\newblock Computer-added trasnlation\allowbreak[R]//\allowbreak{}Machine
+  Translation Marathon.
+
+\bibitem[Koehn\ et~al.(2010)Koehn and Senellart]{Koehn:2010}
+KOEHN P, SENELLART J, 2010.
+\newblock Convergence of translation memory and statistical machine
+  trasnlation\allowbreak[C]//\allowbreak{}Proc. of AMTA Workshop on MT Research
+  and the Translation Industry.
+
+\bibitem[Koehn\ et~al.(2003)Koehn, Och, and Marcu]{Koehn:2003}
+KOEHN P, OCH F J, MARCU D, 2003.
+\newblock Statistical phrase-based
+  translation\allowbreak[C]//\allowbreak{}Proc. of NAACL 2003.
+
+\bibitem[Koehn\ et~al.(2007)Koehn, Hoang, Birch, Callison-Burch, Federico,
+  Bertoldi, Cowan, Shen, Moran, Zens, Dyer, Bojar, Constantin, and
+  Herbst]{Koehn:2007}
+KOEHN P, HOANG H, BIRCH A, et~al., 2007.
+\newblock Moses: Open source toolkit for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2007.
+
+\bibitem[Koehn\ et~al.(2014)Koehn, Tsoukala, and Saint-Amand]{Koehn:2014}
+KOEHN P, TSOUKALA C, SAINT-AMAND H, 2014.
+\newblock Refinements to interactive translation prediction based on search
+  graphs\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Komachi\ et~al.(2006)Komachi, Matsumoto, and Nagata]{Komachi:2006}
+KOMACHI M, MATSUMOTO Y, NAGATA M, 2006.
+\newblock Phrase reordering for statistical machine translation based on
+  predicate-argument structure\allowbreak[C]//\allowbreak{}Proc. of IWSLT 2006.
+
+\bibitem[Kozakov\ et~al.(2004)Kozakov, Park, Fin, Drissi, Doganata, and
+  Cofino]{Kozakov:2004}
+KOZAKOV L, PARK Y, FIN T H, et~al., 2004.
+\newblock Glossary extraction and knowledge in large rrganisations via semantic
+  web technologies\allowbreak[C]//\allowbreak{}Proc. of the 6th International
+  Semantic Web Conference and the 2nd Asian Semantic Web Conference.
+
+\bibitem[Kumar\ et~al.(2005)Kumar and Byrne]{Kumar:2005}
+KUMAR S, BYRNE W, 2005.
+\newblock Local phrase reordering models for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of HLT-EMNLP 2005.
+
+\bibitem[Kupiec(1993)]{Kupiec:1993}
+KUPIEC J, 1993.
+\newblock An algorithm for finding noun phrase correspondences in bilingual
+  corpora\allowbreak[C]//\allowbreak{}Proc. of ACL 1993.
+
+\bibitem[Lefever\ et~al.(2009)Lefever, Macken, , and Hoste]{Lefever:2009}
+LEFEVER E, MACKEN L, , et~al., 2009.
+\newblock Language-independent bilingual terminology extraction from a
+  multilingual parallel corpus\allowbreak[C]//\allowbreak{}Proc. of EACL 2009.
+
+\bibitem[Levenberg\ et~al.(2012)Levenberg, Dyer, and Blunsom]{Levenberg:2012}
+LEVENBERG A, DYER C, BLUNSOM P, 2012.
+\newblock A bayesian model for learning scfgs with discontiguous
+  rules\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2012.
+
+\bibitem[Li\ et~al.(2007)Li, Li, Zhang, Li, Zhou, and Guan]{LiChiho:2007}
+LI C, LI M, ZHANG D, et~al., 2007.
+\newblock A probabilistic approach to syntax-based reordering for statistical
+  machine translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2007.
+
+\bibitem[Li(2012)]{LiDong:2012}
+LI D, 2012.
+\newblock A pinyin input method editor with english-chinese aided translation
+  function\allowbreak[C]//\allowbreak{}Proc. of International Conference on
+  Computer Science and Service System 2012.
+
+\bibitem[Li\ et~al.(2010)Li and Li]{LiLijia:2010}
+LI L, LI F, 2010.
+\newblock Optimol: Automatic online picture collection via incremental model
+  learning\allowbreak[J].
+\newblock International Journal of Computer Vision, 88\penalty0 (2): 147--168.
+
+\bibitem[Li\ et~al.(2013)Li, Liu, and Sun]{LiPeng:2013}
+LI P, LIU Y, SUN M, 2013.
+\newblock Recursive autoencoders for itb-based
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2013.
+
+\bibitem[Li\ et~al.(2014)Li, Liu, Sun, Izuha, and Zhang]{LiPeng:2014}
+LI P, LIU Y, SUN M, et~al., 2014.
+\newblock A neural reordering model for phrase-based
+  translation\allowbreak[C]//\allowbreak{}Proc. of COLING 2014.
+
+\bibitem[Li\ et~al.(2016)Li, Zhang, and Zong]{LiXiaoqing}
+LI X, ZHANG J, ZONG C, 2016.
+\newblock Towards zero unknown word in neural machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of IJCAI 2016.
+
+\bibitem[Li\ et~al.(2009)Li, Che, Han, and Liu]{LiXiuying:2009}
+LI X, CHE C, HAN L, et~al., 2009.
+\newblock Extracting historical terms based on aligned chinese-english parallel
+  corpora\allowbreak[C]//\allowbreak{}Proc. of 2009 International Conference on
+  Natural Language Processing and Knowledge Engineering.
+
+\bibitem[Liang\ et~al.(2006)Liang, Bouchard-Côté, Klein, and
+  Taskar]{Liang:2006}
+LIANG P, BOUCHARD-CôTé A, KLEIN D, et~al., 2006.
+\newblock An end-to-end discriminative approach to machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ICCL-ACL 2006.
+
+\bibitem[Liu\ et~al.(2010{\natexlab{a}})Liu and Gildea]{LiuGildea:2010}
+LIU D, GILDEA D, 2010{\natexlab{a}}.
+\newblock Semantic role features for machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of COLING 2010.
+
+\bibitem[Liu\ et~al.(2008)Liu, He, Liu, and Lin]{LiuQun:2008}
+LIU Q, HE Z, LIU Y, et~al., 2008.
+\newblock Maximum entropy based rule selection model for syntax-based
+  statistical machine translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP
+  2008.
+
+\bibitem[Liu\ et~al.(2006)Liu, Liu, and Lin]{LiuYang:2006}
+LIU Y, LIU Q, LIN S, 2006.
+\newblock Tree-to-string alignment template for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ICCL-ACL 2006.
+
+\bibitem[Liu\ et~al.(2007)Liu, Huang, Liu, and Lin]{LiuYang:2007}
+LIU Y, HUANG Y, LIU Q, et~al., 2007.
+\newblock Forest-to-string statistical translation
+  rules\allowbreak[C]//\allowbreak{}Proc. of ACL 2007.
+
+\bibitem[Liu\ et~al.(2009)Liu, Lv, and Liu]{LiuYang:2009}
+LIU Y, LV Y, LIU Q, 2009.
+\newblock Improving tree-to-tree translation with packed
+  forests\allowbreak[C]//\allowbreak{}Proc. of ACL-IJCNLP 2009.
+
+\bibitem[Liu\ et~al.(2010{\natexlab{b}})Liu, Liu, and Lin]{LiuYang:2010}
+LIU Y, LIU Q, LIN S, 2010{\natexlab{b}}.
+\newblock Discriminative word alignment by linear modeling\allowbreak[J].
+\newblock Computational Linguistics, 35\penalty0 (3): 303--339.
+
+\bibitem[Manning\ et~al.(2003)Manning and Klein]{Manning:2003}
+MANNING C, KLEIN D, 2003.
+\newblock Optimization, maxent models, and conditional estimation without
+  magic\allowbreak[C]//\allowbreak{}Tutorial at HLT-NAACL-ACL 2003.
+
+\bibitem[Marcu\ et~al.(2002)Marcu and Wong]{Marcu:2002}
+MARCU D, WONG W, 2002.
+\newblock A phrase-based, joint probability model for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2002.
+
+\bibitem[Marcu\ et~al.(2006)Marcu, Wang, Echihabi, and Knight]{Marcu:2006}
+MARCU D, WANG W, ECHIHABI A, et~al., 2006.
+\newblock Spmt: Statistical machine translation with syntactified target
+  langauge phrases\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2006.
+
+\bibitem[Martins\ et~al.(2010)Martins, Smith, Xing, Aguiar, and
+  A]{Martins:2010}
+MARTINS A F T, SMITH N A, XING E P, et~al., 2010.
+\newblock Argmenting dual decomposition for map
+  inference\allowbreak[C]//\allowbreak{}Proc. of Internatioan Workshop on
+  Optimization for Machine Learning 2010.
+
+\bibitem[Martins\ et~al.(2011)Martins, Smith, Aguiar, and
+  Figueiredo]{Martins:2011}
+MARTINS A F T, SMITH N A, AGUIAR P M Q, et~al., 2011.
+\newblock Dual decomposition with many overlapping
+  components\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2011.
+
+\bibitem[Mccarley\ et~al.(2011)Mccarley, Ittycheriah, Roukous, Xiang, and
+  Xu]{Mccarley:2011}
+MCCARLEY J S, ITTYCHERIAH A, ROUKOUS S, et~al., 2011.
+\newblock A correction model for word
+  alignments\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2011.
+
+\bibitem[Mi\ et~al.(2008)Mi and Huang]{Mi:2008}
+MI H, HUANG L, 2008.
+\newblock Forest-based translation rule
+  extraction\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2008.
+
+\bibitem[Moorkens\ et~al.(2015)Moorkens and O’Brien]{Moorkens:2015}
+MOORKENS J, O’BRIEN S, 2015.
+\newblock Post-editing evaluations: Trade-offs between novice and professional
+  participants\allowbreak[C]//\allowbreak{}Proc. of European Association for
+  Machine Translation (EAMT).
+
+\bibitem[Nagao(1984)]{Nagao:1984}
+NAGAO M, 1984.
+\newblock A framework of a mechanical translation between japanese and english
+  by aanalogy principle\allowbreak[C]//\allowbreak{}Artifical and Human
+  Intelligence: Edited Review Papers Presented at the International NATO
+  Symposium on Artificial and Human Intellignce 1984.
+
+\bibitem[Nepveu\ et~al.(2004)Nepveu, Lapalme, Langlais, and
+  Foster]{Nepveu:2004}
+NEPVEU L, LAPALME G, LANGLAIS P, et~al., 2004.
+\newblock Adaptive language and translation models for interactive machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2004.
+
+\bibitem[Neubig\ et~al.(2011)Neubig, Watanabe, Sumita, Mori, and
+  Kawahara]{Neubig:2011}
+NEUBIG G, WATANABE T, SUMITA E, et~al., 2011.
+\newblock An unsupervised model for joint phrase alignment and
+  extraction\allowbreak[C]//\allowbreak{}Proc. of ACL 2011.
+
+\bibitem[Och(2003)]{Och:2003a}
+OCH F J, 2003.
+\newblock Minimum error rate training in statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2003.
+
+\bibitem[Och\ et~al.(2000)Och and Ney]{Och:2000}
+OCH F J, NEY H, 2000.
+\newblock Improved statistical alignment
+  models\allowbreak[C]//\allowbreak{}Proc. of ACL 2000.
+
+\bibitem[Och\ et~al.(2002)Och and Ney]{Och:2002}
+OCH F J, NEY H, 2002.
+\newblock Discriminative training and maximum entropy models for statistical
+  machine translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2002.
+
+\bibitem[Och\ et~al.(2003)Och and Ney]{Och:2003b}
+OCH F J, NEY H, 2003.
+\newblock A systematic comparison of various statistical alignment
+  models\allowbreak[J].
+\newblock Computational Linguistics, 29\penalty0 (1): 19--51.
+
+\bibitem[Och\ et~al.(1999)Och, Tillmann, and Ney]{Och:1999}
+OCH F J, TILLMANN C, NEY H, 1999.
+\newblock Improved alignment models for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of the Joint SIGDAT Conference
+  on Empirical Methods in Natural Language Processing and Very Large Corpora.
+
+\bibitem[Ortiz-Martínez\ et~al.(2010)Ortiz-Martínez, García-Varea, and
+  Casacuberta]{Ortiz-Martinez:2010}
+ORTIZ-MARTíNEZ D, GARCíA-VAREA I, CASACUBERTA F, 2010.
+\newblock Online learning for interactive statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of NAACL 2010.
+
+\bibitem[Oza(2005)]{Oza:2005}
+OZA N C, 2005.
+\newblock Online bagging and boosting\allowbreak[C]//\allowbreak{}Proc. of IEEE
+  International Conference on Systems, Man and Cybernetics 2005.
+
+\bibitem[Park\ et~al.(2002)Park, Byrd, and Boguraev]{Park:2002}
+PARK Y, BYRD R J, BOGURAEV B K, 2002.
+\newblock Automatic glossary extraction: Beyond terminology
+  identification\allowbreak[C]//\allowbreak{}Proc. of COLING 2002.
+
+\bibitem[Ren\ et~al.(2010)Ren, Zhu, and Wang]{Ren:2010}
+REN F, ZHU J, WANG H, 2010.
+\newblock Web-based technical term translation pairs mining for patent document
+  translation\allowbreak[C]//\allowbreak{}Proc. of the 6th International
+  Conference on Natural Language Processing and Knowledge Engineering (NLP-KE
+  2010).
+
+\bibitem[Riedel\ et~al.(2011)Riedel and McCallum]{Riedel:2011}
+RIEDEL S, MCCALLUM A, 2011.
+\newblock Fast and robust joint models for biomedical event
+  extraction\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2011.
+
+\bibitem[Saffari\ et~al.(2009)Saffari, Leistner, Santner, Godec, and
+  Bischof]{Saffari:2009}
+SAFFARI A, LEISTNER C, SANTNER J, et~al., 2009.
+\newblock On-line random forests\allowbreak[C]//\allowbreak{}Proc. of IEEE
+  International Conference on Computer Vision Workshops 2009.
+
+\bibitem[Sato\ et~al.(1990)Sato and Nagao]{Sato:1990}
+SATO S, NAGAO M, 1990.
+\newblock Toward memory--based translatio\allowbreak[C]//\allowbreak{}Proc. of
+  ACL 1990.
+
+\bibitem[Sclano\ et~al.(2007)Sclano and Velardi]{Sclano:2007}
+SCLANO F, VELARDI P, 2007.
+\newblock Termextractor: A web application to learn the shared terminology of
+  emergent web communities\allowbreak[C]//\allowbreak{}Proc. of the 3rd
+  International Conference on Interoperability for Enterprise Software and
+  Applications (I-ESA 2007).
+
+\bibitem[Shen\ et~al.(2008)Shen, Xu, and Weischedel]{Shen:2008}
+SHEN L, XU J, WEISCHEDEL R, 2008.
+\newblock A new string-to-dependency machine translation algorithm with a
+  target dependency language model\allowbreak[C]//\allowbreak{}Proc. of ACL
+  2008.
+
+\bibitem[Shen\ et~al.(2016)Shen, Cheng, He, He, Wu, Sun, and Liu]{Shen:2016}
+SHEN S, CHENG Y, HE Z, et~al., 2016.
+\newblock Minimum risk training for neural machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2016.
+
+\bibitem[Simard\ et~al.(2013)Simard and Foster]{Simard:2013}
+SIMARD M, FOSTER G, 2013.
+\newblock Pepr: Post-edit propagation using phrase-based statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of the XIV Machine Translation
+  Summit 2013.
+
+\bibitem[Simard\ et~al.(2009)Simard and Isabelle]{Simard:2009}
+SIMARD M, ISABELLE P, 2009.
+\newblock Phrase-based machine translation in a computer-assisted translation
+  environment\allowbreak[C]//\allowbreak{}Proc. of the Twelfth Machine
+  Translation Summit (MT Summit XII).
+
+\bibitem[Smith\ et~al.(2009)Smith and Clark]{Smith:2009}
+SMITH J, CLARK S, 2009.
+\newblock Ebmt for smt: A new ebmt-smt hybrid\allowbreak[C]//\allowbreak{}Proc.
+  of the 3rd International Workshop on Example-based Machine Translation (EBMT
+  2009).
+
+\bibitem[Snover\ et~al.(2006)Snover, JDorr, Schwartz, Micciulla, and
+  Makhoul]{Snover:2006}
+SNOVER M, JDORR B, SCHWARTZ R, et~al., 2006.
+\newblock A study of translation edit rate with targeted human
+  annotation\allowbreak[C]//\allowbreak{}Proc. of the Association for Machine
+  Translation in the Americas 2006.
+
+\bibitem[Somers\ et~al.(2004)Somers and Diaz]{Somers:2004}
+SOMERS H, DIAZ G F, 2004.
+\newblock Translation memory vs. example-based mt: What is the
+  difference\allowbreak[J].
+\newblock International Journal of Translaton, 16\penalty0 (2): 5--33.
+
+\bibitem[Stolcke(2002)]{Stolcke:2002}
+STOLCKE A, 2002.
+\newblock Srilm - an extensible language modeling
+  toolkit\allowbreak[C]//\allowbreak{}Proc. of ICSLP 2002.
+
+\bibitem[Sutskever\ et~al.(2014)Sutskever, Vinyals, and Le]{Sutskever:2014}
+SUTSKEVER I, VINYALS O, LE Q V, 2014.
+\newblock Sequence to sequence learning with neural
+  networks\allowbreak[C]//\allowbreak{}Proc. of NIPS 2014.
+
+\bibitem[Tamura\ et~al.(2014)Tamura, Watanabe, and Sumita]{Tamura:2014}
+TAMURA A, WATANABE T, SUMITA E, 2014.
+\newblock Recurrent neural networks for word alignment
+  model\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Thicke(2013)]{Thicke:2013}
+THICKE L, 2013.
+\newblock Post-editor shortage and mt\allowbreak[J].
+\newblock Multi Lingual\penalty0 (January/February 2014): 42--44.
+
+\bibitem[Tillman(2004)]{Tillmann:2004}
+TILLMAN C, 2004.
+\newblock A unigram orientation model for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of HLT-NAACL 2004.
+
+\bibitem[Tu\ et~al.(2013)Tu, Zhou, and Zong]{TuMei:2013}
+TU M, ZHOU Y, ZONG C, 2013.
+\newblock A novel translation framework based on rhetorical structure
+  theory\allowbreak[C]//\allowbreak{}Proc. of ACL 2013.
+
+\bibitem[Tu\ et~al.(2014)Tu, Zhou, and Zong]{TuMei:2014}
+TU M, ZHOU Y, ZONG C, 2014.
+\newblock Enhancing grammatical cohesion: Generatting transitional expressions
+  for smt\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Tu\ et~al.(2016)Tu, Lu, Liu, Liu, and Li]{TuZhaopeng:2016}
+TU Z, LU Z, LIU Y, et~al., 2016.
+\newblock Modeling coverage for neural machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2016.
+
+\bibitem[Utgoff\ et~al.(1997)Utgoff, Berkman, and Clouse]{Utgoff:1997}
+UTGOFF P E, BERKMAN N C, CLOUSE J A, 1997.
+\newblock Decision tree induction based on efficient tree
+  restructuring\allowbreak[J].
+\newblock Machine Learing, 29\penalty0 (1): 5--44.
+
+\bibitem[Vaswani\ et~al.(2013)Vaswani, Zhao, Fossum, and Chiang]{Vaswani:2013}
+VASWANI A, ZHAO Y, FOSSUM V, et~al., 2013.
+\newblock Decoding with large-scale neural language models improves
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2013.
+
+\bibitem[Vintar(2001)]{Vintar:2001}
+VINTAR S, 2001.
+\newblock Using parallel corpora for translation-oriented term
+  extraction\allowbreak[J].
+\newblock Babel, 47\penalty0 (2): 121--132.
+
+\bibitem[Vogel\ et~al.(1996)Vogel, Ney, and Tillmann]{Vogel:1996}
+VOGEL S, NEY H, TILLMANN C, 1996.
+\newblock Hmm-based word alignment in statistical
+  translation\allowbreak[C]//\allowbreak{}Proc. of the 16th conference on
+  Computational linguistics.
+
+\bibitem[Wagner(1985)]{Wagner:1985}
+WAGNER E, 1985.
+\newblock Post-editing systran, a challenge for commission
+  translators\allowbreak[J].
+\newblock Terminologie et traduction, 3: 1--7.
+
+\bibitem[Wang\ et~al.(2007)Wang, Collins, and Koehn]{Wang:2007}
+WANG C, COLLINS M, KOEHN P, 2007.
+\newblock Chinese syntactic reordering for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP-CoNLL 2007.
+
+\bibitem[Wang\ et~al.(2013b)Wang, Zong, and Su]{Wang:2013b}
+WANG K, ZONG C, SU K Y, 2013b.
+\newblock Integrating translation memory into phrase-based machine translation
+  during decoding\allowbreak[C]//\allowbreak{}Proc. of ACL 2013.
+
+\bibitem[Wang\ et~al.(2013)Wang, Che, and Manning]{Wang:2013a}
+WANG M, CHE W, MANNING C D, 2013.
+\newblock Joint word alignment and bilingual named entity recognition using
+  dual decomposition\allowbreak[C]//\allowbreak{}Proc. of ACL 2013.
+
+\bibitem[Wang\ et~al.(1998)Wang and Waibel]{Wang:1998}
+WANG Y, WAIBEL A, 1998.
+\newblock Modeling with structures in statistical machine
+  translatoin\allowbreak[C]//\allowbreak{}Proc. of ACL-ICCL 1998.
+
+\bibitem[Wermter\ et~al.(2005)Wermter and Hahn]{Wermter:2005}
+WERMTER J, HAHN U, 2005.
+\newblock Finding new terminology in very large
+  corpora\allowbreak[C]//\allowbreak{}Proc. of the 3rd International Conference
+  on Knowledge Capture.
+
+\bibitem[Wu(1997)]{Wu:1997}
+WU D, 1997.
+\newblock Stochastic inversion transduction grammars and bilingual parsing of
+  parallel corpora\allowbreak[J].
+\newblock Computational Linguistics, 23\penalty0 (3): 377--403.
+
+\bibitem[Wu\ et~al.(2009)Wu and Fung]{Wu:2009}
+WU D, FUNG P, 2009.
+\newblock Semantic roles for smt: A hybrid two-pass
+  model\allowbreak[C]//\allowbreak{}Proc. of HLT-NAACL 2009.
+
+\bibitem[Wu\ et~al.(2011)Wu, Sudoh, Duh, Tsukada, and Nagata]{Wu:2011}
+WU X, SUDOH K, DUH K, et~al., 2011.
+\newblock Extracting pre-ordering rules from predicate-argument
+  structures\allowbreak[C]//\allowbreak{}Proc. of IJCNLP 2011.
+
+\bibitem[Wuebker\ et~al.(2015)Wuebker, Green, and DeNero]{Wuebker:2015}
+WUEBKER J, GREEN S, DENERO J, 2015.
+\newblock Hierarchical incremental adaptation for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2015.
+
+\bibitem[Xiong\ et~al.(2006)Xiong, Liu, and Lin]{Xiong:2006}
+XIONG D, LIU Q, LIN S, 2006.
+\newblock Maximum entropy based phrase reordering model for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of COLING-ACL 2006.
+
+\bibitem[Xiong\ et~al.(2008)Xiong, Zhang, Aw, and Li]{Xiong:2008}
+XIONG D, ZHANG M, AW A, et~al., 2008.
+\newblock Linguistically annotated btg for statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of COLING 2008.
+
+\bibitem[Xiong\ et~al.(2012)Xiong, Zhang, and Li]{Xiong:2012}
+XIONG D, ZHANG M, LI H, 2012.
+\newblock Modeling the translation of predicate-argument structure for
+  smt\allowbreak[C]//\allowbreak{}Proc. of ACL 2012.
+
+\bibitem[Xu\ et~al.(2004)Xu and Jelined]{Xu:2004}
+XU P, JELINED F, 2004.
+\newblock Random forests in language modeling\allowbreak[C]//\allowbreak{}Proc.
+  of EMNLP 2004.
+
+\bibitem[Yamada\ et~al.(2001)Yamada and Knight]{Yamada:2001}
+YAMADA K, KNIGHT K, 2001.
+\newblock A syntax-based statistical translation
+  model\allowbreak[C]//\allowbreak{}Proc. of ACL 2001.
+
+\bibitem[Yamada\ et~al.(2002)Yamada and Knight]{Yamada:2002}
+YAMADA K, KNIGHT K, 2002.
+\newblock A decoder for syntax-based statistical
+  mt\allowbreak[C]//\allowbreak{}Proc. of ACL 2002.
+
+\bibitem[Yang\ et~al.(2013)Yang, Liu, Li, Zhou, and Yu]{Yang:2013}
+YANG N, LIU S, LI M, et~al., 2013.
+\newblock Word alignment modeling with context dependent deep neural
+  network\allowbreak[C]//\allowbreak{}Proc. Of ACL 2013.
+
+\bibitem[Younger(1967)]{Younger:1967}
+YOUNGER D H, 1967.
+\newblock Recognition and parsing of context-free languages in time
+  n3\allowbreak[J].
+\newblock Information and control, 10\penalty0 (2): 189--208.
+
+\bibitem[Yu\ et~al.(2013)Yu, Huang, Mi, and Zhao]{Yu:2013}
+YU H, HUANG L, MI H, et~al., 2013.
+\newblock Max-violation perceptron and forced decoding for scalable mt
+  training\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2013.
+
+\bibitem[Zaidan(2009)]{Zaidan:2009}
+ZAIDAN O F, 2009.
+\newblock Z-mert: A fully configurable open source tool for minimum error rate
+  training of machine translation systems\allowbreak[J].
+\newblock The Prague Bulletin of Mathematical Linguistics, 91: 79--88.
+
+\bibitem[Zens\ et~al.(2003)Zens and Ney]{Zens:2003}
+ZENS R, NEY H, 2003.
+\newblock A comparative study on reordering constraints in statistical machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2004.
+
+\bibitem[Zhai\ et~al.(2012)Zhai, Zhang, Zhou, and Zong]{Zhai:2012}
+ZHAI F, ZHANG J, ZHOU Y, et~al., 2012.
+\newblock Machine translation by modeling predicate-argument structure
+  transformation\allowbreak[C]//\allowbreak{}Proc. of COLING 2012.
+
+\bibitem[Zhang\ et~al.(2007)Zhang, Li, Li, and Zhou]{Zhang:2007}
+ZHANG D, LI M, LI C, et~al., 2007.
+\newblock Phrase reordering model integrating syntactic knowledge for
+  smt\allowbreak[C]//\allowbreak{}Proc. of EMNLP-CoNLL 2007.
+
+\bibitem[Zhang\ et~al.(2008{\natexlab{a}})Zhang, Quirk, Moore, and
+  Gildea]{Zhang:2008c}
+ZHANG H, QUIRK C, MOORE R C, et~al., 2008{\natexlab{a}}.
+\newblock Bayesian learning of non-compositional phrases with synchronous
+  parsing\allowbreak[C]//\allowbreak{}Proc. of ACL 2008.
+
+\bibitem[Zhang\ et~al.(2009)Zhang and Zong]{Zhang:2009}
+ZHANG J, ZONG C, 2009.
+\newblock A framework for effectively integrating hard and soft syntactic rule
+  into phrase based translation\allowbreak[C]//\allowbreak{}Proc. of PACLIC
+  2009.
+
+\bibitem[Zhang\ et~al.(2015)Zhang and Zong]{Zhang:2015}
+ZHANG J, ZONG C, 2015.
+\newblock Deep neural networks in machine translation: An
+  overview\allowbreak[J].
+\newblock IEEE Intelligent Systems, 30\penalty0 (5): 16--25.
+
+\bibitem[Zhang\ et~al.(Language Resources and Evaluation)Zhang and
+  Zong]{Zhang:2013}
+ZHANG J, ZONG C, Language Resources and Evaluation.
+\newblock 2013\allowbreak[J].
+\newblock A Unified Approach for Effectively Integrating Source-side Syntactic
+  Reordering Rules into Phrase-based Translation, 47\penalty0 (2): 449--474.
+
+\bibitem[Zhang\ et~al.(2014{\natexlab{a}})Zhang, Liu, Li, Zhou, and
+  Zong]{Zhang:2014a}
+ZHANG J, LIU S, LI M, et~al., 2014{\natexlab{a}}.
+\newblock Bilingually-constrained phrase embeddings for machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of ACL 2014.
+
+\bibitem[Zhang\ et~al.(2014{\natexlab{b}})Zhang, Liu, Li, Zhou, and
+  Zong]{Zhang:2014b}
+ZHANG J, LIU S, LI M, et~al., 2014{\natexlab{b}}.
+\newblock Mind the gap: Machine translation by minimizing the semantic gap in
+  embedding space\allowbreak[C]//\allowbreak{}Proc. of AAAI 2014.
+
+\bibitem[Zhang\ et~al.(2008{\natexlab{b}})Zhang, Jiang, Aw, Li, Tan, and
+  Li]{Zhang:2008b}
+ZHANG M, JIANG H, AW A, et~al., 2008{\natexlab{b}}.
+\newblock A tree sequence alignment-based tree-to-tree translation
+  model\allowbreak[C]//\allowbreak{}Proc. of ACL 2008.
+
+\bibitem[Zhang\ et~al.(2003)Zhang, Vogel, and Waibel]{Zhang:2003}
+ZHANG Y, VOGEL S, WAIBEL A, 2003.
+\newblock Integrated phrase segmentation and alignment model for statistical
+  machine translation\allowbreak[C]//\allowbreak{}Proc. of NLP-KE 2003.
+
+\bibitem[Zhao\ et~al.(2002)Zhao and Vogel]{ZhaoBing:2002}
+ZHAO B, VOGEL S, 2002.
+\newblock Adaptive parallel sentences mining from web bilingual news
+  collection\allowbreak[C]//\allowbreak{}Proc. of IEEE International Conference
+  on Data Mining 2002.
+
+\bibitem[Zhechev(2012)]{Zhechev:2012}
+ZHECHEV V, 2012.
+\newblock Machine translation infrastructure and post-editing performance at
+  autodesk\allowbreak[C]//\allowbreak{}Proc. of WPTP 2012.
+
+\bibitem[Zhechev\ et~al.(2010)Zhechev and Genabith]{Zhechev:2010}
+ZHECHEV V, GENABITH J V, 2010.
+\newblock Seeding statistical machine translation with translation memory
+  output through tree-based structureal
+  alignment\allowbreak[C]//\allowbreak{}Proc. of the 4th Workshop on Syntax and
+  Structure in Statistical Transaltion.
+
+\bibitem[Zou\ et~al.(2013)Zou, Socher, Cer, and Manning]{Zou:2013}
+ZOU W Y, SOCHER R, CER D, et~al., 2013.
+\newblock Bilingual word embeddings for phrase-based machine
+  translation\allowbreak[C]//\allowbreak{}Proc. of EMNLP 2013.
+
+\end{thebibliography}

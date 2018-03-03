@@ -1,0 +1,90 @@
+%%
+%%% >>> Title Page
+%%
+%%
+%%% 中文标题页
+%%
+  \confidential{} % 密级标记
+  \paperid{123} % 研究生部论文编号，盲审时需要，终版去除
+  \schoollogo{scale=0.112}{UCAS}
+  %\title[短标题(偶数页眉显示)]{完整标题}
+  \title[人机交互式机器翻译方法研究与实现]{人机交互式机器翻译方法研究与实现}
+  \author{黄国平} % 作者姓名
+  \advisor{宗成庆~研究员} % 指导教师
+  %\secondadvisor{XXX~副研究员} % 第二指导教师，如果有，则解开注释
+  \degree{博士} % 学位
+  \degreetype{工学} % 学位类型
+  \major{模式识别与智能系统} % 专业
+  \institute{中国科学院自动化研究所}
+  \chinesedate{2017~年~04~月} %时间
+%%
+%%% 英文标题页
+%%
+  \englishtitle{Research and Implementation of Approaches to \\ Human-Computer Interactive Machine Translation}
+  \englishauthor{Guoping Huang}
+  \englishadvisor{Professor Chengqing Zong}
+  \englishdegree{Doctor}  % 博士
+  %\englishdegree{Master} % 硕士
+  \englishthesistype{dissertation}
+  \englishmajor{Philosophy} % 工学
+  \englishinstitute{Institute of Automation, Chinese Academy of Sciences}
+  \englishdate{April, 2017} % 时间
+%%
+%%% 生成中文标题
+%%
+\maketitle
+%%
+%%% 生成英文标题
+%%
+\makeenglishtitle
+%%
+%%% >>> 作者声明
+%%
+\makedeclaration
+%%
+%%% >>> 摘要
+%%
+\chapter{摘要}% 页眉不显示标题
+%\begin{abstract}% 显示页眉标题 @TODO
+近年来，机器翻译研究取得了长足的进步，译文质量不断提高，在某些特定领域和环境下已经开始投入实际应用。但是，基于翻译记忆的计算机辅助翻译软件在专业翻译市场仍具有得天独厚的优势。这是因为在特定领域中，如果待翻译文本与记忆库中的文本匹配程度很高时，翻译记忆的译文质量明显优于机器翻译的自动译文。大多数情况下，专业译员甚至不想花费太多的时间阅读自动译文。但是，计算机辅助翻译的生产效率也已达到瓶颈。因此，研究人机交互式机器翻译方法和实现技术，以进一步提高人工翻译效率，对于提升机器翻译的译文质量，推动机器翻译技术在专业领域的应用，具有重要的理论意义和应用价值。
+
+本论文首先从考查统计机器翻译和计算机辅助翻译系统的特点出发，研究人机交互式机器翻译方法和实现技术。论文的主要工作和创新点归纳如下：
+
+1. 提出了一种融合统计机器翻译技术的中文输入方法
+
+在实际应用中，人们往往只使用机器翻译系统的自动译文。这种方式的缺点在于，如果自动译文的质量不能满足要求，则高质量的中间结果也一同被舍弃，从而使机器翻译难以有效发挥价值。为此，我们提出了一种融合统计机器翻译技术的中文输入方法。该方法能够充分融合统计翻译中的翻译规则、翻译假设列表和翻译结果候选列表等相关信息，只需较少的按键次数就可以生成准确的译文结果。此外，为了指导统计机器翻译系统生成更适合该输入方法的翻译结果，我们提出了面向输入方法的译文自动评价指标。实验结果表明，该输入方法能大幅减少翻译人员的译文修改强度，显著提高翻译效率和译文质量。同时，提出的自动评价指标能使该输入方法利用更合适的统计翻译结果，进一步提升人工翻译效率，显著改善人机交互体验。
+
+2. 提出了一种基于术语识别边界信息的术语识别和翻译方法
+
+术语翻译对于专业领域的机器翻译至关重要，而现有机器翻译系统往往没专门考虑术语的翻译问题。为了改善专业领域中术语的翻译质量，我们提出了一种基于术语识别边界信息的术语识别和翻译方法。由于当前术语识别的性能还比较低，该方法借助术语识别边界信息建立术语解码方法，充分利用从平行句对和互联网单语语料中挖掘得到的术语翻译知识，包括三个部分：从平行句对中挖掘术语翻译知识的融合双语术语识别的联合词对齐模型，从单语语料中挖掘术语翻译知识的基于双语括号句子的术语翻译挖掘方法，以及基于术语识别边界信息的统计翻译术语解码方法。实验结果表明，我们提出的术语识别和翻译方法能显著提升计算机领域专业术语的翻译准确率，从而有效地改善了统计翻译译文质量。
+
+3. 提出了一种基于随机森林的统计翻译在线学习方法
+
+为使机器翻译系统能够在人机交互过程中有效利用译员已完成的双语句对，实时获取翻译知识并改善自动译文的质量，我们提出了一种基于随机森林的统计翻译在线学习方法。该方法通过在人机交互过程中实时从输入源文和用户反馈构成的平行句对中抽取翻译知识，不断更新基于随机森林的统计翻译模型，从而改善译文的质量。由于低频词和未登录词直接影响词对齐和翻译知识抽取的性能，因此，我们还提出了一种基于锚点的隐马尔可夫增量式词对齐方法。该词对齐方法有效利用互信息和词典等先验知识生成对齐锚点，然后联合执行基于锚点的双语短语划分和隐马尔可夫词对齐算法。模拟实验结果表明，随着用户反馈的积累，统计翻译在线学习方法显著提升了后续相关句子的自动译文质量，且在线学习方法的译文质量可比于同等规模语料的离线学习基线系统的译文质量。人机交互体验得到显著改善。
+
+最后，基于以上提出的方法，我们设计和实现了人机交互式英汉机器翻译系统，并总结了开发过程中遇到的关键问题和应对策略。
+
+\keywords{统计机器翻译，人机交互，中文输入法，术语翻译，在线学习}
+%\end{abstract}
+
+
+\chapter{Abstract}% does not show the title on the top
+%\begin{englishabstract}% will show the title on the top
+In recent years, the research on machine translation (MT) has made great progress and the performance of machine translation has been improved a lot. In some specific domains and scenarios, MT has been put into practical application. However, computer-assisted translation (CAT), based on translation memory (TM) rather than MT, still dominates the professional translation market. Occasionally, only the final results of machine translation are displayed to provide references. This is because the quality of TM is still significantly higher than that of MT for those sentences, which have high fuzzy matches in TM database. In most cases, professional translations do not even want to spend time reading automatic translation. In such a scenario, current usage of MT is limited to a great extent. At the same time, the productivity of CAT has reached the bottleneck. Therefore, it is of great theoretical and practical value to research how to combine MT with CAT to further improve the efficiency of human translation and promote the application of MT in specialized areas.
+
+Based on detailed analysis of the advantages and disadvantages of MT and CAT, this thesis attempts to propose and implement approaches to human-computer interaction machine translation. The main contributions are summarized as follows:
+
+1. A Novel Input Method for Translation
+
+In the current CAT environment, translators only use the final result of the underlying MT system. To have an adequate arena for the exercise of MT as well as improve the human-computer interaction experience of MT, in this thesis, we propose a novel input method that makes full use of the knowledge produced by SMT systems, such as translation rules, decoding hypotheses and n-best translation lists. The well-designed input method takes full advantage of useful information of the SMT system. The proposed input method contains two parts: phrase generation model, allowing human translators to type target sentences quickly, and n-gram prediction model, helping users choose perfect MT fragments smoothly. In addition, to tune the underlying SMT system to generate the input method preferable results, we design a new evaluation metric for the MT system. The extensive experiments demonstrate that our methods can greatly reduce keystrokes and translation time, and significantly improve the efficiency of human translation.
+
+2. Flexible Terminology Translation Approaches
+
+Terminology translation is essential for machine translation in specialized areas. However, it’s not usually considered by the current MT systems. In order to improve the quality of terminology translation, we propose flexible terminology translation approaches. The proposed approaches contain three parts: a joint model extracting terminology translation knowledge from parallel sentences by jointly conducting bilingual term detection and word alignment, an approach learning terminology translation knowledge from parenthetical sentences in the Internet, and a terminology translation method combining identified term boundary information. Experiments show that out proposed approaches substantially enhance the performance of vertical terminology translation and sentence translation.
+
+3. Online Random Forests Based Online Learning Method for Translation Model
+
+Professional translators expect that the underlying MT system can learn in real-time in the process of human-computer interaction and improve subsequent translation results. In order to make the most of the up-to-the-minute human translations, we propose an online learning method based on online random forests (ORFs) for translation model. This proposed online learning method incessantly extracts translation knowledge from the single parallel sentence of the user feedback, and update the adopted translation model in real-time to achieve the goal of automatic translation improvement. In addition, in order to extract the translation knowledge of low frequency words and unknown words, we also propose an anchor-based hidden Markov model (HMM) word alignment method. The simulation experiment results demonstrate that our proposed online learning method significantly improves translation quality as the number of feedback sentences increasing, and the translation quality is comparable to that of the off-line baseline system with all training data. The human-computer interaction experience has been improved significantly.
+
+\englishkeywords{Statistical Machine Translation, Human-Computer Interactive Machine Translation, Chinese Input Method, Term Translation, Online Learning}
+%\end{englishabstract}
