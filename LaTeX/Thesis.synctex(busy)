@@ -1,6 +1,6 @@
 SyncTeX Version:1
-Input:1:F:\CASIA论文模板\Thesis 2018.1\LaTeX\CASIA Thesis LaTeX\Thesis.tex
-Input:2:F:\CASIA论文模板\Thesis 2018.1\LaTeX\CASIA Thesis LaTeX\Style\casiathesis.cls
+Input:1:D:\GitHub\CASIA-Thesis\LaTeX\Thesis.tex
+Input:2:D:\GitHub\CASIA-Thesis\LaTeX\Style\casiathesis.cls
 Input:3:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\ctex\ctexbook.cls
 Input:4:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\l3kernel\expl3.sty
 Input:5:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\l3kernel\expl3-code.tex
@@ -58,8 +58,5 @@ Input:56:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\amsmath\amsbsy.sty
 Input:57:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\amsmath\amsopn.sty
 Input:58:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
 Input:59:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
-Input:60:F:\CASIA论文模板\Thesis 2018.1\LaTeX\CASIA Thesis LaTeX\Style\casiathesis.cfg
-Input:61:F:\CASIA论文模板\Thesis 2018.1\LaTeX\CASIA Thesis LaTeX\Style\commons.sty
-Input:62:E:\ProgramFiles\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
-Input:63:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\base\fontenc.sty
-Input:64:E:\ProgramFiles\CTEX\MiKTeX\tex\latex\base\t1enc.def
+Input:60:D:\GitHub\CASIA-Thesis\LaTeX\Style\casiathesis.cfg
+Input:61:D:\GitHub\CASIA-Thesis\L

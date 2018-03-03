@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.3)  3 MAR 2018 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.3)  3 MAR 2018 23:36
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1014,43 +1014,4 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )))
 (Style/casiathesis.cfg
-File: ucasthesis.cfg 2014/10/01 v1.0 ucasthesis configuration file
-) (Style/commons.sty
-
-LaTeX Warning: You have requested package `Style/commons',
-               but the package provides `commons'.
-
-Package: commons 2014/10/01 v0.1 commons macros package
-(E:\ProgramFiles\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-(E:\ProgramFiles\CTEX\MiKTeX\tex\latex\base\fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-
-(E:\ProgramFiles\CTEX\MiKTeX\tex\latex\base\t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-))
-
-! LaTeX Error: File `newtxtext.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-! Emergency stop.
-<read *> 
-         
-l.141 \fi
-         
-End of file on the terminal!
-
- 
-Here is how much of TeX's memory you used:
- 13404 strings out of 495237
- 249080 string characters out of 3182000
- 276786 words of memory out of 3000000
- 16528 multiletter control sequences out of 15000+200000
- 4808 words of font info for 17 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 48i,0n,47p,10460b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
+File: ucasthesis.cfg 2014/10/01 v1.0 ucasthesis configuration 
