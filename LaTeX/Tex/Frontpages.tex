@@ -1,43 +1,42 @@
+%---------------------------------------------------------------------------%
+%->> Titlepage information
+%---------------------------------------------------------------------------%
 
-%%% >>> Title Page
-%%% 中文标题页
-  \confidential{} % 密级标记
-  \paperid{123} % 研究生部论文编号，盲审时需要，终版去除
-  \schoollogo{scale=0.112}{UCAS}
-  %\title[短标题(偶数页眉显示)]{完整标题}
-  \title[人机交互式机器翻译方法研究与实现]{人机交互式机器翻译方法研究与实现}
-  \author{黄国平} % 作者姓名
-  \advisor{宗成庆~研究员} % 指导教师
-  %\secondadvisor{XXX~副研究员} % 第二指导教师，如果有，则解开注释
-  \degree{博士} % 学位
-  \degreetype{工学} % 学位类型
-  \major{模式识别与智能系统} % 专业
-  \institute{中国科学院自动化研究所}
-  \chinesedate{2017~年~6~月} %时间
+%-> Chinese titlepage
+\confidential{} % 密级标记
+\schoollogo{scale=4.2}{ucas_logo}% university logo
+%\title[短标题(偶数页眉显示)]{完整标题}
+\title[人机交互式机器翻译方法研究与实现]{人机交互式机器翻译方法研究与实现}
+\author{黄国平} % 作者姓名
+\advisor{宗成庆~研究员} % 指导教师
+\advisorsec{} % 第二指导教师
+\degree{博士} % 学位
+\degreetype{工学} % 学位类型
+\major{模式识别与智能系统} % 专业
+\institute{中国科学院自动化研究所}
+\chinesedate{2017~年~6~月}% customized date, 6 for summer and 12 for winter graduation
 
-%%% 英文标题页
-  \englishtitle{Research and Implementation of Approaches to \\ Human-Computer Interactive Machine Translation}
-  \englishauthor{Huang Guoping}
-  \englishadvisor{Professor Zong Chengqing}
-  \englishdegree{Doctor}  % 博士
-  %\englishdegree{Master} % 硕士
-  \englishdegreetype{Philosophy} % 工学
-  \englishmajor{Pattern Recognition and Intelligent System} %专业
-  \englishinstitute{Institute of Automation, Chinese Academy of Sciences}
-  \englishdate{June, 2017} % 时间
+%-> English titlepage
+\englishtitle{Research and Implementation of Approaches to \\ Human-Computer Interactive Machine Translation}
+\englishauthor{Huang Guoping}
+\englishadvisor{Supervisor: Professor Zong Chengqing}
+\englishdegree{Doctor of Philosophy}% degree type <Doctor|Master> of <Philosophy|Natural Science|Engineering>
+\englishthesistype{dissertation}% thesis type <thesis|dissertation>
+\englishmajor{Pattern Recognition and Intelligent System}% major
+\englishinstitute{Institute of Automation, Chinese Academy of Sciences}
+\englishdate{June, 2017}% customized date
 
-%%% 生成中文标题
+%-> Create titlepages
 \maketitle
-
-%%% 生成英文标题
 \makeenglishtitle
 
-%%% >>> 作者声明
+%-> Author's declaration
 \makedeclaration
 
-%%% >>> 摘要
-\chapter{摘要}% 页眉不显示标题
-%\begin{abstract}% 显示页眉标题 @TODO
+%-> Chinese abstract
+\chapter{摘\quad 要}
+\setcounter{page}{1}% set page number
+\pagenumbering{Roman}% set large roman
 近年来，机器翻译研究取得了长足的进步，译文质量不断提高，在某些特定领域和环境下已经开始投入实际应用。但是，基于翻译记忆的计算机辅助翻译软件在专业翻译市场仍具有得天独厚的优势。这是因为在特定领域中，如果待翻译文本与记忆库中的文本匹配程度很高时，翻译记忆的译文质量明显优于机器翻译的自动译文。大多数情况下，专业译员甚至不想花费太多的时间阅读自动译文。但是，计算机辅助翻译的生产效率也已达到瓶颈。因此，研究人机交互式机器翻译方法和实现技术，以进一步提高人工翻译效率，对于提升机器翻译的译文质量，推动机器翻译技术在专业领域的应用，具有重要的理论意义和应用价值。
 
 本论文首先从考查统计机器翻译和计算机辅助翻译系统的特点出发，研究人机交互式机器翻译方法和实现技术。论文的主要工作和创新点归纳如下：
@@ -57,11 +56,9 @@
 最后，基于以上提出的方法，我们设计和实现了人机交互式英汉机器翻译系统，并总结了开发过程中遇到的关键问题和应对策略。
 
 \keywords{统计机器翻译，人机交互，中文输入法，术语翻译，在线学习}
-%\end{abstract}
 
-
-\chapter{Abstract}% does not show the title on the top
-%\begin{englishabstract}% will show the title on the top
+%-> English abstract
+\chapter{Abstract}
 In recent years, the research on machine translation (MT) has made great progress and the performance of machine translation has been improved a lot. In some specific domains and scenarios, MT has been put into practical application. However, computer-assisted translation (CAT), based on translation memory (TM) rather than MT, still dominates the professional translation market. Occasionally, only the final results of machine translation are displayed to provide references. This is because the quality of TM is still significantly higher than that of MT for those sentences, which have high fuzzy matches in TM database. In most cases, professional translations do not even want to spend time reading automatic translation. In such a scenario, current usage of MT is limited to a great extent. At the same time, the productivity of CAT has reached the bottleneck. Therefore, it is of great theoretical and practical value to research how to combine MT with CAT to further improve the efficiency of human translation and promote the application of MT in specialized areas.
 
 Based on detailed analysis of the advantages and disadvantages of MT and CAT, this thesis attempts to propose and implement approaches to human-computer interaction machine translation. The main contributions are summarized as follows:
@@ -79,4 +76,5 @@ Terminology translation is essential for machine translation in specialized area
 Professional translators expect that the underlying MT system can learn in real-time in the process of human-computer interaction and improve subsequent translation results. In order to make the most of the up-to-the-minute human translations, we propose an online learning method based on online random forests (ORFs) for translation model. This proposed online learning method incessantly extracts translation knowledge from the single parallel sentence of the user feedback, and update the adopted translation model in real-time to achieve the goal of automatic translation improvement. In addition, in order to extract the translation knowledge of low frequency words and unknown words, we also propose an anchor-based hidden Markov model (HMM) word alignment method. The simulation experiment results demonstrate that our proposed online learning method significantly improves translation quality as the number of feedback sentences increasing, and the translation quality is comparable to that of the off-line baseline system with all training data. The human-computer interaction experience has been improved significantly.
 
 \englishkeywords{Statistical Machine Translation, Human-Computer Interactive Machine Translation, Chinese Input Method, Term Translation, Online Learning}
-%\end{englishabstract}
+
+

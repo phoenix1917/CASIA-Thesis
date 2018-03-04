@@ -13,33 +13,42 @@
 %% 2018.3 更新：黄国平，施祺。
 %%%%% --------------------------------------------------------------------------------
 
-
 %%%%************************ Document Class Declaration ******************************
-\documentclass[doublesided, fontset=adobe]{Style/casiathesis}% thesis template of CASIA
-%% Multiple optional arguments:
-%% [scheme = plain] % for thesis writing of international students
-%% [<singlesided|doublesided|printcopy>] % single-sided, double-sided, or print layout
-%% [draftversion] % show draft version information, default is no show
-%% [fontset = <adobe|...>] % specify font set, default is automatic detection
-%% [standard options for ctex class]
+\documentclass[doublesided]{Style/ucasthesis}%
+%- Multiple optional arguments:
+%- [<singlesided|doublesided|printcopy>]% set one or two sided eprint or print
+%- [showmj]% show confidential information
+%- [draftversion]% show draft version information
+%- [fontset=<fandol|...>]% specify font set to replace automatic detection
+%- [scheme=plain]% thesis writing of international students
+%- [standard options for ctex book class: draft|paper size|font size|...]%
 
-%%%%************************* Command Define and Settings ****************************
-\usepackage[myhdr,numbered]{Style/commons}% 常规设置
-%% usage: \usepackage[option1,option2,...,optionN]{commons}
-%% Multiple optional arguments:
-%% [<numbered|authoryear|alpha>] % citation and reference style
-%% <numbered>: textual: Jones [1]; parenthetical: [1]. default style
-%% <authoryear>: textual: Jones (1995); parenthetical: (Jones, 1995)
-%% <alpha>: textual: not available; parenthetical: [Jon95]
-%% [myhdr] % one available header and footer style, will enable fancyhdr
-%% [lscape] % provide landscape layout environment
-%% [geometry] % configure page layout by geometry package
-%% [list] % enable enhanced list environments, useful for Algorithm and Coding
-%% [color] % enable color package to use color, default package is xcolor
-%% [background] % enable page background, will auto enable color package
-%% [tikz] % enable tikz for complex diagrams, will auto enbale color package
-%% [table] % enable a table package for complex tables, default is ctable
-%% [math] % enable some extra math packages
+%%%%************************ Document settings ***************************************
+\usepackage[numbers,myhdr]{Style/artratex}% document settings
+%- usage: \usepackage[option1,option2,...,optionN]{artratex}
+%- Multiple optional arguments:
+%- [bibtex|biber]% set bibliography processor and package
+%- [<numbers|super|authoryear|alpha>]% set citation and reference style
+
+%- 参考文献标记方式：
+%- <numbers>: 按数字排序，引用时不显示为上标。textual: Jones [1]; parenthetical: [1]
+%- <super>: 按数字排序，引用时显示为上标。textual: Jones superscript [1]; parenthetical: superscript [1]
+%- <authoryear>: 按作者-出版年排序，引用时不显示为上标。textual: Jones (1995); parenthetical: (Jones, 1995)
+
+%- <alpha>: textual: not available; parenthetical: [Jon95]
+%- [geometry]% reconfigure page layout via geometry package
+%- [lscape]% provide landscape layout environment
+%- [myhdr]% enable header and footer via fancyhdr package
+%- [color]% provide color support via xcolor package
+%- [background]% enable page background
+%- [tikz]% provide complex diagrams via tikz package
+%- [table]% provide complex tables via ctable package
+%- [list]% provide enhanced list environments for algorithm and coding
+%- [math]% enable some extra math packages
+\usepackage{Style/artracom}% user defined commands
+
+%%%%************************ Document inclusion **************************************
+%\includeonly{Tex/Chap_1,...,Tex/Chap_N}% selected files compilation
 \usepackage{ifthen}
 \usepackage{graphicx}
 \usepackage{enumerate}
@@ -51,38 +60,34 @@
 \usepackage{boxedminipage2e}
 \usepackage{makecell}
 \DeclareMathOperator*{\argmax}{argmax}
-\usepackage{Style/custom}% user defined commands
 
-
-%%%%******************************** Thesis *****************************************
+%%%%************************ Document content ****************************************
 \begin{document}
 
-%%%%******************************** Frontmatter *************************************
-%% 正文前的材料，包括：中英标题页、版权页、中英摘要、目录
-\frontmatter
+%-> Frontmatter: title page, abstract, content list, symbol list, preface
+\frontmatter% initialize the environment
+\input{Tex/Frontpages}% title page, abstract, dedication
+%\intotoc{\contentsname}% add link to contents table and bookmark
+\tableofcontents% contents catalog
+%\intotoc{\listfigurename}% add link to contents table and bookmark
+%\listoffigures% figures catalog
+%\intotoc{\listtablename}% add link to contents table and bookmark
+%\listoftables% tables catalog
+%\input{Tex/Prematter}% list of symbols, preface content
 
-%% 标题页
-\input{Tex/Frontpages}
-%% 目录
-\intotoc{\contentsname}
-\tableofcontents
+%-> Mainmatter
+\mainmatter% initialize the environment
+\input{Tex/Main_Content}% main content
 
-%%%%******************************** Mainmatter **************************************
-%% 正文章节
-\mainmatter
-%% 主要内容
-\input{Tex/Main_Content}
+%-> Appendix
+\cleardoublepage%
+\appendix% initialize the environment
+\input{Tex/Appendix}% appendix content
 
-%%%%******************************** Backmatter **************************************
-\backmatter
-%% 参考文献
-\intotoc{\bibname}% add a corresponding item to the contents table and bookmark
-\bibliography{Biblio/ref}
-
-%% 致谢
-\input{Tex/Chapter_acknowledgements}
-%% 个人简历
-\input{Tex/Backmatter}
-
+%-> Backmatter: bibliography, glossary, index
+\backmatter% initialize the environment
+\intotoc{\bibname}% add link to contents table and bookmark
+\bibliography{Biblio/ref}% bibliography
+\input{Tex/Backmatter}% other information
 \end{document}
-%%%%******************************** End of Thesis *****************************************
+
