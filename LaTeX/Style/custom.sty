@@ -1,5 +1,4 @@
-%%%%% --------------------------------------------------------------------------------
-%%
+
 %%%%***************************** Version Information ********************************
 %%
 %% Copyright (C) Huangrui Mo <huangrui.mo@gmail.com> 
@@ -12,31 +11,25 @@
 \ProvidesPackage{custom}
 [2014/10/01 v0.1 custom 
 macros package]
-%%%%% --------------------------------------------------------------------------------
-%%
+
 %%%%******************************* Declare Options **********************************
-%%
 %% end-user parameters, each option is declared by one declare option command
 \DeclareOption*{% handle non-implemented options
     \PackageWarning{custom}{Unknown option '\CurrentOption'}%
 }
 %% terminates all options processing
 \ProcessOptions\relax
-%%%%% --------------------------------------------------------------------------------
-%%
+
 %%%%************************** User Defined Command **********************************
-%%
 %%% >>> Notice
-%% 
 %% -- \newcommand: defines a new command, makes an error if already defined
 %% -- \renewcommand: redefines a predefined command, makes an error if not yet defined
 %% -- \providecommand: defines a new command, if already defined, keep old definition
 %% -- \def: define a command whether new or predefined, equivalent to
 %%          \providecommand{name}{}%
 %%          \renewcommand{name}[number of arguments][default value]{definition}
-%%
+
 %%% >>> Math functions
-%%
 %% International standard layout rules (from isomath package)
 %% -- The overall rule is that symbols representing math quantities or variables should
 %%    be italicised, symbols representing units or labels are unitalicised (roman).
@@ -68,20 +61,17 @@ macros package]
 \providecommand{\Toptr}{\operatorname{\mathcal{LL}}}% temporal operator
 \providecommand{\Soptr}{\operatorname{\mathcal{S}}}% solution operator
 \providecommand{\Des}[1]{\mathrm{#1}}% Superscripts and subscripts are in roman type if they are descriptive
-%%
+
 %%% >>> Graphic Length Factor
-%%
 \providecommand*{\MyFactor}{0.6}% for single figure
 \providecommand*{\MySubFactor}{0.45}% for subfigure
-%%
+
 %%% >>> Nomenclature item
-%%
 \providecommand{\nomenclatureitem}[3][ ]{%
     \noindent\makebox[0.15\textwidth][l]{#2}{{#3}\hfill{#1}}\par
 }
-%%
+
 %%% >>> Add content link to the table of content and bookmark
-%%
 %% define a macro for adding chapter/section title to toc and bookmark.
 \providecommand{\intotoc}[2][chapter]{%
     \cleardoublepage% ensure correct page reference
@@ -89,9 +79,8 @@ macros package]
     \phantomsection% use for adobe bookmark.
     \addcontentsline{toc}{#1}{#2}% add content #2 to toc as #1
 }
-%%
+
 %%% >>> Text embedded citation
-%%
 %% \citetns for \citet
 \providecommand*{\citetns}[2][]{%
     \begingroup%
@@ -116,13 +105,9 @@ macros package]
         \citep[#1]{#2}%
     \endgroup%
 }
-%%%%% --------------------------------------------------------------------------------
-%%
+
 %%%%**************************** User Configuration **********************************
-%%
-%%
 %%% >>> Space and Skip
-%%
 %% Set line space in whole document by \linespread:
 %\linespread{1.3}% 1.3 for "one and a half" line spacing, and 1.6 for "double" line spacing
 %% Skip distance for paragraphs
@@ -131,38 +116,35 @@ macros package]
 \setlength{\bibsep}{0.0pt plus 0.3ex}
 %% Set font size for bibliography
 \renewcommand*{\bibfont}{\small}
-%%
+
 %%% >>> Toc Style
-%%
 \setcounter{tocdepth}{1}% the depth for the Table of Contents.
 \setcounter{secnumdepth}{3}% the depth for section numbering occurs, default is 2(subsub).
-%%
+
 %%% >>> Figure/Equation Numbering
-%%
 %% For long documents the numbering can become cumbersome as the numbers
 %% reach into double and triple digits. To reset the counters at the
 %% start of each section and prefix the numbers by the section number
 %% include the following in the preamble.
 %% The same can be done with similar counter types and document units such as "subsection".
-%%
+
 %% Get enumeration at the section level:
 %\numberwithin{equation}{section}
 %\renewcommand{\theequation}{\thesection\arabic{equation}}% configure the label style.
 %\numberwithin{figure}{section}
 %\renewcommand{\thefigure}{\thesection\arabic{equation}}% configure the label style.
-%%
+
 %% Get enumeration at the subsection level:
 %\numberwithin{equation}{subsection}
 %\renewcommand{\theequation}{\thesubsection\arabic{equation}}% configure the label style.
 %\numberwithin{figure}{subsection}
 %\renewcommand{\thefigure}{\thesubsection\arabic{equation}}% configure the label style.
-%%
+
 %%% >>> URL Style
-%%
 %% By default, URLs are printed using mono-spaced fonts. If you don't like it and
 %% you want them to be printed with the same style of the rest of the text, you can use this:
 %\urlstyle{same}
-%%%%% --------------------------------------------------------------------------------
+
 \endinput
 %% End of file
-%%%%% --------------------------------------------------------------------------------
+

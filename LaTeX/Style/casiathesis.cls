@@ -1,5 +1,6 @@
+
 %%%%***************************** Version Information ********************************
-%% Copyright (C) Huangrui Mo <huangrui.mo@gmail.com>
+%% Copyright (C) Huangrui Mo <huangrui.mo@gmail.com> 
 %% This is free software: you can redistribute it and/or modify it
 %% under the terms of the GNU General Public License as published by
 %% the Free Software Foundation, either version 3 of the License, or
@@ -75,7 +76,7 @@
 \setlength{\marginparsep}{0pt}% width of space between body text and margin notes
 %% part two -- vertical heights
 %% top height + textheight + bottom height = paperheight
-%% top height = 1.0in (fixed) + voffset + topmargin + headheight + headsep
+%% top height = 1.0in (fixed) + voffset + topmargin + headheight + headsep 
 \setlength{\textheight}{240mm}% set required text height first
 \setlength{\voffset}{-15mm}% set a minimum header height
 \setlength{\headheight}{15pt}% set a minimum header height
@@ -91,10 +92,12 @@
 %% redefine cleardoublepage to empty pages
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
     \thispagestyle{empty}%
-\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+	\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %% underline
 \renewcommand{\CJKunderlinecolor}{\color[rgb]{0,0,0}}
 \def\UCAS@underline[#1]#2{%
+    \CJKunderline{\hbox to #1{\hfill#2\hfill}}}
+\def\UCAS@boldunderline[#1]#2{%
     \CJKunderline{\hbox to #1{\hfill#2\hfill}}}
 \def\UCASunderline{\@ifnextchar[\UCAS@underline\CJKunderline}
 
@@ -131,13 +134,13 @@
     \vskip \stretch{4}
       {\zihao{1}\heiti \UCAS@value@degree\UCAS@label@thesis}
     \vskip \stretch{4}
-      {\zihao{3} \UCASunderline{\ \UCAS@value@title\ }}
+      {\zihao{3}\heiti \UCASunderline[360pt]{\UCAS@value@title}}
     \vskip \stretch{6}
     \def\tabcolsep{1pt}
     \def\arraystretch{1.4}
     %\hskip -15pt
     \begin{tabular}{lc}
-      \UCAS@label@author & \UCASunderline[295pt]{\UCAS@value@author}
+	  \UCAS@label@author & \UCASunderline[295pt]{{\bfseries \UCAS@value@author}}
     \\
       \UCAS@label@advisor & \UCASunderline[295pt]{\UCAS@value@advisor}
     %\\
@@ -148,7 +151,7 @@
     \\
       \UCAS@label@degree & \UCASunderline[295pt]{\UCAS@value@degreetype\UCAS@value@degree}
     \\
-      \UCAS@label@major &  \UCASunderline[295pt]{\UCAS@value@major}
+      \UCAS@label@major & \UCASunderline[295pt]{\UCAS@value@major}
     \\
       \UCAS@label@institute & \UCASunderline[295pt]{\UCAS@value@institute}
     \end{tabular}
@@ -184,7 +187,7 @@
 \newcommand\englishauthor[1]{\def\UCAS@value@englishauthor{#1}}
 \newcommand\englishadvisor[1]{\def\UCAS@value@englishadvisor{#1}}
 \newcommand\englishdegree[1]{\def\UCAS@value@englishdegree{#1}}
-\newcommand\englishthesistype[1]{\def\UCAS@value@englishthesistype{#1}}
+\newcommand\englishdegreetype[1]{\def\UCAS@value@englishdegreetype{#1}}
 \newcommand\englishmajor[1]{\def\UCAS@value@englishmajor{#1}}
 \newcommand\englishinstitute[1]{\def\UCAS@value@englishinstitute{#1}}
 \newcommand\englishdate[1]{\def\UCAS@value@englishdate{#1}}
@@ -197,9 +200,6 @@
     \zihao{3}\bfseries
     \vspace*{20pt}
     {\UCASunderline{\ \UCAS@value@englishtitle\ }}
-    \vskip \stretch{1}
-    by \\
-    \UCAS@value@englishauthor
     \vskip \stretch{2}
     \zihao{4}\bfseries
     \UCAS@label@englishstatement
@@ -223,22 +223,23 @@
   \begin{center}
       {\zihao{3}\heiti \UCAS@value@declare@create}
   \end{center}
-
   \UCAS@value@declare@creativity\\
+  \begin{flushright}
+  	\UCAS@value@declare@s \UCASunderline[70pt]{ }\\
+	\UCAS@value@declare@d \UCASunderline[70pt]{ }
+  \end{flushright}
 
-  \hfill{} {\UCAS@value@declare@s \UCASunderline[70pt]{ } \ \ \UCAS@value@declare@d \UCASunderline[70pt]{ }}\\
-
-  \vskip 150pt
+  \vskip 140pt
 
   \begin{center}
       {\zihao{3}\heiti \UCAS@value@declare@right}
   \end{center}
-
-  \UCAS@value@declare@rights
-
-  {\heiti \UCAS@value@declare@rule}\\
-
-  \hfill{} {\UCAS@value@declare@s \UCASunderline[70pt]{ } \ \ \UCAS@value@declare@t \UCASunderline[70pt]{ } \ \ \UCAS@value@declare@d \UCASunderline[70pt]{ }}
+  \UCAS@value@declare@rights \\
+  \begin{flushright}
+  \hfill{} {\UCAS@value@declare@s \UCASunderline[70pt]{ } \hfill{}{\UCAS@value@declare@t \UCASunderline[70pt]{ }}} \\
+  \hfill{} {\UCAS@value@declare@d \UCASunderline[70pt]{ } \hfill{}{\UCAS@value@declare@d \UCASunderline[70pt]{ }}}
+  \end{flushright}
+  
   \clearpage
   \if@twoside
     \thispagestyle{empty}
@@ -253,8 +254,8 @@
      {\zihao{3}\heiti \UCAS@value@title}
      \vskip 25pt
      {\zihao{-3}\heiti \UCAS@label@abstract}
-  }}
-  {}
+}}
+{}
 %% define chinese keywords
 \newcommand\keywords[1]{%
     \vspace{2ex}\noindent{\zihao{4}\heiti \UCAS@label@keywords} #1}
@@ -327,3 +328,5 @@
   \fi}
 
 \endinput
+%% End of file
+

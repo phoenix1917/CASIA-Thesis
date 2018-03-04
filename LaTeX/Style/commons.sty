@@ -1,6 +1,8 @@
+
 %%%%***************************** Version Information ********************************
+%%
 %% this is the "commons.sty" package used for configure document styles
-%% Copyright (C) Huangrui Mo <huangrui.mo@gmail.com>
+%% Copyright (C) Huangrui Mo <huangrui.mo@gmail.com> 
 %% This is free software: you can redistribute it and/or modify it
 %% under the terms of the GNU General Public License as published by
 %% the Free Software Foundation, either version 3 of the License, or
@@ -8,7 +10,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{commons}
-[2014/10/01 v0.1 commons
+[2014/10/01 v0.1 commons 
 macros package]
 
 %%%%******************************* Declare Options **********************************
@@ -294,28 +296,28 @@ macros package]
 %% define different kinds of header and footer for different parts
 \fancypagestyle{frontmatterstyle}{% style for frontmatter
     \fancyhf{}% clear fields
-    \fancyhead[RE]{\small \@title}% structure elements
-    \fancyhead[LO]{\small \leftmark}% structure elements
-    \fancyhead[LE]{\small \thepage}% page number
-    \fancyhead[RO]{\small \thepage}% page number
+    \fancyhead[CE]{\small \@title}% structure elements
+    \fancyhead[CO]{\small \leftmark}% structure elements
+    \fancyfoot[LE]{\small \thepage}% page number
+    \fancyfoot[RO]{\small \thepage}% page number
     \renewcommand{\headrulewidth}{1pt}% header rule
     \renewcommand{\footrulewidth}{0pt}% footer rule
 }
 \fancypagestyle{mainmatterstyle}{% style for mainmatter
     \fancyhf{}% clear fields
-    \fancyhead[RE]{\small \@title}% structure elements
-    \fancyhead[LO]{\small \CTEXthechapter\ \leftmark}% structure elements
-    \fancyhead[LE]{\small \thepage}% page number
-    \fancyhead[RO]{\small \thepage}% page number
+    \fancyhead[CE]{\small \@title}% structure elements
+    \fancyhead[CO]{\small \CTEXthechapter\ \leftmark}% structure elements
+    \fancyfoot[LE]{\small \thepage}% page number
+    \fancyfoot[RO]{\small \thepage}% page number
     \renewcommand{\headrulewidth}{1pt}% header rule
     \renewcommand{\footrulewidth}{0pt}% footer rule
 }
 \fancypagestyle{backmatterstyle}{% header and footer style for backmatter
     \fancyhf{}% clear fields
-    \fancyhead[RE]{\small \@title}% structure elements
-    \fancyhead[LO]{\small \leftmark}% structure elements
-    \fancyhead[LE]{\small \thepage}% page number
-    \fancyhead[RO]{\small \thepage}% page number
+    \fancyhead[CE]{\small \@title}% structure elements
+    \fancyhead[CO]{\small \leftmark}% structure elements
+    \fancyfoot[LE]{\small \thepage}% page number
+    \fancyfoot[RO]{\small \thepage}% page number
     \renewcommand{\headrulewidth}{1pt}% header rule
     \renewcommand{\footrulewidth}{0pt}% footer rule
 }
@@ -346,9 +348,9 @@ macros package]
 %% redefine the plain pagestyle. If you want the plain style inherits
 %% the current style, comment all the lines in plain style definition.
 \fancypagestyle{plain}{%
-    \fancyhf{}% clear fields
-    \renewcommand{\headrulewidth}{0pt}% header rule
-    \renewcommand{\footrulewidth}{0pt}% footer rule
+    %\fancyhf{}% clear fields
+    %\renewcommand{\headrulewidth}{0pt}% header rule
+    %\renewcommand{\footrulewidth}{0pt}% footer rule
 }
 \fi
 \ifCOMMONS@lscape% configure landscape environment
@@ -360,7 +362,7 @@ macros package]
     %% [0.5,0.5] means reference point of the block is the middle
     \begin{textblock}{0.1}[0.5,0.5](0.85,0.5){\rotatebox{90}{\small \thepage}}\end{textblock}% position the page number
     }
-    %% set units of <blockwidth>, <hpos>, and <vpos> arguments by corresponding modules
+    %% set units of <blockwidth>, <hpos>, and <vpos> arguments by corresponding modules 
     \setlength{\TPHorizModule}{8.5in}% set to the width of page
     \setlength{\TPVertModule}{11in}% set to the height of page
     \renewcommand{\headrulewidth}{0pt}% header rule
@@ -369,3 +371,5 @@ macros package]
 \fi
 
 \endinput
+%% End of file
+

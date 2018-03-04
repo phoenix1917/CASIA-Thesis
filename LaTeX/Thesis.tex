@@ -1,22 +1,21 @@
 %%%%% --------------------------------------------------------------------------------
 %%                               Document Template
 %%%%% --------------------------------------------------------------------------------
-%% Copyright (C) HUANG Guoping <guoping.huang@foxmail.com>
+%% Copyright (C) HUANG Guoping <guoping.huang@foxmail.com>, Shi Qi <phoenix1917s@gmail.com> 
 %% This is free software: you can redistribute it and/or modify it
 %% under the terms of the GNU General Public License as published by
 %% the Free Software Foundation, either version 3 of the License, or
 %% (at your option) any later version.
-%%
+
 %% 本模版适用于中国科学院自动化所学位论文（硕士、博士）。
-%%
 %% 本模版基于UCASThesis(https://github.com/mohuangrui/ucasthesis)制作，特别感谢原作者
 %% 吴凌云和莫晃锐二位的辛勤劳动。
-%%
-%% 2018.1 更新：黄国平，施祺
+%% 2018.3 更新：黄国平，施祺。
 %%%%% --------------------------------------------------------------------------------
 
+
 %%%%************************ Document Class Declaration ******************************
-\documentclass[doublesided]{Style/casiathesis}% thesis template of CASIA
+\documentclass[doublesided, fontset=adobe]{Style/casiathesis}% thesis template of CASIA
 %% Multiple optional arguments:
 %% [scheme = plain] % for thesis writing of international students
 %% [<singlesided|doublesided|printcopy>] % single-sided, double-sided, or print layout
@@ -41,7 +40,6 @@
 %% [tikz] % enable tikz for complex diagrams, will auto enbale color package
 %% [table] % enable a table package for complex tables, default is ctable
 %% [math] % enable some extra math packages
-
 \usepackage{ifthen}
 \usepackage{graphicx}
 \usepackage{enumerate}
@@ -55,37 +53,36 @@
 \DeclareMathOperator*{\argmax}{argmax}
 \usepackage{Style/custom}% user defined commands
 
-%%%%******************************** Thesis *****************************************
 
+%%%%******************************** Thesis *****************************************
 \begin{document}
 
 %%%%******************************** Frontmatter *************************************
 %% 正文前的材料，包括：中英标题页、版权页、中英摘要、目录
 \frontmatter
+
 %% 标题页
 \input{Tex/Frontpages}
 %% 目录
 \intotoc{\contentsname}
-
 \tableofcontents
 
 %%%%******************************** Mainmatter **************************************
 %% 正文章节
 \mainmatter
 %% 主要内容
-\input{Tex/Main_Content}%
+\input{Tex/Main_Content}
 
-%%%%******************************* Backmatter ***************************************
+%%%%******************************** Backmatter **************************************
 \backmatter
 %% 参考文献
 \intotoc{\bibname}% add a corresponding item to the contents table and bookmark
-\bibliography{Biblio/ref}%
+\bibliography{Biblio/ref}
 
 %% 致谢
 \input{Tex/Chapter_acknowledgements}
-
 %% 个人简历
 \input{Tex/Backmatter}
 
 \end{document}
-%%%%% --------------------------------------------------------------------------------
+%%%%******************************** End of Thesis *****************************************
