@@ -140,20 +140,20 @@
     \def\arraystretch{1.4}
     %\hskip -15pt
     \begin{tabular}{lc}
-	  \UCAS@label@author & \UCASunderline[295pt]{{\bfseries \UCAS@value@author}}
+	  \UCAS@label@author & \UCASunderline[295pt]{\CJKfamily{zs} \UCAS@value@author}
     \\
-      \UCAS@label@advisor & \UCASunderline[295pt]{\UCAS@value@advisor}
+      \UCAS@label@advisor & \UCASunderline[295pt]{\CJKfamily{zs} \UCAS@value@advisor}
     %\\
     %  & \UCASunderline[295pt]{\UCAS@value@advisorinstitute}
 	\ifthenelse{\equal{\UCAS@value@secondadvisor}{}}{}{
 	\\
        & \UCASunderline[295pt]{\UCAS@value@secondadvisor}}
     \\
-      \UCAS@label@degree & \UCASunderline[295pt]{\UCAS@value@degreetype\UCAS@value@degree}
+      \UCAS@label@degree & \UCASunderline[295pt]{\CJKfamily{zs} \UCAS@value@degreetype\UCAS@value@degree}
     \\
-      \UCAS@label@major & \UCASunderline[295pt]{\UCAS@value@major}
+      \UCAS@label@major & \UCASunderline[295pt]{\CJKfamily{zs} \UCAS@value@major}
     \\
-      \UCAS@label@institute & \UCASunderline[295pt]{\UCAS@value@institute}
+      \UCAS@label@institute & \UCASunderline[295pt]{\CJKfamily{zs} \UCAS@value@institute}
     \end{tabular}
     \vskip \stretch{6}
     \UCAS@value@chinesedate

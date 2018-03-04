@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.26)  4 MAR 2018 22:54
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.26)  5 MAR 2018 00:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1486,9 +1486,9 @@ tly
 )
 \Hy@SectionHShift=\skip78
 )
-Package hyperref Info: Option `unicode' set `true' on input line 248.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 248.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 248.
+Package hyperref Info: Option `unicode' set `true' on input line 249.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 249.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 249.
 
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
@@ -1760,12 +1760,49 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
-) [1
+)
+\g__fontspec_family_STZhongsong_int=\count185
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font "STZhongsong/BI" (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font "STZhongsong/B" (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font "STZhongsong/I" (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'STZhongsong(0)' created for font 'STZhongsong' with options
+. [Ligatures=TeX,Script={CJK}].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <->"STZhongsong/OT:script=hani;language=DFLT;mapping=tex-text;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+.................................................
+
+
+LaTeX Font Warning: Font shape `TU/STZhongsong(0)/bx/n' undefined
+(Font)              using `TU/STZhongsong(0)/m/n' instead on input line 31.
+
+Package microtype Info: Loading generic settings for font family
+(microtype)             `STZhongsong' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+[1
 
 
 
-]
-[2
+] [2
 
 
 ] [3
@@ -1825,54 +1862,61 @@ Overfull \hbox (3.6615pt too wide) in paragraph at lines 115--116
 /m/n/12 synchros context free grammar, SCFG\TU/AdobeSongStd-Light(0)/m/n/12 ）|
  []
 
+
+Overfull \hbox (8.35649pt too wide) in paragraph at lines 117--118
+\TU/lmr/m/n/12 transduction grammar\TU/AdobeSongStd-Light(0)/m/n/12 ，| \TU/lmr/
+m/n/12 ITG\TU/AdobeSongStd-Light(0)/m/n/12 ）|  模 型 \TU/lmr/m/n/12 [$[]$]\TU/Ado
+beSongStd-Light(0)/m/n/12 ； （\TU/lmr/m/n/12 2\TU/AdobeSongStd-Light(0)/m/n/12 ）
+|  层 次 短 语 模 型  |（\TU/lmr/m/n/12 Hierarchical phrase=based
+ []
+
 [12]
 File: Figure/Figure_2_4.pdf Graphic file (type QTm)
  <use  "Figure/Figure_2_4.pdf" > [13]
-Overfull \hbox (5.65248pt too wide) in paragraph at lines 149--150
-[]\TU/AdobeSongStd-Light(0)/m/n/12 用 词 义 消 歧  |（\TU/lmr/m/n/12 word sense disam
-biguation\TU/AdobeSongStd-Light(0)/m/n/12 ，| \TU/lmr/m/n/12 WSD\TU/AdobeSongStd
--Light(0)/m/n/12 ）|  辅 助 机 器 翻 译：|  如 文 献 \TU/lmr/m/n/12 [[]Carpuat
+File: Figure/Figure_2_5.pdf Graphic file (type QTm)
+ <use  "Figure/Figure_2_5.pdf" >
+Overfull \hbox (104.04472pt too wide) in paragraph at lines 169--170
+[]\TU/AdobeSongStd-Light(0)/m/n/12 神 经 网 络 在 机 器 翻 译 中 的 早 期 应 用 是 作 为 特 征 融 入 
+到 已 有 模 型 中 \TU/lmr/m/n/12 [$[]$]\TU/AdobeSongStd-Light(0)/m/n/12 ，|
  []
 
-File: Figure/Figure_2_5.pdf Graphic file (type QTm)
-<use  "Figure/Figure_2_5.pdf" > [14]
+[14]
 File: Figure/Figure_2_6.pdf Graphic file (type QTm)
  <use  "Figure/Figure_2_6.pdf" > [15]
 File: Figure/Figure_2_7.png Graphic file (type QTm)
-
-<use  "Figure/Figure_2_7.png" > [16]
+ <use  "Figure/Figure_2_7.png" >
+[16]
 File: Figure/Figure_2_8.pdf Graphic file (type QTm)
  <use  "Figure/Figure_2_8.pdf" > [17]
-[18]
 File: Figure/Figure_2_9.png Graphic file (type QTm)
- <use  "Figure/Figure_2_9.png" > [19] [20] [21] [22])
-(./Tex/Chapter_cocat.tex [23] [24
+ <use  "Figure/Figure_2_9.png" >
+[18] [19] [20] [21]) (./Tex/Chapter_cocat.tex [22]
+第三章
+[23
 
 ]
-第三章
-[25]
 File: Figure/Figure_3_1.pdf Graphic file (type QTm)
- <use  "Figure/Figure_3_1.pdf" > [26] [27]
+ <use  "Figure/Figure_3_1.pdf" > [24] [25]
 File: Figure/Figure_3_2.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_2.pdf" >
 File: Figure/Figure_3_3.pdf Graphic file (type QTm)
 
-<use  "Figure/Figure_3_3.pdf" > [28] [29]
+<use  "Figure/Figure_3_3.pdf" > [26] [27]
 Missing character: There is no △ in font [lmroman12-regular]:mapping=tex-text;!
 Missing character: There is no ☆ in font [lmroman12-regular]:mapping=tex-text;!
- [30]
+ [28]
 File: Figure/Figure_3_4.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_4.pdf" >
-[31] [32]
+[29] [30]
 File: Figure/Figure_3_5.pdf Graphic file (type QTm)
- <use  "Figure/Figure_3_5.pdf" > [33] [34] [35]
+ <use  "Figure/Figure_3_5.pdf" > [31] [32] [33]
 File: Figure/Figure_3_6.pdf Graphic file (type QTm)
 
-<use  "Figure/Figure_3_6.pdf" > [36]
+<use  "Figure/Figure_3_6.pdf" > [34]
 
-LaTeX Warning: Text page 37 contains only floats.
+LaTeX Warning: Text page 35 contains only floats.
 
-[37] [38]
+[35] [36]
 Overfull \hbox (7.78467pt too wide) in paragraph at lines 368--370
 []\TU/AdobeSongStd-Light(0)/m/n/12 我 们 让 每 个 译 员 用 四 种 不 同 的 辅 助 方 式 完 成 翻 译 任 
 务：| \TU/lmr/m/n/12 (1) \TU/AdobeSongStd-Light(0)/m/n/12 谷 歌 拼 音 \TU/lmr/m/n/12 
@@ -1884,18 +1928,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--370
 \TU/AdobeSongStd-Light(0)/m/n/12 辑 \TU/lmr/m/n/12 +
  []
 
-[39] [40] [41]
+[37] [38] [39]
 File: Figure/Figure_3_7.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_7.pdf" >
 File: Figure/Figure_3_8.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_8.pdf" >
 File: Figure/Figure_3_9.pdf Graphic file (type QTm)
 
-<use  "Figure/Figure_3_9.pdf" > [42]
+<use  "Figure/Figure_3_9.pdf" > [40]
 
-LaTeX Warning: Text page 43 contains only floats.
+LaTeX Warning: Text page 41 contains only floats.
 
-[43]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 485--487
 \TU/lmr/m/n/12 BLEU
  []
@@ -1905,7 +1949,7 @@ Overfull \hbox (54.89656pt too wide) in paragraph at lines 492--509
 [] 
  []
 
-[44]
+[42]
 Overfull \hbox (2.85258pt too wide) in paragraph at lines 515--516
 []\TU/AdobeSongStd-Light(0)/m/n/12 在 表[]\TU/lmr/m/n/12 3.4[]\TU/AdobeSongStd-Li
 ght(0)/m/n/12 中，|  如 果 我 们 仅 关 注 粗 体 数 字 的 对 比，|  第 \TU/lmr/m/n/12 1 \TU/AdobeS
@@ -1918,25 +1962,25 @@ Overfull \hbox (28.4926pt too wide) in paragraph at lines 525--536
 [] 
  []
 
-[45] [46]
+[43] [44]
 File: Figure/Figure_3_10.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_10.pdf" >
 File: Figure/Figure_3_11.pdf Graphic file (type QTm)
  <use  "Figure/Figure_3_11.pdf" >
 File: Figure/Figure_3_12.pdf Graphic file (type QTm)
 
-<use  "Figure/Figure_3_12.pdf" > [47]) (./Tex/Chapter_term.tex [48] [49]
-[50
+<use  "Figure/Figure_3_12.pdf" > [45]) (./Tex/Chapter_term.tex [46] [47]
+[48
 
 ]
 第四章
 File: Figure/Figure_4_1.pdf Graphic file (type QTm)
-<use  "Figure/Figure_4_1.pdf" > [51] [52]
+<use  "Figure/Figure_4_1.pdf" > [49] [50]
 File: Figure/Figure_4_2.pdf Graphic file (type QTm)
  <use  "Figure/Figure_4_2.pdf" >
-[53] [54]
+[51] [52]
 File: Figure/Figure_4_3.pdf Graphic file (type QTm)
- <use  "Figure/Figure_4_3.pdf" > [55] [56] [57] [58] [59]
+ <use  "Figure/Figure_4_3.pdf" > [53] [54] [55] [56] [57]
 Overfull \hbox (22.2238pt too wide) in paragraph at lines 306--308
 \TU/AdobeSongStd-Light(0)/m/n/12 的 术 语 候 选 $\OML/cmm/m/it/12 T$ \TU/AdobeSongSt
 d-Light(0)/m/n/12 可 表 示 为 $\OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = \OML/cmm/m/it/1
@@ -1944,7 +1988,7 @@ d-Light(0)/m/n/12 可 表 示 为 $\OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = \OML/cmm
 [][][] [] [][] [] []$\TU/AdobeSongStd-Light(0)/m/n/12 ，|
  []
 
-[60]
+[58]
 Overfull \hbox (26.91286pt too wide) in paragraph at lines 326--328
 \TU/AdobeSongStd-Light(0)/m/n/12 其 中，| $\OML/cmm/m/it/12 L[]$ \TU/AdobeSongStd-
 Light(0)/m/n/12 为 双 语 术 语 对 的 词 对 齐，| $\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OM
@@ -1954,36 +1998,45 @@ L/cmm/m/it/12 m[]\OMS/cmsy/m/n/12 j[]\OML/cmm/m/it/12 ; s[]; t[]\OT1/cmr/m/n/12
 \OT1/cmr/m/n/12 )$
  []
 
-[61]
+
+Overfull \hbox (40.15485pt too wide) in paragraph at lines 346--347
+[]\TU/AdobeSongStd-Light(0)/m/n/12 根 据 文 献 \TU/lmr/m/n/12 [$[]$]\TU/AdobeSongSt
+d-Light(0)/m/n/12 ，|  令 $\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[
+]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 a[]; I\OT1/cmr/m/n/12 )$ \TU/AdobeSongStd-L
+ight(0)/m/n/12 为 基 于 隐 马 尔 可 夫 模 型 的 词 对 齐 概 率，| $\OML/cmm/m/it/12 conflict\OT1
+/cmr/m/n/12 (\OML/cmm/m/it/12 j; M[]\OT1/cmr/m/n/12 )$
+ []
+
+[59]
 File: Figure/Figure_4_4.pdf Graphic file (type QTm)
- <use  "Figure/Figure_4_4.pdf" > [62] [63]
+ <use  "Figure/Figure_4_4.pdf" > [60] [61]
 Underfull \hbox (badness 1107) in paragraph at lines 408--409
 []\TU/lmr/m/n/10.95 interprocess communication ||| \TU/AdobeSongStd-Light(0)/m/
 n/10.95 间 通 信 \TU/lmr/m/n/10.95 ||| 0.333333 0.000101348 0.333333
  []
 
-[64] [65]
+[62] [63]
 File: Figure/Figure_4_5.png Graphic file (type QTm)
- <use  "Figure/Figure_4_5.png" > [66] [67] [68]
+ <use  "Figure/Figure_4_5.png" > [64] [65] [66]
 File: Figure/Figure_4_6.pdf Graphic file (type QTm)
 
-<use  "Figure/Figure_4_6.pdf" > [69] [70] [71] [72] [73] [74] [75]
+<use  "Figure/Figure_4_6.pdf" > [67] [68] [69] [70] [71] [72] [73]
 Underfull \hbox (badness 4819) in paragraph at lines 751--753
 []\TU/AdobeSongStd-Light(0)/m/n/12 在 表 \TU/lmr/m/n/12 4.7 \TU/AdobeSongStd-Ligh
 t(0)/m/n/12 的 实 验 结 果 数 据 中，|  与  |“\TU/lmr/m/n/12 BaselineDict\TU/AdobeSongStd
 -Light(0)/m/n/12 ”|  直 接 可 比 的 结 果 是
  []
 
-[76]
+[74]
 File: Figure/Figure_4_7.pdf Graphic file (type QTm)
- <use  "Figure/Figure_4_7.pdf" > [77] [78]) (./Tex/Chapter_online.tex
-[79] [80
+ <use  "Figure/Figure_4_7.pdf" > [75] [76]) (./Tex/Chapter_online.tex
+[77] [78
 
 ]
 第五章
-[81]
+[79]
 File: Figure/Figure_5_1.pdf Graphic file (type QTm)
- <use  "Figure/Figure_5_1.pdf" > [82]
+ <use  "Figure/Figure_5_1.pdf" > [80]
 File: Figure/Figure_5_2.pdf Graphic file (type QTm)
  <use  "Figure/Figure_5_2.pdf" >
 Overfull \hbox (24.61072pt too wide) in paragraph at lines 44--45
@@ -1993,98 +2046,92 @@ ght(0)/m/n/12 所 示，|  在 短 语 翻 译 模 型 中，|  源 短 语 $[]$
 \OMS/cmsy/m/n/12 g$\TU/AdobeSongStd-Light(0)/m/n/12 ，|
  []
 
-[83] [84]
+[81] [82]
 Overfull \hbox (7.07274pt too wide) in paragraph at lines 95--96
 []\TU/AdobeSongStd-Light(0)/m/n/12 源 语 言 短 语 之 前 的 六 个 词 分 别 为：| $\OML/cmm/m/it
 /12 WS[] \OT1/cmr/m/n/12 =$ \TU/lmr/m/n/12 SENT_BEFORE_BEGIN\TU/AdobeSongStd-Li
 ght(0)/m/n/12 、| $\OML/cmm/m/it/12 WS[] \OT1/cmr/m/n/12 =$
  []
 
-[85]
-Overfull \hbox (1.80847pt too wide) in paragraph at lines 130--131
-[]\TU/AdobeSongStd-Light(0)/m/n/12 人 机 交 互 式 翻 译 过 程 符 合 在 线 学 习 协 议  |（\TU/lmr
-/m/n/12 online learning protocol\TU/AdobeSongStd-Light(0)/m/n/12 ）| \TU/lmr/m/n
-/12 [[]Cesa-Bianchi
- []
-
-[86]
+[83] [84]
 File: Figure/Figure_5_3.pdf Graphic file (type QTm)
- <use  "Figure/Figure_5_3.pdf" > [87] [88]
+ <use  "Figure/Figure_5_3.pdf" > [85] [86]
 File: Figure/Figure_5_0_1.pdf Graphic file (type QTm)
 
 <use  "Figure/Figure_5_0_1.pdf" >
 File: Figure/Figure_5_0_2.pdf Graphic file (type QTm)
  <use  "Figure/Figure_5_0_2.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: Figure/Figure_5_0_3.pdf Graphic file (type QTm)
+
 <use  "Figure/Figure_5_0_3.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[89]
 File: Figure/Figure_5_0_4.pdf Graphic file (type QTm)
- <use  "Figure/Figure_5_0_4.pdf" > [90]
+<use  "Figure/Figure_5_0_4.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[87]
 Overfull \hbox (56.99666pt too wide) in paragraph at lines 229--230
 \TU/AdobeSongStd-Light(0)/m/n/12 实 时 学 习 新 翻 译 知 识 的 水 平  |（参 见 \TU/lmr/m/n/12 
 http://www.statmt.org/moses/?n =Advanced.Incremental\TU/AdobeSongStd-Light(0)/m
 /n/12 ） 。|
  []
 
-[91]
+[88] [89]
 File: Figure/Figure_5_4.pdf Graphic file (type QTm)
- <use  "Figure/Figure_5_4.pdf" > [92] [93] [94] [95]
+ <use  "Figure/Figure_5_4.pdf" > [90] [91] [92] [93]
 Overfull \hbox (7.11116pt too wide) in paragraph at lines 347--348
 []\TU/AdobeSongStd-Light(0)/m/n/12 在 增 量 学 习 过 程 中，|  我 们 使 用 类 似 于 \TU/lmr/m/n
 /12 IncGiza++ \TU/AdobeSongStd-Light(0)/m/n/12 项 目  |（\TU/lmr/m/n/12 https://co
 de.google.com/
  []
 
-[96] [97]
+[94]
 File: Figure/Figure_5_5.pdf Graphic file (type QTm)
- <use  "Figure/Figure_5_5.pdf" > [98]
+ <use  "Figure/Figure_5_5.pdf" > [95] [96]
 Overfull \hbox (11.75137pt too wide) in paragraph at lines 438--439
 []\TU/AdobeSongStd-Light(0)/m/n/12 为 了 训 练 基 于 随 机 森 林 和 在 线 随 机 森 林 的 短 语 翻 译 
 模 型，|  我 们 通 过 修 改 \TU/lmr/m/n/12 GIZA++
  []
 
-[99]
 Missing character: There is no █ in font [lmroman12-regular]:mapping=tex-text;!
 Missing character: There is no ▲ in font [lmroman12-regular]:mapping=tex-text;!
+[97]
 File: Figure/Table_5_1.pdf Graphic file (type QTm)
  <use  "Figure/Table_5_1.pdf" >
 File: Figure/Figure_5_6.pdf Graphic file (type QTm)
  <use  "Figure/Figure_5_6.pdf" >
 Missing character: There is no █ in font [lmroman12-regular]:mapping=tex-text;!
- [100])
-(./Tex/Chapter_implementation.tex [101] [102]
+ [98])
+(./Tex/Chapter_implementation.tex [99] [100]
 第六章
-[103
+[101
 
 ]
 File: Figure/Figure_6_1.pdf Graphic file (type QTm)
- <use  "Figure/Figure_6_1.pdf" > [104]
+ <use  "Figure/Figure_6_1.pdf" > [102]
 File: Figure/Figure_6_2.pdf Graphic file (type QTm)
  <use  "Figure/Figure_6_2.pdf" >
-[105] [106]
+[103] [104]
 File: Figure/Figure_6_3.pdf Graphic file (type QTm)
- <use  "Figure/Figure_6_3.pdf" > [107])
-(./Tex/Chapter_conclusion.tex [108]
+ <use  "Figure/Figure_6_3.pdf" > [105])
+(./Tex/Chapter_conclusion.tex [106]
 第七章
-[109
+[107
 
-] [110] [111])) [112] (./Thesis.bbl [113
+] [108] [109])) [110] (./Thesis.bbl [111
 
 
 
-] [114] [115] [116] [117] [118]
-[119] [120] [121] [122]) (./Tex/Chapter_acknowledgements.tex [123] [124
+] [112] [113] [114] [115] [116]
+[117] [118] [119] [120] [121]) (./Tex/Chapter_acknowledgements.tex [122])
+(./Tex/Backmatter.tex [123
 
-])
-(./Tex/Backmatter.tex [125] [126
+] [124
 
-] [127]
+] [125]
 Missing character: There is no ◎ in font [lmroman12-regular]:mapping=tex-text;!
 
 Overfull \hbox (0.91197pt too wide) in paragraph at lines 46--47
@@ -2099,7 +2146,7 @@ n Zhang, Yu Zhou. MinKSR:
  []
 
 Missing character: There is no ◎ in font [lmroman12-regular]:mapping=tex-text;!
-[128]
+[126]
 Missing character: There is no ◎ in font [lmroman12-regular]:mapping=tex-text;!
 
 Overfull \hbox (18.9162pt too wide) in paragraph at lines 68--69
@@ -2111,9 +2158,14 @@ lmr/m/n/12 : 201410678005.X
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
- [129]
+ [127]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
- (./Thesis.aux)
+ (./Thesis.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 87.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 87.
 
@@ -2126,12 +2178,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
  ) 
 Here is how much of TeX's memory you used:
- 31693 strings out of 493005
- 625396 string characters out of 6134596
- 694396 words of memory out of 5000000
- 35232 multiletter control sequences out of 15000+600000
- 15246 words of font info for 95 fonts, out of 8000000 for 9000
+ 31714 strings out of 493005
+ 625943 string characters out of 6134596
+ 694504 words of memory out of 5000000
+ 35245 multiletter control sequences out of 15000+600000
+ 15262 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 63i,20n,71p,10458b,934s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,20n,73p,10458b,939s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Thesis.pdf (141 pages).
+Output written on Thesis.pdf (139 pages).

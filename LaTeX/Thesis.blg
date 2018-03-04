@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Thesis.aux
+The style file: Biblio/gbt-7714-2015-numerical.bst
+Database file #1: Biblio/ref.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--Empty string!
+There is no name in "" for entry Lefever:2009
+while executing---line 1629 of file Biblio/gbt-7714-2015-numerical.bst
+Warning--Empty string!
+There is no name in "" for entry Lefever:2009
+while executing---line 1629 of file Biblio/gbt-7714-2015-numerical.bst
+You've used 190 entries,
+            3453 wiz_defined-function locations,
+            1742 strings with 35173 characters,
+and the built_in function-call counts, 1165234 in all, are:
+= -- 120489
+> -- 119326
+< -- 119534
++ -- 39379
+- -- 1324
+* -- 5499
+:= -- 128515
+add.period$ -- 570
+call.type$ -- 190
+change.case$ -- 804
+chr.to.int$ -- 35088
+cite$ -- 190
+duplicate$ -- 4069
+empty$ -- 11250
+format.name$ -- 2764
+if$ -- 336032
+int.to.chr$ -- 8
+int.to.str$ -- 191
+missing$ -- 0
+newline$ -- 959
+num.names$ -- 570
+pop$ -- 52034
+preamble$ -- 1
+purify$ -- 190
+quote$ -- 0
+skip$ -- 139747
+stack$ -- 0
+substring$ -- 38129
+swap$ -- 204
+text.length$ -- 1702
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1604
+warning$ -- 2
+while$ -- 2151
+width$ -- 0
+write$ -- 2719
+(There were 2 error messages)

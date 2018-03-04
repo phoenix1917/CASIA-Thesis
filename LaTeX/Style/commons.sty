@@ -9,9 +9,7 @@
 %% (at your option) any later version.
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{commons}
-[2014/10/01 v0.1 commons 
-macros package]
+\ProvidesPackage{commons}[2014/10/01 v0.1 commons macros package]
 
 %%%%******************************* Declare Options **********************************
 \newif\ifCOMMONS@myhdr \COMMONS@myhdrfalse
@@ -94,7 +92,8 @@ macros package]
 %% determine \rmfamily, usually for main contents
 %% because of \renewcommand*{\familydefault}{\rmdefault}, it's also determine \normalfont.
 %% examples: Times New Roman, Garamond, Adobe Garamond Pro
-%\setmainfont[BoldFont=Garamond-Bold,ItalicFont=Garamond-Italic]{Garamond}%
+\setCJKfamilyfont{zs}{STZhongsong}
+%\setmainfont[BoldFont=STZhongsong]{songti}%
 %% Sans serif - typefaces without strokes (without serif) to get high readability
 %% determine \sffamily, usually for signage, headings that demanding high readability
 %% examples: Helvetica, Gill Sans, Futura
