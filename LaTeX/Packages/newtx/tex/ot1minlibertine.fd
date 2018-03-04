@@ -1,0 +1,20 @@
+\ProvidesFile{ot1minlibertine.fd}[2013/10/12 v1.0]
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+    \DeclareFontFamily{OT1}{minlibertine}{}
+    \DeclareFontShape{OT1}{minlibertine}{m}{n}{
+      <->  \ntxmath@scaled  MinLibReg-ot1
+    }{}
+    \DeclareFontShape{OT1}{minlibertine}{b}{n}{
+      <->  \ntxmath@scaled  MinLibBol-ot1
+    }{}
+    \DeclareFontShape{OT1}{minlibertine}{m}{it}{
+      <->  \ntxmath@scaled  MinLibIta-ot1
+    }{}
+    \DeclareFontShape{OT1}{minlibertine}{b}{it}{
+      <->  \ntxmath@scaled  MinLibBolIta-ot1
+    }{}
+
+\endinput

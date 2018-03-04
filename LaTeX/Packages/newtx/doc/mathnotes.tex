@@ -1,0 +1,91 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}% Begin paragraphs with an empty line rather than an indent 
+\usepackage{graphicx} 
+\usepackage{url}
+%SetFonts
+% libertine text and newtxmath
+\usepackage{lmodern}
+\usepackage[lf,semibold]{libertine}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[varqu,varl]{zi4}
+\usepackage{amsmath,amsthm}
+\usepackage[libertine]{newtxmath}
+\useosf
+\usepackage{bm}
+%SetFonts
+\usepackage{booktabs}
+\title{Math fonts for \texttt{newtx} and \texttt{newpx}}
+\author{Michael Sharpe}
+\date{\today}  % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Introduction}
+This file adds some information updating the information in {\tt implementation.pdf}, showing the relationships between the various forms of math fonts. For simplicity, we discuss only regular weight fonts---there is for each a corresponding bold weight constructed in the same way. Font constructed for use with scriptstyle (7{\tt pt}) and scriptscriptstyle (5{\tt pt}) are also ignored, as their construction was adequately described in {\tt implementation.pdf}. Likewise, we ignore the variant triggered by {\tt varg}, which is indicated by the $1$ appended near the end of the math font name.
+
+The math fonts used in these packages are of the following families:
+\begin{itemize}
+\item [operators] (\verb|\fam0|) is a copy of the Roman text font;
+\item
+[letters] (\verb|\fam1|---OML encoding, 7-bit (128 characters)) containing the math italic Roman and mathematical Greek italic letters, among others;
+\item [symbols] (\verb|\fam2|---OMS encoding, 7-bit (128 characters)) containing most common mathematical symbols;
+\item [largesymbols] (\verb|\fam3|---sometimes OMX encoding, 7-bit (128 characters), sometimes LMX encoding, 8-bit (256 characters)) containing extensible delimiters and large mathematical symbols;
+\item [lettersA] (unencoded 8-bit (256 characters)) with upright Greek, Gothic and assorted symbols;
+\item [AMSa] (unencoded 8-bit (256 characters)) with replacements for the AMSA characters;
+\item [AMSb] (unencoded 8-bit (256 characters)) with replacements for the AMSB characters;
+\item [symbolsC] (unencoded--8-bit (256 characters)) containing less common mathematical symbols;
+\item [largesymbolsA] (unencoded--8-bit (256 characters)) containing less common extensible or large mathematical symbols.
+\end{itemize}
+The options you choose affect only {\tt letters}, {\tt lettersA} and {\tt largesymbols}, and these are the only ones discussed below.
+
+\textsc{Letters}:
+\begin{itemize}
+\item {\tt newtx}:
+\begin{itemize}
+\item The default is Times Roman and Greek italic shapes---{\tt ntxmi};
+\item {\tt minion} uses Roman and Greek italic shapes taken from MinionPro---{\tt zmnmi};
+\item {\tt garamondx} uses Times italic Greek plus Roman italic shapes taken from garamondx---{\tt zgmmi};
+\item {\tt libertine} uses Roman and Greek italic shapes taken from libertine---{\tt nxlmi}.
+\end{itemize}
+\item {newpx}:
+\begin{itemize}
+\item The default is Palatino (clone)  Roman and Greek italic shapes---{\tt npxmi};
+\end{itemize}
+\end{itemize}
+
+\textsc{LettersA}:\\
+Among other unique glyphs, this also contains variant forms for other characters such as small delimiters.
+\begin{itemize}
+\item {\tt newtx}:
+\begin{itemize}
+\item The default is Times Greek upright shapes---{\tt ntxmia};
+\item {\tt minion} substitutes Greek upright shapes taken from MinionPro---{\tt zmnmia};
+\item {\tt libertine} substitutes Greek upright shapes taken from libertine---{\tt nxlmia}.
+\end{itemize}
+\item {\tt newpx}:
+\begin{itemize}
+\item The default is Palatino (clone)  Greek upright shapes---{\tt npxmia};
+\end{itemize}
+\end{itemize}
+
+\textsc{Largesymbols}:\\
+The glyphs don't depend on the font options but do on the option {\tt bigdelims}. OMX encoding is not used for this family, in favor of an LMX-(un)encoded 8-bit math extension.
+\begin{itemize}
+
+\item {\tt newtx}:
+\begin{itemize}
+\item The LMX-(un)encoded 8-bit math extension brings in new glyphs mainly from   {\tt txex-bar}, {\tt ntxexb} and {\tt ntxsyralt}, and goes by the name {\tt ntxexx}.
+\end{itemize}
+\item {\tt newpx}:
+\begin{itemize}
+\item The LMX-(un)encoded 8-bit math extension  goes by the name {\tt npxexx}, constructed by scaling up {\tt ntxexx}.
+\end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}  

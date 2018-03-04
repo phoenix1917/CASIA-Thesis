@@ -1,0 +1,23 @@
+\ProvidesFile{ts1ntxlf.fd}[2015/01/18 v1.0 fd file for TS1/ntxlf]
+
+\expandafter\ifx\csname ntx@scaled\endcsname\relax
+  \let\ntx@scaled\@empty%
+\fi
+
+\DeclareFontFamily{TS1}{ntxlf}{}
+\DeclareFontShape{TS1}{ntxlf}{b}{n}{<-> \ntx@scaled ts1-qtmb}{}
+\DeclareFontShape{TS1}{ntxlf}{b}{it}{<-> \ntx@scaled ts1-qtmbi}{}
+\DeclareFontShape{TS1}{ntxlf}{m}{n}{<-> \ntx@scaled ts1-qtmr}{}
+\DeclareFontShape{TS1}{ntxlf}{m}{it}{<-> \ntx@scaled ts1-qtmri}{}
+\DeclareFontShape{TS1}{ntxlf}{bx}{n}{<->ssub * ntxlf/b/n}{}
+\DeclareFontShape{TS1}{ntxlf}{bx}{it}{<->ssub * ntxlf/b/it}{}
+\DeclareFontShape{TS1}{ntxlf}{b}{sl}{<->ssub * ntxlf/b/it}{}
+\DeclareFontShape{TS1}{ntxlf}{m}{sc}{<->ssub * ntxlf/m/n}{}
+\DeclareFontShape{TS1}{ntxlf}{m}{scit}{<->ssub * ntxlf/m/it}{}
+\DeclareFontShape{TS1}{ntxlf}{b}{sc}{<->ssub * ntxlf/b/n}{}
+\DeclareFontShape{TS1}{ntxlf}{b}{scit}{<->ssub * ntxlf/b/it}{}
+\DeclareFontShape{TS1}{ntxlf}{bx}{sc}{<->ssub * ntxlf/b/n}{}
+\DeclareFontShape{TS1}{ntxlf}{bx}{scit}{<->ssub * ntxlf/b/it}{}
+\DeclareFontShape{TS1}{ntxlf}{m}{sl}{<->ssub * ntxlf/m/it}{}
+\DeclareFontShape{TS1}{ntxlf}{bx}{sl}{<->ssub * ntxlf/b/it}{}
+\endinput

@@ -1,0 +1,12 @@
+This package contains extensions of the GUST TeXGyreTermes fonts, adding a full set of superior figures and lowercase letters in each style, and providing a variant form of small caps in each style that are on the order of 10% taller. The newly generated type1 fonts are:
+
+ntxtmb.pfb
+ntxtmbi.pfb
+ntxtmr.pfb
+ntxtmri.pfb
+ntxsups-Bold.pfb
+ntxsups-BoldItalic.pfb
+ntxsups-Regular.pfb
+ntxsups-Italic.pfb
+
+from which a number of the newtxtext font metrics, version 1.4, were derived. 

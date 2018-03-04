@@ -1,0 +1,1296 @@
+% \iffalse meta-comment
+%
+% Copyright (c) 2007 by Andreas B\"uhmann
+% Copyright (c) 2014 by Michael Ummels <michael.ummels@rwth-aachen.de>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Michael Ummels.
+%
+% This work consists of the files fontaxes.dtx, fontaxes.ins and
+% the derived files fontaxes.sty, test-fontaxes.tex and fontaxes.pdf.
+%
+% \fi
+%
+%\iffalse
+%<*driver>
+\ProvidesFile{fontaxes.dtx}[2014/03/23 v1.0d Font selection axes]
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{fontaxes}[2014/03/23 v1.0d Font selection axes]
+%<*driver>
+\documentclass{ltxdoc}
+
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[scaled=1.05]{inconsolata}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{floatrow}
+\usepackage{hypdoc}
+\usepackage{microtype}
+
+\hypersetup{
+  bookmarksnumbered,
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle={Axes, axes, axes},
+  pdfauthor={Andreas B\"uhmann, Michael Ummels}
+}
+
+\newcommand*\pkg[1]{\mbox{#1}}
+\newcommand*\acro[1]{#1}
+\newcommand*\axis[1]{\textit{#1}}
+\floatsetup[table]{capposition=top}
+
+\begin{document}
+\DocInput{fontaxes.dtx}
+\end{document}
+%</driver>
+%\fi
+%
+% \CheckSum{738}
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \GetFileInfo{fontaxes.dtx}
+%
+% \title{Axes, axes, axes}
+% \author{Andreas B\"uhmann \and Michael Ummels}
+% \date{\fileversion\ -- \filedate}
+% \maketitle
+%
+% \begin{abstract}
+%   The \pkg{fontaxes} package simulates multiple independent font selection
+%   axes on top of certain single \acro{NFSS} axes: \axis{base family},
+%   \axis{figure style}, and \axis{figure alignment} on top of \axis{family};
+%   \axis{primary shape} and \axis{secondary shape} on top of \axis{shape};
+%   and \axis{math weight} and \axis{math figure alignment} on top of
+%   \axis{math version}.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \section{Introduction}
+%
+% The introduction of the New Font Selection Scheme (\acro{NFSS}) has
+% greatly simplified the usage of \LaTeX\ with fonts different from the
+% Computer Modern fonts originally designed for \TeX. However, the \acro{NFSS}
+% has some limitations. In particular, it~defines only one axis for the font
+% shape, which caters for both the actual \emph{shape} of the font (e.g.\
+% upright, italic or slanted) and the \emph{case} of the font (e.g.\
+% upper-lower case and small-caps). For example, if the current font shape is
+% italic, then selecting small capitals using |\scshape| or |\textsc| will
+% revert to an upright shape, even if the font has italic small capitals.
+%
+% The \pkg{fontaxes} package alleviates the deficiencies of the \acro{NFSS}
+% by simulating multiple axes on top of single \acro{NFSS} axes. In particular,
+% it replaces the single \acro{NFSS} shape axis by a primary and a secondary
+% shape axis, catering for the shape and the case of the font, respectively.
+% Moreover, the package introduces three new axes to deal
+% with different \emph{figure versions}, which are provided by many
+% professional fonts.
+%
+% \section{Usage}
+%
+% You can load this package by adding
+% \begin{quote}
+%   |\usepackage{fontaxes}|
+% \end{quote}
+% to the preamble of your document. This redefines and makes available
+% certain font selection commands, which are described in the rest of
+% this section.
+%
+% \subsection{Shape}
+%
+% The \pkg{fontaxes} package splits the \acro{NFSS}'s single shape axis into
+% two: the primary shape axis (|n|, |it|, etc.) and the secondary shape axis
+% (|ulc|, |sc|, etc.).
+%
+% \DescribeMacro\upshape %
+% \DescribeMacro\itshape %
+% \DescribeMacro\slshape %
+% \DescribeMacro\swshape %
+% The commands |\upshape|, |\itshape|, and |\slshape| are redefined
+% to access the primary axis only. For access to a swash shape, the command
+% |\swshape| has been added.
+%
+% \DescribeMacro\ulcshape %
+% \DescribeMacro\scshape %
+% \DescribeMacro\sscshape %
+% The commands |\scshape| and |\sscshape| (spaced small caps) access the
+% secondary axis. To return from any small-caps shape to upper-lower case,
+% you can use the command |\ulcshape|.
+%
+% \DescribeMacro\fontprimaryshape %
+% \DescribeMacro\fontsecondaryshape %
+% All these commands update the two shape axes using the low-level commands
+% |\fontprimaryshape|\marg{value} and |\fontsecondaryshape|\marg{value}.
+%
+% \DescribeMacro\swdefault %
+% \DescribeMacro\sscdefault %
+% \DescribeMacro\ulcdefault %
+% If you want to change which values are used by the various commands
+% |\|\meta{abbr}|shape|, redefine the corresponding |\|\meta{abbr}|default|.
+% The additional commands |\swdefault|, |\sscdefault|, and |\ulcdefault| are
+% provided with their default values |sw|, |ssc|, and |ulc|, respectively.
+%
+% \subsection{Figure version}
+%
+% Different figure versions are usually implemented as different font families
+% (e.g.\ |MinionPro-{OsF,LF,TOsF,TLF}| or |ppl{j,x}|).
+% The \pkg{fontaxes} package splits off the axes \axis{figure style} and
+% \axis{figure alignment}, which leaves the \axis{base family} (e.g.\ 
+% |MinionPro| or |ppl|).\pagebreak
+%
+% \changes{v0.2}{2005/05/04}{Rename figures switching commands
+%   |\|\meta{\dots}|fig|.}
+% \DescribeMacro\txfigures %
+% \DescribeMacro\lnfigures %
+% \DescribeMacro\tbfigures %
+% \DescribeMacro\prfigures %
+% The \pkg{fontaxes} package knows two figure styles, |text| and |lining|
+% (accessible via |\txfigures| and |\lnfigures|), and two modes of figure
+% alignment, |tabular| and |proportional| (accessible via the switches
+% |\tbfigures| and |\prfigures|).
+%
+% \DescribeMacro\fontfigurestyle %
+% \DescribeMacro\fontfigurealignment %
+% Additionally, you can access both axes directly using the low-level commands
+% |\fontfigurestyle|\marg{value} and |\fontfigurealignment|\marg{value}.
+%
+% \DescribeMacro\fontbasefamily %
+% If you want to change the font family without changing the figure version,
+% use |\fontbasefamily|\marg{value}. (All |\font|\dots\ commands
+% require a successive |\selectfont| to make the changes take effect.)
+%
+% For choosing the figure versions to be used in math mode, you can use the
+% corresponding axis \axis{math figure alignment}. Note that there is
+% currently no means for changing the figure style used in math.
+%
+% \subsection{Math version}
+%
+% \DescribeMacro\boldmath %
+% \DescribeMacro\unboldmath %
+% By default, \LaTeX\ provides two math versions, |normal| and |bold|, as well
+% as commands |\boldmath| and |\unboldmath| for switching between them. The
+% \pkg{fontaxes} packages redefines these commands to operate on the axis
+% \axis{math weight}.
+%
+% \DescribeMacro\tabularmath %
+% \DescribeMacro\proportionalmath %
+% A second axis \axis{math figure alignment} is introduced that allows you to
+% switch between |tabular| and |proportional| figures using |\tabularmath| and
+% |\proportionalmath|. (This assumes the presence of additional math versions
+% |tabular| and |boldtabular|; the package will copy the setups of math
+% versions |normal| and |bold| at the end of the preamble in case you do not
+% provide your own declarations.)
+%
+% \DescribeMacro\mathweight %
+% \DescribeMacro\mathfigurealignment %
+% You can directly assign values to the axes using the low-level commands
+% |\mathweight|\marg{value} and |\mathfigurealignment|\marg{value}.
+%
+% Table~\ref{tab:cmds} summarizes which commands set which values on which
+% axes.\par
+% \newcommand\nextaxis{\addlinespace[1\jot]}%
+% \begin{table}\centering
+% \begin{tabular}{@{}llll@{}}
+% \toprule
+% Command & Axis & Value & Default\\
+% \midrule
+% |\upshape|   & |\fontprimaryshape|    & |\updefault| & |n| \\
+% |\itshape|   &                        & |\itdefault| & |it| \\
+% |\slshape|   &                        & |\sldefault| & |sl| \\
+% |\swshape|   &                        & |\swdefault| & |sw| \\
+% \nextaxis
+% |\ulcshape|  & |\fontsecondaryshape|  & |\ulcdefault| & |ulc| \\
+% |\scshape|   &                        & |\scdefault| & |sc| \\
+% |\sscshape|  &                        & |\sscdefault| & |ssc| \\
+% \midrule
+% |\txfigures| & |\fontfigurestyle|     & |text| \\
+% |\lnfigures| &                        & |lining| \\
+% \nextaxis
+% |\tbfigures| & |\fontfigurealignment| & |tabular| \\
+% |\prfigures| &                        & |proportional| \\
+% \nextaxis
+% \meta{none}  & |\fontbasefamily| & \meta{font-dependent}\\
+% \midrule
+% |\boldmath|    & |\mathweight|          & |bold| \\
+% |\unboldmath|  &                        & |normal| \\
+% \nextaxis
+% |\tabularmath| & |\mathfigurealignment| & |tabular| \\
+% |\proportionalmath| &                   & |proportional| \\
+% \bottomrule
+% \end{tabular}
+% \caption{Summary of commands}
+% \label{tab:cmds}
+% \end{table}
+%
+% \subsection{Additional commands}
+%
+% \DescribeMacro\textsw %
+% \DescribeMacro\textssc %
+% \DescribeMacro\textulc %
+% \DescribeMacro\textfigures %
+% \DescribeMacro\liningfigures %
+% \DescribeMacro\tabularfigures %
+% \DescribeMacro\proportionalfigures %
+% Similar to the well-known |\textit|, |\textsc|, etc.\ this package provides
+% commands |\textsw|, |\textssc|, |\textulc|, |\textfigures|, |\liningfigures|,
+% |\tabularfigures| and |\proportionalfigures| that take one argument and
+% apply the font change only to the argument.
+% For example, |\textsw|\marg{text} is roughly equivalent to
+% |{\swshape|\meta{text}|}| (but automatically adds italic corrections).
+%
+% \DescribeMacro\figureversion %
+% The command |\figureversion|\marg{options} allows easy switching of multiple
+% aspects of figures simultaneously. It takes as an argument a comma-separated
+% list of one or more of the following options:
+% \begin{quote}
+% \begin{tabular}{@{}ll}
+% |text|, |osf| & for text figures,\\
+% |lining|, |lf| & for lining figures,\\
+% |tabular|, |tab| & for tabular figures,\\
+% |proportional|, |prop| & for proportional figures.
+% \end{tabular}
+% \end{quote}
+% For example, |\figureversion{lf,tab}| selects tabular lining figures.
+%
+% \iffalse
+% \section{Naming conventions}
+%
+% How to name your font families and shapes so they will work with this
+% package. (To be done \dots)
+% \fi
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \subsection{High-level author commands (Level 1)}
+%
+% \subsubsection{Shape}
+%
+% \begin{macro}{\upshape}
+% \begin{macro}{\itshape}
+% \begin{macro}{\slshape}
+% \begin{macro}{\swshape}
+%   Axis 1: primary shape
+%    \begin{macrocode}
+%<*package>
+\DeclareRobustCommand\upshape{\not@math@alphabet\upshape\relax
+  \fontprimaryshape\updefault\selectfont}
+\DeclareRobustCommand\itshape{\not@math@alphabet\itshape\mathit
+  \fontprimaryshape\itdefault\selectfont}
+\DeclareRobustCommand\slshape{\not@math@alphabet\slshape\relax
+  \fontprimaryshape\sldefault\selectfont}
+\DeclareRobustCommand\swshape{\not@math@alphabet\swshape\relax
+  \fontprimaryshape\swdefault\selectfont}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \changes{v0.2}{2005/05/04}{Renamed |nosc| to |ulc| (upper and lower case).}
+% \begin{macro}{\scshape}
+% \begin{macro}{\sscshape}
+% \begin{macro}{\ulcshape}
+%   Axis 2: secondary shape
+%    \begin{macrocode}
+\DeclareRobustCommand\scshape{\not@math@alphabet\scshape\relax
+  \fontsecondaryshape\scdefault\selectfont}
+\DeclareRobustCommand\sscshape{\not@math@alphabet\sscshape\relax
+  \fontsecondaryshape\sscdefault\selectfont}
+\DeclareRobustCommand\ulcshape{\not@math@alphabet\ulcshape\relax
+  \fontsecondaryshape\ulcdefault\selectfont}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \changes{v1.0}{2011/09/16}{Added compatibility macro}
+% \begin{macro}{\noscshape}
+%   Provide an alias for compatibility with the \pkg{slantsc} package.
+%    \begin{macrocode}
+\let\noscshape\ulcshape
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\swdefault}
+% \begin{macro}{\ulcdefault}
+% \begin{macro}{\sscdefault}
+%    \begin{macrocode}
+\providecommand\swdefault{sw}
+\providecommand\ulcdefault{ulc}
+\providecommand\sscdefault{ssc}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\textsw}
+% \begin{macro}{\textssc}
+% \begin{macro}{\textulc}
+%    \begin{macrocode}
+\DeclareTextFontCommand{\textsw}{\swshape}
+\DeclareTextFontCommand{\textssc}{\sscshape}
+\DeclareTextFontCommand{\textulc}{\ulcshape}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsubsection{Figure version}
+%
+% \begin{macro}{\txfigures}
+% \begin{macro}{\lnfigures}
+%   Axis 1: figure style
+%    \begin{macrocode}
+\def\txfigures{\@nomath\txfigures
+  \fontfigurestyle{text}\selectfont}
+\def\lnfigures{\@nomath\lnfigures
+  \fontfigurestyle{lining}\selectfont}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\tbfigures}
+% \begin{macro}{\prfigures}
+%   Axis 2: figure alignment
+%    \begin{macrocode}
+\def\tbfigures{\@nomath\tbfigures
+  \fontfigurealignment{tabular}\selectfont}
+\def\prfigures{\@nomath\prfigures
+   \fontfigurealignment{proportional}\selectfont}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \changes{v0.2}{2005/05/04}{Renamed |oldstyle| to |text|}
+% \begin{macro}{\figureversion}
+% \changes{v0.2}{2005/05/04}{Added abbreviated options |tab| and |prop|.}
+% This code originally appeared in the package \pkg{MinionPro}. We have
+% adapted it to work within \pkg{fontaxes}' framework and also changed some
+% option names.
+%    \begin{macrocode}
+\newcommand\fontaxes@fv@prefix{fontaxes@fv@switch@}
+\newcommand*\fontaxes@fv@newoption[1]%
+  {\expandafter\newcommand\csname\fontaxes@fv@prefix #1\endcsname}
+\fontaxes@fv@newoption{text}{\txfigures}
+\fontaxes@fv@newoption{osf}{\txfigures}
+\fontaxes@fv@newoption{lining}{\lnfigures}
+\fontaxes@fv@newoption{lf}{\lnfigures}
+\fontaxes@fv@newoption{tabular}{\tbfigures\tabularmath}
+\fontaxes@fv@newoption{tab}{\tbfigures\tabularmath}
+\fontaxes@fv@newoption{proportional}{\prfigures\proportionalmath}
+\fontaxes@fv@newoption{prop}{\prfigures\proportionalmath}
+%    \end{macrocode}
+% We simply iterate over the list of figure versions specified in the argument
+% to |\figureversion| and check if we have specified a matching option.
+%    \begin{macrocode}
+\newcommand\fontaxes@fv@list{}
+\newcommand\fontaxes@fv{}
+\DeclareRobustCommand*\figureversion[1]{%
+  \edef\fontaxes@fv@list{\zap@space#1 \@empty}%
+  \@for\fontaxes@fv:=\fontaxes@fv@list\do{%
+    \@ifundefined{\fontaxes@fv@prefix\fontaxes@fv}{%
+      \PackageWarning{fontaxes}%
+      {Unknown figure style `\fontaxes@fv'\MessageBreak
+       specified as the argument to \string\figureversion.\MessageBreak
+       Figure style not changed}%
+    }{%
+      \@nameuse{\fontaxes@fv@prefix\fontaxes@fv}%
+    }%
+  }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \noindent Axis 3: base family |\fontbasefamily{...}|
+%
+% \changes{v0.2}{2005/04/30}{Align command names with MinionPro.sty.}
+% \begin{macro}{\textfigures}
+% \begin{macro}{\liningfigures}
+% \begin{macro}{\tabularfigures}
+% \begin{macro}{\proportionalfigures}
+%    \begin{macrocode}
+\DeclareTextFontCommand{\textfigures}{\txfigures}
+\DeclareTextFontCommand{\liningfigures}{\lnfigures}
+\DeclareTextFontCommand{\tabularfigures}{\tbfigures\tabularmath}
+\DeclareTextFontCommand{\proportionalfigures}
+  {\prfigures\proportionalmath}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsubsection{Math version}
+%
+% \begin{macro}{\boldmath}
+% \begin{macro}{\unboldmath}
+% Axis 1: weight
+%    \begin{macrocode}
+\def\boldmath{\@nomath\boldmath
+  \mathweight{bold}}
+\def\unboldmath{\@nomath\unboldmath
+  \mathweight{normal}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\tabularmath}
+% \begin{macro}{\proportionalmath}
+% Axis 2: figure alignment
+%    \begin{macrocode}
+\def\tabularmath{\@nomath\tabularmath
+  \mathfigurealignment{tabular}}
+\def\proportionalmath{\@nomath\proportionalmath
+  \mathfigurealignment{proportional}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Low-level author commands (Level 2)}
+%
+% \begingroup\parindent0pt\obeylines
+% |\mathweight{bold,normal}| sets |\mathversion|;
+% |\mathfigurealignment{tabular,proportional}| sets |\mathversion|;
+% |\fontfigurestyle{text,lining}| sets |\fontfamily|;
+% |\fontfigurealignment{tabular,proportional}| sets |\fontfamily|;
+% |\fontbasefamily{...}| sets |\fontfamily|;
+% |\fontprimaryshape{n,it,sl,sw}| sets |\fontshape|;
+% |\fontsecondaryshape{ulc,sc,ssc}| sets |\fontshape|.
+% \endgroup
+%
+% \begin{macro}{\mathweight}
+% \begin{macro}{\mathfigurealignment}
+%    \begin{macrocode}
+\DeclareRobustCommand\mathweight[1]{%
+  \fontaxes@get@math\edef\fontaxes@math@weight{#1}\fontaxes@set@math}
+\DeclareRobustCommand\mathfigurealignment[1]{%
+  \fontaxes@get@math\edef\fontaxes@math@align{#1}\fontaxes@set@math}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontfigurestyle}
+% \begin{macro}{\fontfigurealignment}
+% \begin{macro}{\fontbasefamily}
+%    \begin{macrocode}
+\DeclareRobustCommand\fontfigurestyle[1]{%
+  \fontaxes@get@family\edef\fontaxes@figure@style{#1}\fontaxes@set@family}
+\DeclareRobustCommand\fontfigurealignment[1]{%
+  \fontaxes@get@family\edef\fontaxes@figure@align{#1}\fontaxes@set@family}
+\DeclareRobustCommand\fontbasefamily[1]{%
+  \fontaxes@get@family\edef\fontaxes@family@base{#1}\fontaxes@set@family}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontprimaryshape}
+% \begin{macro}{\fontsecondaryshape}
+%    \begin{macrocode}
+\DeclareRobustCommand\fontprimaryshape[1]{%
+  \fontaxes@get@shape\edef\fontaxes@shape@one{#1}\fontaxes@set@shape}
+\DeclareRobustCommand\fontsecondaryshape[1]{%
+  \fontaxes@get@shape\edef\fontaxes@shape@two{#1}\fontaxes@set@shape}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \changes{v1.0c}{2011/12/16}{Disabled more commands for hyperref}
+% We have made most commands robust to protect them in moving arguments
+% (e.g.\ section titles). Additionally, we want these commands to
+% be ignored when \pkg{hyperref} is building \acro{PDF} strings
+% (e.g.\ for bookmarks).
+%    \begin{macrocode}
+\AtBeginDocument{
+  \@ifpackageloaded{hyperref}{%
+    \pdfstringdefDisableCommands{%
+      \let\fontprimaryshape\@gobble
+      \let\fontsecondaryshape\@gobble
+      \let\fontfigurestyle\@gobble
+      \let\fontfigurealignment\@gobble
+      \let\fontbasefamily\@gobble
+      \let\textfigures\@firstofone
+      \let\liningfigures\@firstofone
+      \let\tabularfigures\@firstofone
+      \let\proportionalfigures\@firstofone
+      \let\textsw\@firstofone
+      \let\textssc\@firstofone
+      \let\textulc\@firstofone
+    }%
+  }{}%
+}
+%    \end{macrocode}
+%
+% \subsection{Internals (Layer 3)}
+% \begingroup\parindent0pt\obeylines
+% |\fontaxes@set@math| sets |\mathversion|;
+% |\fontaxes@set@family| sets |\fontfamily|;
+% |\fontaxes@set@shape| sets |\fontshape|.
+% \endgroup
+%
+% \changes{v1.0a}{2011/10/05}{Changed default values}
+% \begin{macro}{\fontaxes@math@weight}
+% \begin{macro}{\fontaxes@math@align}
+% \begin{macro}{\fontaxes@family@base}
+% \begin{macro}{\fontaxes@figure@style}
+% \begin{macro}{\fontaxes@figure@align}
+% \begin{macro}{\fontaxes@shape@one}
+% \begin{macro}{\fontaxes@shape@two}
+%   The macros that hold the current values of the axes (here with some
+%   default values that will most certainly be overwritten during
+%   initializiation; see |\fontaxes@get@|\dots).
+%    \begin{macrocode}
+\newcommand*\fontaxes@math@weight{normal}
+\newcommand*\fontaxes@math@align{proportional}
+\newcommand*\fontaxes@family@base{cmr}
+\newcommand*\fontaxes@figure@style{lining}
+\newcommand*\fontaxes@figure@align{proportional}
+\newcommand*\fontaxes@shape@one{n}
+\newcommand*\fontaxes@shape@two{ulc}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@set@math}
+% \begin{macro}{\fontaxes@set@family}
+% \begin{macro}{\fontaxes@set@shape}
+%    \begin{macrocode}
+\newcommand*\fontaxes@set@math{%
+  \fontaxes@encode@math
+  \mathversion{\fontaxes@code}%
+  \fontaxes@save\math@version}
+\newcommand*\fontaxes@set@family{%
+  \fontaxes@encode@family
+  \fontfamily{\fontaxes@code}%
+  \fontaxes@save\f@family}
+\newcommand*\fontaxes@set@shape{%
+  \fontaxes@encode@shape
+  \fontshape{\fontaxes@code}%
+  \fontaxes@save\f@shape}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@get@math}
+% \begin{macro}{\fontaxes@get@family}
+% \begin{macro}{\fontaxes@get@shape}
+%   Check for changes: if changed, try to decode and update axes.
+%    \begin{macrocode}
+\newcommand*\fontaxes@get@math{%
+  \iffontaxes@changed\math@version{%
+    \fontaxes@decode@{math}{\math@version}%
+    \ifx\fontaxes@edoc\relax\else
+      \edef\fontaxes@math@weight{\expandafter\@firstoftwo\fontaxes@edoc}%
+      \edef\fontaxes@math@align{\expandafter\@secondoftwo\fontaxes@edoc}%
+    \fi
+    \fontaxes@save\math@version
+  }{}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand*\fontaxes@get@family{%
+  \iffontaxes@changed\f@family{%
+    \let\fontaxes@edoc\relax
+    \expandafter\fontaxes@split@family\f@family--\@nnil
+    \ifx\fontaxes@split@suffix\relax\else
+      \fontaxes@decode@{figures}{\fontaxes@split@suffix}%
+    \fi
+    \ifx\fontaxes@edoc\relax
+%    \end{macrocode}
+% Try alternative.
+%    \begin{macrocode}
+      \expandafter\fontaxes@split@familyalt\f@family
+        \@empty\@empty\@empty\@empty\@nnil
+      \ifx\fontaxes@split@suffix\relax\else
+        \fontaxes@decode@{figuresalt}{\fontaxes@split@suffix}%
+      \fi
+      \ifx\fontaxes@edoc\relax
+        \fontaxes@warn@undecodable{family `\f@family'}%
+        \edef\fontaxes@family@base{\f@family}%
+      \else
+        \edef\fontaxes@family@base{\fontaxes@split@prefix}%
+        \edef\fontaxes@figure@style{\expandafter\@firstoftwo\fontaxes@edoc}%
+%    \end{macrocode}
+% Do not overwrite align (does not occur in alternative naming scheme).
+%    \begin{macrocode}
+      \fi
+    \else
+%    \end{macrocode}
+% Store values.
+%    \begin{macrocode}
+      \edef\fontaxes@family@base{\fontaxes@split@prefix}%
+      \edef\fontaxes@figure@style{\expandafter\@firstoftwo\fontaxes@edoc}%
+      \edef\fontaxes@figure@align{\expandafter\@secondoftwo\fontaxes@edoc}%
+    \fi
+  }{}%
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand*\fontaxes@get@shape{%
+  \iffontaxes@changed\f@shape{%
+    \fontaxes@decode@{shape}{\f@shape}%
+    \ifx\fontaxes@edoc\relax\else
+      \edef\fontaxes@shape@one{\expandafter\@firstoftwo\fontaxes@edoc}%
+      \edef\fontaxes@shape@two{\expandafter\@secondoftwo\fontaxes@edoc}%
+    \fi
+    \fontaxes@save\f@shape
+  }{}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Encoding}
+%
+% \begin{macro}{\fontaxes@encode@math}
+% \begin{macro}{\fontaxes@encode@family}
+% \begin{macro}{\fontaxes@encode@figures}
+% \begin{macro}{\fontaxes@encode@figuresalt}
+% \begin{macro}{\fontaxes@encode@shape}
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@math{%
+  \fontaxes@encode@{math}{{\fontaxes@math@weight}{\fontaxes@math@align}}%
+}
+%    \end{macrocode}
+% Default is concatenation.
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@math@default{%
+  \edef\fontaxes@code{\fontaxes@math@weight\fontaxes@math@align}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@family{%
+  \fontaxes@encode@{family}
+    {{\fontaxes@family@base}{\fontaxes@figure@style}{\fontaxes@figure@align}}%
+}
+%    \end{macrocode}
+% Try different naming conventions.
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@family@default{%
+  \fontaxes@encode@figures
+  \edef\fontaxes@code{\fontaxes@family@base-\fontaxes@code}%
+  \fontaxes@check@family\fontaxes@code
+  \iffontaxes@exists\else
+    \fontaxes@encode@figuresalt
+    \edef\fontaxes@code{\fontaxes@family@base\fontaxes@code}%
+    \fontaxes@check@family\fontaxes@code
+    \iffontaxes@exists\else
+      \edef\fontaxes@code{\fontaxes@family@base}%
+    \fi
+  \fi
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@figures{%
+  \fontaxes@encode@{figures}{{\fontaxes@figure@style}{\fontaxes@figure@align}}%
+}
+\newcommand*\fontaxes@encode@figures@default{%
+  \edef\fontaxes@code{OsF}%
+  \PackageWarning{fontaxes}{Unknown figure version
+    `\fontaxes@figure@style\space + \fontaxes@figure@align'\MessageBreak
+    Encoding to `\fontaxes@code'}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@figuresalt{%
+  \fontaxes@encode@{figuresalt}{{\fontaxes@figure@style}{\fontaxes@figure@align}}%
+}
+\newcommand*\fontaxes@encode@figuresalt@default{%
+  \PackageWarning{fontaxes}{Unknown figure version
+    `\fontaxes@figure@style\space + \fontaxes@figure@align'\MessageBreak
+    Encoding to `\fontaxes@code'}%
+  \edef\fontaxes@code{j}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@shape{%
+  \fontaxes@encode@{shape}{{\fontaxes@shape@one}{\fontaxes@shape@two}}%
+}
+%    \end{macrocode}
+% Default is (reverse) concatenation.
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@shape@default{%
+  \edef\fontaxes@code{\fontaxes@shape@two\fontaxes@shape@one}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@encode@}
+%    \begin{macrocode}
+\newcommand*\fontaxes@encode@[2]{%
+  \@ifundefined{fontaxes@encode@#1#2}
+    {\@nameuse{fontaxes@encode@#1@default}}
+    {\edef\fontaxes@code{\@nameuse{fontaxes@encode@#1#2}}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@naming@exception}
+% \changes{v1.0b}{2011/11/14}{Added compatibility macro}
+%   To do: Add a user interface to specify naming exceptions.
+%    \begin{macrocode}
+\newcommand*\fontaxes@naming@exception[3]{%
+  \expandafter\edef\csname fontaxes@encode@#1#2\endcsname{#3}%
+}
+%    \end{macrocode}
+% The following alias is defined for compatibility with
+% package files generated by autoinst.
+%    \begin{macrocode}
+\let\fa@naming@exception\fontaxes@naming@exception
+%    \end{macrocode}
+% The defaults |n| and |ulc| disappear when combined.
+%    \begin{macrocode}
+\fontaxes@naming@exception{shape}{{n}{ulc}}{n}
+\fontaxes@naming@exception{shape}{{n}{sc}}{sc}
+\fontaxes@naming@exception{shape}{{n}{ssc}}{ssc}
+\fontaxes@naming@exception{shape}{{it}{ulc}}{it}
+\fontaxes@naming@exception{shape}{{sl}{ulc}}{sl}
+\fontaxes@naming@exception{shape}{{sw}{ulc}}{sw}
+%    \end{macrocode}
+% The defaults disappear in the concatenation. |boldtabular| is formed
+% regularly.
+%    \begin{macrocode}
+\fontaxes@naming@exception{math}{{normal}{proportional}}{normal}
+\fontaxes@naming@exception{math}{{normal}{tabular}}{tabular}
+\fontaxes@naming@exception{math}{{bold}{proportional}}{bold}
+%    \end{macrocode}
+% Provide abbreviations for font family suffixes.
+%    \begin{macrocode}
+\fontaxes@naming@exception{figures}{{text}{proportional}}{OsF}
+\fontaxes@naming@exception{figures}{{text}{tabular}}{TOsF}
+\fontaxes@naming@exception{figures}{{lining}{proportional}}{LF}
+\fontaxes@naming@exception{figures}{{lining}{tabular}}{TLF}
+%    \end{macrocode}
+% The |j|/|x| naming convention does not know about different figure
+% alignments; let us silently ignore these.
+%    \begin{macrocode}
+\fontaxes@naming@exception{figuresalt}{{text}{proportional}}{j}
+\fontaxes@naming@exception{figuresalt}{{text}{tabular}}{j}
+\fontaxes@naming@exception{figuresalt}{{lining}{proportional}}{x}
+\fontaxes@naming@exception{figuresalt}{{lining}{tabular}}{x}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Decoding}
+%
+% Detect if |\mathversion|, |\fontshape|, |\fontfamily| have been used not
+% under control of this package.
+%
+% \begin{macro}{\fontaxes@figure@style@domain}
+% \begin{macro}{\fontaxes@figure@align@domain}
+% \begin{macro}{\fontaxes@shape@one@domain}
+% \begin{macro}{\fontaxes@shape@two@domain}
+% \begin{macro}{\fontaxes@math@weight@domain}
+% \begin{macro}{\fontaxes@math@align@domain}
+%   Assuming an injective encoding function, we can construct decoding tables
+%   when we know the function's domain. To do: Warn if decoding entries are
+%   overwritten (if the function is not injective).
+%    \begin{macrocode}
+\newcommand*\fontaxes@figure@style@domain{text,lining}
+\newcommand*\fontaxes@figure@align@domain{proportional,tabular}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand*\fontaxes@shape@one@domain{n,it,sl,sw}
+\newcommand*\fontaxes@shape@two@domain{ulc,sc,ssc}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand*\fontaxes@math@weight@domain{normal,bold}
+\newcommand*\fontaxes@math@align@domain{proportional,tabular}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@create@decode@table}
+% \changes{v0.2b}{2007/03/31}{Restore values of axes.}
+% |#1| name, |#2| list of axes
+%    \begin{macrocode}
+\newcommand*\fontaxes@create@decode@table[2]{%
+  \begingroup
+  \fontaxes@foreach{#2}{%
+    \@nameuse{fontaxes@encode@#1}%
+    \global\expandafter
+    \edef\csname fontaxes@decode@#1{\fontaxes@code}\endcsname{#2}%
+  }%
+  \endgroup
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\AtEndOfPackage{
+  \fontaxes@create@decode@table{figures}
+    {{\fontaxes@figure@style}{\fontaxes@figure@align}}
+  \fontaxes@create@decode@table{figuresalt}
+    {{\fontaxes@figure@style}{\fontaxes@figure@align}}
+  \fontaxes@create@decode@table{shape}
+    {{\fontaxes@shape@one}{\fontaxes@shape@two}}
+  \fontaxes@create@decode@table{math}
+    {{\fontaxes@math@weight}{\fontaxes@math@align}}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@warn@undecodable}
+%    \begin{macrocode}
+\newcommand*\fontaxes@warn@undecodable[1]{%
+  \PackageWarning{fontaxes}{I don't know how to decode\MessageBreak #1}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@decode@}
+% \changes{v0.2a}{2007/03/21}{Fix error message.}
+% Interpret the decoding tables.
+%    \begin{macrocode}
+\newcommand*\fontaxes@decode@[2]{%
+  \@ifundefined{fontaxes@decode@#1{#2}}{%
+    \let\fontaxes@edoc\relax
+    \fontaxes@warn@undecodable{#1 `#2'}%
+  }{\edef\fontaxes@edoc{\@nameuse{fontaxes@decode@#1{#2}}}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@save}
+% \begin{macro}{\iffontaxes@changed}
+% Save states of macros for future comparison.
+%    \begin{macrocode}
+\newcommand*\iffontaxes@changed[1]{%
+  \expandafter\ifx\csname fontaxes@last@\string#1\endcsname#1%
+    \expandafter\@secondoftwo
+  \else
+    \expandafter\@firstoftwo
+  \fi
+}
+\newcommand*\fontaxes@save[1]{%
+  \expandafter\let\csname fontaxes@last@\string#1\endcsname#1%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Compatibility}
+%
+% \begin{macro}{\fontaxes@provide@mv@copy}
+% \changes{v0.2}{2005/04/28}{Provide default math versions by copy.}
+% \changes{v1.0d}{2014/03/23}{Change order of macro definition and invocation.}
+% Declare math version |#1| to be a copy of math version |#2| if |#1| does not
+% exist already. To accomplish this, we have to know that a math version's
+% configuration is basically stored in a macro |\mv@|\meta{name} (which makes
+% us dependent on the NFSS implementation; sigh \dots).
+%    \begin{macrocode}
+\newcommand*\fontaxes@provide@mv@copy[2]{%
+  \@ifundefined{mv@#1}{%
+    \DeclareMathVersion{#1}%
+    \expandafter\let\csname mv@#1\expandafter\endcsname
+      \csname mv@#2\endcsname
+  }{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% If no math versions |tabular| and |boldtabular| are defined in the preamble,
+% we provide defaults by copying the states of |normal| and |bold| (assuming,
+% in turn, that these two exist).
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \fontaxes@provide@mv@copy{tabular}{normal}%
+  \fontaxes@provide@mv@copy{boldtabular}{bold}%
+}
+%    \end{macrocode}
+%
+% \subsection{Tools}
+%
+% \begin{macro}{\fontaxes@check@family}
+% \begin{macro}{\iffontaxes@exists}
+%   Check if family switching would yield an existing shape.
+%    \begin{macrocode}
+\newif\iffontaxes@exists
+\newcommand*\fontaxes@check@family[1]{%
+  \begingroup
+  \fontfamily{#1}\try@load@fontshape
+  \expandafter
+  \ifx\csname\curr@fontshape\endcsname\relax
+    \aftergroup\fontaxes@existsfalse
+  \else
+    \aftergroup\fontaxes@existstrue
+  \fi
+  \endgroup
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@split@prefix}
+% \begin{macro}{\fontaxes@split@suffix}
+%   The results of splitting a family name.
+%    \begin{macrocode}
+\newcommand*\fontaxes@split@prefix{}
+\newcommand*\fontaxes@split@suffix{}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@split@family}
+%   Font name contains one hyphen; split there.
+%    \begin{macrocode}
+\newcommand*\fontaxes@split@family{}
+\def\fontaxes@split@family#1-#2-#3\@nnil{%
+  \let\fontaxes@split@prefix\relax
+  \let\fontaxes@split@suffix\relax
+  \def\@tempa{#3}%
+  \ifx\@tempa\@empty\else
+    \def\fontaxes@split@suffix{#2}%
+    \ifx\fontaxes@split@suffix\@empty
+      \let\fontaxes@split@suffix\relax
+    \else
+      \def\fontaxes@split@prefix{#1}%
+    \fi
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@split@familyalt}
+% \changes{v1.0a}{2011/10/05}{Provide default suffix for lining figures.}
+%   Name consists of four characters; split off the last one.
+%   If there are just three characters, the default suffix is `x'.
+%    \begin{macrocode}
+\newcommand*\fontaxes@split@familyalt{}
+\def\fontaxes@split@familyalt#1#2#3#4#5\@nnil{%
+  \let\fontaxes@split@prefix\relax
+  \let\fontaxes@split@suffix\relax
+  \edef\@tempa{#5}%
+  \ifx\@tempa\@empty
+    \ifx\@empty#4%
+      \def\fontaxes@split@prefix{#1#2#3}%
+      \def\fontaxes@split@suffix{x}%
+    \else
+      \def\fontaxes@split@prefix{#1#2#3}%
+      \def\fontaxes@split@suffix{#4}%
+    \fi
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontaxes@foreach}
+% \changes{v0.2}{2005/04/30}{More generic: allows an arbitrary number of axes.}
+% Execute |#2| for each combination of values of the axes given in |#1| (in the
+% form |{\cs}{\cs}|\dots).
+%    \begin{macrocode}
+\newcommand\fontaxes@foreach[2]{%
+  \begingroup
+  \def\fontaxes@foreach@{#2}%
+  \@tfor\@tempa:=#1\do{%
+    \@temptokena\expandafter{\fontaxes@foreach@}%
+    \edef\fontaxes@foreach@{%
+      \noexpand\@for
+      \expandafter\noexpand\@tempa:=%
+      \expandafter\noexpand\csname
+        \expandafter\expandafter
+        \expandafter\@gobble
+        \expandafter\string\@tempa
+        @domain%
+      \endcsname
+      \noexpand\do{\the\@temptokena}%
+    }%
+  }%
+  \expandafter\endgroup\fontaxes@foreach@
+}
+%</package>
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Tests}
+%
+% The file |test-fontaxes.tex| (docstrip target |test|) exercises some
+% features of \pkg{fontaxes}. Since it is rather ad-hoc code, it is not shown
+% here. (It also requires the \pkg{MinionPro} package.)
+%
+% \Finale
+% \endinput
+%
+%    \begin{macrocode}
+%<*test>
+\documentclass[a4paper]{article}
+\usepackage{MinionPro}
+\usepackage[T1]{fontenc}
+
+\usepackage{longtable}
+\usepackage{fontaxes}
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand\showshape{\hphantom{\normalfont\textsuperscript{sscsw}}%
+  \llap{\expandafter\normalfont\expandafter\textsuperscript
+  \expandafter{\f@shape}}}
+
+\newcommand\shapecmdlist{\upshape,\itshape,\slshape,\swshape,%
+  \ulcshape,\scshape,\sscshape}
+\newcommand\reacheableshapes{}
+\newtoks\tab
+\newcommand\atab[1]{%
+  \tab\expandafter{\the\tab#1}%
+}
+\newcommand\etab[1]{%
+  \edef\line{#1}%
+  \expandafter\atab\expandafter{\line}%
+}
+\newif\ifadded
+\newcommand\testall{%
+  \edef\reacheableshapes{\shapedefault}
+  \addedtrue
+  \@whilesw\ifadded\fi{%
+    \addedfalse
+    \@for\@sh:=\reacheableshapes\do{%
+      \begingroup
+        \fontshape\@sh\relax
+        \@for\@cmd:=\shapecmdlist\do{%
+          \@cmd\relax
+          \@expandtwoargs\in@{,\f@shape,}{,\reacheableshapes,}%
+          \ifin@\else
+            \xdef\reacheableshapes{\reacheableshapes,\f@shape}%
+            \global\addedtrue
+          \fi
+        }%
+      \endgroup
+    }%
+  }
+  \tab{\begin{longtable}[t]{ll}}
+  \@for\@sh:=\reacheableshapes\do{%
+    \etab{\noexpand\fontshape{\@sh}}%
+    \atab{\selectfont\showshape Am Anfang &}%
+    \etab{\noexpand\fontshape{\@sh}}%
+    \atab{\begin{tabular}[t]{ll}}%
+    \@for\@cmd:=\shapecmdlist\do{%
+      \atab{\normalfont\ttfamily}%
+      \etab{\expandafter\string\@cmd &
+        \expandafter\noexpand\@cmd\noexpand\showshape war das Wort%
+        \noexpand\\\relax}%
+    }%
+    \atab{\end{tabular} \\\relax}%
+  }
+  \atab{\end{longtable}\endgraf}%
+  \the\tab
+}
+
+\makeatother
+\parindent=0pt
+
+\begin{document}
+
+\section{Shape}
+\subsection{Switches}
+\fontbasefamily{MinionPro}\selectfont
+\figureversion{text,proportional}%
+\testall
+
+\subsection{Text font commands}
+
+\makeatletter
+\def\amp{&}
+\def\visible#1#2\\{%
+  #1#2 \amp {\def\@tempa{#1}\edef\@tempa{\expandafter
+  \strip@prefix\meaning\@tempa}\normalfont\ttfamily{\@tempa}}\\}
+\makeatother
+\begin{tabular}{ll}
+Am \visible{\textit{Anfang \textsc{war}}} das Wort\\
+Am \visible{\textsl{Anfang \textulc{war}}} das Wort\\
+Am \visible{\textsw{Anfang \textssc{war}}} das Wort\\
+Am \visible{\textsc{Anfang \textsl{war}}} das Wort\\
+Am \visible{\textssc{Anfang \textit{war}}} das Wort\\
+\end{tabular}
+
+\section{Figure version}
+
+\tracingmacros=2
+\begin{tabular}{lll}
+\visible\txfigures 12345 \visible\lnfigures 67890\\
+\visible\txfigures 12345 \visible\tbfigures 67890\\
+\visible\txfigures 12345 \visible\prfigures 67890\\
+\visible\txfigures 12345 \visible\txfigures 67890\\
+\visible\lnfigures 12345 \visible\lnfigures 67890\\
+\visible\lnfigures 12345 \visible\tbfigures 67890\\
+\visible\lnfigures 12345 \visible\prfigures 67890\\
+\visible\lnfigures 12345 \visible\txfigures 67890\\
+\visible\tbfigures 12345 \visible\lnfigures 67890\\
+\visible\tbfigures 12345 \visible\tbfigures 67890\\
+\visible\tbfigures 12345 \visible\prfigures 67890\\
+\visible\tbfigures 12345 \visible\txfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\lnfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\tbfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\prfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\txfigures 67890\\
+\end{tabular}
+
+\begingroup
+\figureversion{osf,lf,tab,prop,  tabular,proportional   ,  text  ,lining,
+non-existent}
+\endgroup
+
+\subsection{Switch base family}
+
+\begingroup
+\def\nums{1234567890\par}
+\txfigures MinionPro \nums
+\fontbasefamily{ppl}\selectfont
+Palatino \nums
+\lnfigures
+lining \nums
+\fontbasefamily{MinionPro}\selectfont
+MinionPro \nums
+\figureversion{lining,tabular}%
+lining and tabular \nums
+\fontbasefamily{ppl}\selectfont
+Palatino \nums
+\txfigures
+text \nums
+\fontbasefamily{MinionPro}\selectfont
+MinionPro again, should be text \emph{and tabular} \nums
+\endgroup
+
+\subsection{Text font commands}
+
+\def\nums{t123 $m123$}
+\begin{tabular}{lll}
+\nums\quad\visible{(\textfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\liningfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\proportionalfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\liningfigures{\nums}})}\quad \nums\\
+\end{tabular}
+
+\begingroup Same but start from lining tabular figures\par
+\lnfigures\tbfigures
+\begin{tabular}{lll}
+\nums\quad\visible{(\textfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\liningfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\proportionalfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\liningfigures{\nums}})}\quad \nums\\
+\end{tabular}
+\endgroup
+
+\subsection{In moving argument: o123 \liningfigures{l456}
+  \tabularfigures{t789}
+  \figureversion{text,text,lining,text,proportional}op012 \textsw{Swash}
+  \textssc{Spaced \textulc{Small} Caps}}
+
+\tableofcontents
+
+\section{Math version}
+
+\def\formula{$123 + a - \sqrt{\beta}$}
+\begin{tabular}{lll}
+\visible\unboldmath \formula\quad \visible\boldmath \formula\\
+\visible\unboldmath \formula\quad \visible\tabularmath \formula\\
+\visible\unboldmath \formula\quad \visible\proportionalmath \formula\\
+\visible\unboldmath \formula\quad \visible\unboldmath \formula\\
+\visible\boldmath \formula\quad \visible\boldmath \formula\\
+\visible\boldmath \formula\quad \visible\tabularmath \formula\\
+\visible\boldmath \formula\quad \visible\proportionalmath \formula\\
+\visible\boldmath \formula\quad \visible\unboldmath \formula\\
+\visible\tabularmath \formula\quad \visible\boldmath \formula\\
+\visible\tabularmath \formula\quad \visible\tabularmath \formula\\
+\visible\tabularmath \formula\quad \visible\proportionalmath \formula\\
+\visible\tabularmath \formula\quad \visible\unboldmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\boldmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\tabularmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\proportionalmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\unboldmath \formula\\
+\end{tabular}
+
+\section{Recovery}
+
+\makeatletter
+\def\showfont{\edef\@tempa{\curr@fontshape}\hfill
+{\normalfont\ttfamily\@tempa}}
+\def\showmath{$123xyz$ \edef\@tempa{\math@version}\hfill
+{\normalfont\ttfamily\@tempa}}
+\makeatother
+
+\begingroup
+\scshape scshape \showfont\par
+\fontshape{scit}\selectfont selecting scit explicitly \showfont\par
+\sscshape Sscshape should adapt\showfont\par
+\endgroup
+
+\bigskip
+\begingroup
+\boldmath boldmath \showmath\par
+\mathversion{tabular} selecting tabular explicitly \showmath\par
+\boldmath boldmath \showmath\par
+\endgroup
+
+\bigskip
+\begingroup
+\fontfamily{MinionPro-LF}\selectfont selecting MinionPro-LF explicitly \showfont\par
+\tbfigures tabularfigures 1234 \showfont\par
+\endgroup
+
+\bigskip
+\begingroup
+\tbfigures tabularfigures 1234 \showfont\par
+\fontfamily{pplx}\selectfont selecting pplx explicitly \showfont\par
+\txfigures textfigures 1234 \showfont\par
+\fontbasefamily{MinionPro}\selectfont
+Back to MinionPro (is tabular still there?) 1234 \showfont\par
+\fontfamily{ptm}\selectfont selecting ptm explicitly \showfont\par
+\lnfigures liningfigures 1234 \showfont\par
+\tbfigures tabularfigures 1234 \showfont\par
+\fontbasefamily{MinionPro}\selectfont Back \dots 1234 \showfont\par
+\endgroup
+
+\end{document}
+%</test>
+%    \end{macrocode}

@@ -1,0 +1,26 @@
+%Filename: untxsym.fd
+%Created by: tex tx-sym-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{untxsym.fd}
+   [2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{U}{ntxsym}{}
+
+\DeclareFontShape{U}{ntxsym}{m}{n}{
+   <-> \ntxmath@scaled ntxsym
+}{}
+
+\DeclareFontShape{U}{ntxsym}{b}{n}{
+   <-> \ntxmath@scaled ntxbsym
+}{}
+
+\DeclareFontShape{U}{ntxsym}{bx}{n}{<->ssub * ntxsym/b/n}{}
+
+\endinput

@@ -1,0 +1,130 @@
+%Filename: omlnxlmi.fd
+%Created by: tex lmi-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{omlnxlmi.fd}
+   [2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{OML}{nxlmi}{\skewchar \font =127}
+
+\iftx@liby
+	\iftx@libaltvw % new v, w
+	   \iftx@altnu % new nu
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi035
+		   <6.3-8.6> \ntxmath@scaled nxlmi037
+		   <8.6-> \ntxmath@scaled nxlmi03
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi035
+			<6.3-8.6> \ntxmath@scaled nxlbmi037
+			<8.6-> \ntxmath@scaled nxlbmi03
+		  }{}
+	   \else % old nu
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi015
+		   <6.3-8.6> \ntxmath@scaled nxlmi017
+		   <8.6-> \ntxmath@scaled nxlmi01
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi015
+			<6.3-8.6> \ntxmath@scaled nxlbmi017
+			<8.6-> \ntxmath@scaled nxlbmi01
+		  }{}
+	   \fi
+	\else % original v, w
+	   \iftx@altnu 
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi025
+		   <6.3-8.6> \ntxmath@scaled nxlmi027
+		   <8.6-> \ntxmath@scaled nxlmi02
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi025
+			<6.3-8.6> \ntxmath@scaled nxlbmi027
+			<8.6-> \ntxmath@scaled nxlbmi02
+		  }{}
+	   \else
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi05
+		   <6.3-8.6> \ntxmath@scaled nxlmi07
+		   <8.6-> \ntxmath@scaled nxlmi0
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi05
+			<6.3-8.6> \ntxmath@scaled nxlbmi07
+			<8.6-> \ntxmath@scaled nxlbmi0
+		  }{}
+	   \fi   
+	\fi
+\else % math italic y from txfonts
+	\iftx@libaltvw % new v, w
+	   \iftx@altnu % new nu
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi35
+		   <6.3-8.6> \ntxmath@scaled nxlmi37
+		   <8.6-> \ntxmath@scaled nxlmi3
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi35
+			<6.3-8.6> \ntxmath@scaled nxlbmi37
+			<8.6-> \ntxmath@scaled nxlbmi3
+		  }{}
+	   \else % old nu
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi15
+		   <6.3-8.6> \ntxmath@scaled nxlmi17
+		   <8.6-> \ntxmath@scaled nxlmi1
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi15
+			<6.3-8.6> \ntxmath@scaled nxlbmi17
+			<8.6-> \ntxmath@scaled nxlbmi1
+		  }{}
+	   \fi
+	\else % original v, w
+	   \iftx@altnu 
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi25
+		   <6.3-8.6> \ntxmath@scaled nxlmi27
+		   <8.6-> \ntxmath@scaled nxlmi2
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi25
+			<6.3-8.6> \ntxmath@scaled nxlbmi27
+			<8.6-> \ntxmath@scaled nxlbmi2
+		  }{}
+	   \else
+		  \DeclareFontShape{OML}{nxlmi}{m}{it}{
+		   <-6.3> \ntxmath@scaled nxlmi5
+		   <6.3-8.6> \ntxmath@scaled nxlmi7
+		   <8.6-> \ntxmath@scaled nxlmi
+		  }{}
+		
+		  \DeclareFontShape{OML}{nxlmi}{b}{it}{
+			<-6.3> \ntxmath@scaled nxlbmi5
+			<6.3-8.6> \ntxmath@scaled nxlbmi7
+			<8.6-> \ntxmath@scaled nxlbmi
+		  }{}
+	   \fi   
+	\fi
+\fi
+\DeclareFontShape{OML}{nxlmi}{m}{sl}{<->ssub * nxlmi/m/it}{}
+\DeclareFontShape{OML}{nxlmi}{bx}{it}{<->ssub * nxlmi/b/it}{}
+\DeclareFontShape{OML}{nxlmi}{b}{sl}{<->ssub * nxlmi/b/it}{}
+\DeclareFontShape{OML}{nxlmi}{bx}{sl}{<->ssub * nxlmi/b/sl}{}
+
+\endinput

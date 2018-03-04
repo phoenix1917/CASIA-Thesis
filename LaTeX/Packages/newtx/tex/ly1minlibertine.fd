@@ -1,0 +1,20 @@
+\ProvidesFile{ly1minlibertine.fd}[2013/10/12 v1.0]
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+    \DeclareFontFamily{LY1}{minlibertine}{}
+    \DeclareFontShape{LY1}{minlibertine}{m}{n}{
+      <->  \ntxmath@scaled  MinLibReg-ly1
+    }{}
+    \DeclareFontShape{LY1}{minlibertine}{b}{n}{
+      <->  \ntxmath@scaled  MinLibBol-ly1
+    }{}
+    \DeclareFontShape{LY1}{minlibertine}{m}{it}{
+      <->  \ntxmath@scaled  MinLibIta-ly1
+    }{}
+    \DeclareFontShape{LY1}{minlibertine}{b}{it}{
+      <->  \ntxmath@scaled  MinLibBolIta-ly1
+    }{}
+
+\endinput

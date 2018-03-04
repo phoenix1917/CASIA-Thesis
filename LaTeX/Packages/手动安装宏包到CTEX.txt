@@ -1,0 +1,7 @@
+1. 将Packages文件夹中的宏包（均已编译）移动到 Path:\to\CTEX\MiKTeX\tex\latex；
+2. 打开开始菜单-CTeX-Settings(Admin)，点击Refresh FNDB刷新宏包列表（先结束WinEdt的编译）；
+3. 回到WinEdt，使用PDFTeXify重新编译Thesis.tex。
+
+Ref:
+LaTeX手动安装宏包（package）以及生成帮助文档的整套流程
+http://www.cnblogs.com/csucat/p/4832091.html

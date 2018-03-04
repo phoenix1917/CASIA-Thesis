@@ -1,0 +1,446 @@
+This package, initially based on txfonts, provides many fixes and enhancements to the txfonts package, splitting it into two separate packages---newtxtext and newtxmath, which may be run independently of one another. It provides scaling, improved metrics, and other options. In particular, newtxmath offers a libertine option which substitutes Linux Libertine (provided with TeXLive and MikTeX) italic and Greek letters for the default Times letters, providing a good match for the Libertine text font, which is heavier than Computer Modern but lighter than Times, and in my experience, looks very sharp and clear on the screen.
+
+Current version: 1.53 2017-12-14
+
+This material is subject to the LaTeX Project Public License. See http://www.ctan.org/license/lppl1.3
+for the details of that license.
+
+Changes in version 1.53
+1. Package now requires the centernot package, used to construct better replacements for negated relations when to option nosymbolsC is specified.
+2. Added code to handle enhanced option charter to newtxmath. The new version makes use of newly constructed Greek letters that match the Charter design.
+
+Changes in version 1.528
+Spacing corrections in math for comma and period under option utopia (or erewhon.)
+
+Changes in version 1.527
+Corrected newtxmath.sty so that package behaves under XeLaTeX and LuaLaTeX as described in documentation, setting \rmdefault to minlibertine, if necessary.
+
+Changes in version 1.526
+Changed the footnote marker code to remove a conflict with the KOMA classes.
+
+Changes in version 1.525
+Version 1.524 shipped without the updated versions of ntx[b]sys.tfm, now rectified.
+
+Changes in version 1.524
+Added a matrix transpose character, named \transp, used like $\mathbf{H}^{\transp}$.
+
+Changes in version 1.523
+Modified newtxtext.sty as in 1.522 to work as expected with scrextend.sty.
+
+Changes in version 1.522
+Modified newtxtext.sty so that footnotes work as expected with the KOMAScript classes. Formerly, multiple footnote markers were not separated correctly under the KOMA option 
+footnotes=multiple.
+
+Changes in version 1.521
+Modified newtxtext.sty so that text figure styles are selected always in the \AtEndPreamble hook. (Formerly, using babel would prevent this.)
+
+Changes in version 1.52
+Corrected some metadata items in the otf files.
+
+Changes in version 1.519b
+Removed a spurious tfm file.
+
+Changes in version 1.519a
+A script error resulted in some older version of files being included in version 1.519. This version contains the up-to-date files.
+
+Changes in version 1.519
+Corrected an error in the bold large small cap font and its support files. (Thanks Michael McNeil Forbes.)
+
+Changes in version 1.518
+Redistributed a number of math glyphs from the symbol font in order to prevent bad rounding of heights that adversely affected the thickness of the horizontal bar on the radical.
+
+Changes in version 1.517
+Reworked the effects of the theoremfont option to newtxtext, which now defines the plain theorem style only if amsthm was loaded before newtxtext.
+
+Changes in version 1.516
+Corrected an incompatibility with ntheorem package.
+
+Changes in version 1.515
+1. Corrected definitions of \checkmark, \maltese, \circledR. 
+2. Improved the spacing of theoremfont, changing \topsep to \medskipamount.
+
+Changes in version 1.514
+Added code to support use of option baskerville to newtxmath, meant for math italic to accompany BaskervilleF.
+
+Changes in version 1.513
+Changed availability of \BIx macros to work around conflicts with other packages. They may now be enabled with the option useBImacros, otherwise thay are disabled.
+
+Changes in version 1.512
+Corrected the definition of the math accent \vec, undefining it before its new definition.
+
+Changes in version 1.511
+Corrected documentation regarding \setSYdimens and \setEXdimens.
+
+Changes in version 1.51
+1. Added full bold version of Blackboard Bold from STIX 1.1.
+2. New option, varvw, to access rounder versions of v and w only in math italic.
+3. Updated documentation file.
+4. Added new macros like \BIx to access bold math italic letters directly.
+5. Added Opentype versions of text fonts.
+
+Changes in version 1.5
+1. Changes to metadata in some component math pfb files (family name and style name) for better CSS compliance.
+2. Addition of new slanted and upright integrals, replacing those in versions prior to 1.5.
+3. Added smaller versions of large operator symbols, called with option smallerops.
+4. Added macros to allow changes of math fontdimens---\setSYdimens and \setEXdimens.
+5. Replaced a few math glyphs with versions that are, IMO, better.
+6. Added a number of new math symbols and delimiters.
+7. Changed heights of large delimiters to match those in common usage.
+
+Changes in version 1.466
+Corrected some kerning issues involving bracket, f and paren in regular, bold and theoremitalic. 
+
+Changes in version 1.4651
+Removed some afm and pfb files that were inadvertently included in version 1.465.
+
+Changes in version 1.465
+1. Corrected incorrect upright oldstyle glyphs in Theorem font.
+2. Further reworking of text metrics following latest update to afm2tfm, which prevents lowering heights for a number of letters.
+3, Added support for the soon-to-be released text packages, cochineal, a fork of crimson.
+
+
+Changes in version 1.464
+1. Changes to definitions of \widehat and \widetilde in newtxmath.sty so they bahave as expected in nested accents.
+2. Reworked text metrics to repair heights of latters d and t in text mode, caused by an afm2tfm bug, now fixed.
+
+Changes in version 1.463
+Modified line 130 of newtxmath.sty in order to function as intended with XeLaTeX. (Thanks Jean-François Burnol.)
+
+Changes in version 1.462
+Changes to newtxmath.sty to handle mismatched choices of fonts in text and math operators/math italic. 
+
+Changes in version 1.461
+1. Removed second \newif\ntx@babel, which was causing misbehavior.
+2. Added definition of \LGCscale for use with Tempora and similar packages containing Greek and Cyrillic to match Times text.
+3. Changed documentation to better explain the use of babel and substitutefont with the \useosf macro in newtxtext.
+
+Changes in version 1.46
+There are several changes to newtxmath, all related to its subscript rendering.
+(i) A new option, nonewtxmathopt, prevents the use of optical sizes for mathematical subscripts. This can in some cases improve the rendering in cases where spacing is problematic.
+(ii) Inspired by the subscriptcorrection option in mtpro2, a similar option is now available in newtxmath. It is designed for use only when Times math fonts are being used. 
+(iii) The optical sizes in newtxmath (Times) have been refined to work around some spacing issues.
+(iv) A new option, scalesubdrop, changes the fontdimens sigma_16 and sigma_17 by a multiplicative factor. E.g., scalesubdrop=1.4 will change the drop of the subscript to 40% more than its default value.
+
+Changes in version 1.452
+Modified encoding files for T1 and LY1 so that << and >> ligatures work as expected.
+
+Changes in version 1.451
+Further revisions to newtxmath.sty to improve usage of \mathrm, \mathit, \mathbf, \mathnormal for Greek uppercase letters with text font packages having appropriate OT1-encoded fonts with uppercase Greek glyphs in the first 11 slots.
+
+Changes in version 1.45
+1. Reworked math Greek so that it supports \mathnormal, and supports \mathrm and \mathit provided appropriate OT1-encoded text fonts are provided. Currently, this works with newtxtext and libertine, and will be supported by other text families after the OT1 versions are crafted.
+2. Added control sequences to select italic (slanted) Greek letters individually---e.g., \Omegait, \alphait.
+
+Changes in version 1.44
+1. Corrected problems with BlueValue metrics for several fonts.
+2. Changed many Greek letter definitions to \mathalpha to allow correct response to \mathnormal. (Thanks, Michael Shell.)
+3. Removed *-scla-*.{tfm,vf}, duplicates of those in ptmsc package.
+4. Corrected a metric error affecting upper limit in bold version of cmintegral symbol and its relatives.
+
+Changes in version 1.437
+1.  Added possibility of word spacing changes with options tighter, looser, spacing, stretch and shrink.
+2. Minor changes to .sty files.
+
+Changes in version 1.436
+Added encoding files ntx-*th*.enc that had been misplaced in newpx.
+
+Changes in version 1.435
+Changes to ntx[b]exx, the math extension fonts---metrics for cmintegrals modified, largest root symbol extended horizontally.
+
+Changes in version 1.434
+1. Corrected definitions of \textsquare and \openbox in newtxmath. (Thanks, Jean-François Burnol.)
+2. Added a new macro, \useproportional, to newtxtext.sty. It works analogously to \useosf, and may be useful if working with babel, where the option proportional to newtxtext should not be used is loading a math font.
+
+Changes in version 1.433
+Corrected definition of \tosfstyle in newtxtext.sty. (Thanks, Aresh Esbati.)
+
+Changes in version 1.432
+Small changes to newtxmath.sty affecting only users of minion option with \varkappa and \varkappaup.
+
+Changes in version 1.431
+Corrected an error in newtxmath.sty with minion option.
+
+Changes in version 1.43
+1. Reorganized 7 bit AMS math fonts A and B to occupy just one 8 bit font, perhaps reducing the number of math families in use. Math output should be unchanged.
+2. Modified the default definition of \hbar, in case option noamssymbols was specified.
+
+Changes in version 1.42
+1. Modified newtxtext.sty to detect whether babel loaded and change behavior of osf accordingly.
+2. Corresponding change to documentation.
+
+Changes in version 1.412
+Corrected some errors in *ntxsups.fd affecting bfseries.
+
+Changes in version 1.411
+Corrected handling of the 'proportional' figure option.
+
+Changes in version 1.41
+1. Added italic "theorem font" for statements of theorems with upright punctuation and figures.
+2. Added upright version of \varkappa.
+3. Updated documentation.
+
+Changes in version 1.401
+Include fd files inadvertently omitted from version 1.4.
+
+Changes in version 1.4
+1. All text fonts are now based on TeXGyre Termes, and some modifications thereof. In T1 encoding, no composite glyphs are needed.
+2. Small caps are now available in traditional txfonts sizes (petite caps, as in tgtermes) and a newly constructed small cap alphabet whose metrics match Adobe's Times Small Caps in upright shapes.
+3. Expanded choice of figure styles---{tabular,proportional}X{lining,oldstyle}+superior in all four styles.
+4. In all four styles, superior alphabets also contain lower case letters, including eacute and egrave.
+
+Changes in version 1.322
+1. Corrected flaw in leftfloor (bigdelims version)---thanks Jochen Ketter.
+2. Corrected some missing accents in ntxbmia.
+
+Changes in version 1.321
+Changed \sqrt macro to correct problem with spacing before the radical sign.
+
+Changes in version 1.32
+Corrected comma math metrics in newtxmath with both newtxtext and libertine. (Thanks Thomas Weidner.)
+
+Changes in version 1.30
+Corrected errors in ntx[b]exa with extensions of \lbag and \rbag. (Thanks Erik Massop.)
+
+Changes in version 1.29
+1. Added option adobesc to newtxtext, which should be specified only if you wish to use the commercial Adobe Small Caps rather than the default newtxtex small caps. This requires installing the ptmsc package from CTAN and installing the pfb files. See the documentation for ptmsc.
+2. Added option erewhon to newtxmath, to accompany the new Erewhon font package, based on Utopia and Heuristica.
+3. Added option scosf to newtxtext, specifying use of oldstyle figures in small cap text. This has no effect if you also specify osf, which forces oldstyle figures everywhere except in math mode.
+
+Changes in version 1.28
+Added a "frenchmath" option to newtxmath, which makes use of upright versions of Greek letters and upright capitals instead of Roman italic capitals.
+
+Changes in version 1.27
+Corrections of metric issues in bold math italic.
+
+Changes in version 1.26
+Added the options utopia, heuristica to load math italics from Utopia and oldstyle figures from Heuristica (an extension of Utopia) rather than Times. The Heuristica package must, of course, be installed and enabled. 
+
+Changes in version 1.25
+Added the options baskervaldx, Baskervaldx to load math italics from Baskervaldx rather than Times. The Baskervaldx package must, of course, be installed and enabled. 
+
+Changes in version 1.241
+Changed mod in 1.24 to always use math accents from newtxtext to an option triggered by timesmathacc. The previous version was problematic in languages where accents might occur in operator names.
+
+Changes in version 1.24
+1. Modified math macros to always use mathaccents from newtxtext, as the accents from libertine and other text fonts proved to be not always suitable as math accents.
+2. Added \RequirePackage{textcomp} to newtxtext.sty
+
+Changes in version 1.23
+1. Added macros and glyphs for mathaccents \widearc and \wideOarc.
+2. Added code to newtxtext.sty so that option osf does not affect math use of lining figures, making \useosf unnecessary but harmless. (Thanks to Pablo González for this fine suggestion.)
+
+Changes in version 1.221
+Only change is to include latest verion of txex-bar.pfb, required for correct extensible parens.
+
+Changes in version 1.22
+1. Added + sign from URW Times to lettersA to provide a better match to minus, times, divide when used with non-Times text fonts.
+2. Small modifications to OMS metrics,
+3. Modified tops and bottoms of paren extensions (in largesymbols) to more resemble the fixed sizes.
+
+Changes in version 1.21
+Corrected problems with bold math parens and brackets under option bigdelims.
+
+Changes in version 1.20
+Corrected issues with extensible delimiters created inadvertently in 1.18.
+
+Changes in version 1.19
+1. Changed the default sans serif font from the txfonts version of Helvetica (or a clone) to the TeX-Gyre Heros family, which is more developed. (In particular, its textasteriskcentered is much better.)
+2. Changed a part of the footnote macro to prevent a subsequent space, adding instead a smaller horizontal space to prevent the footnote marker in the footer from colliding with its text.
+3. Added a new option helvratio to allow changes in the scale for sans serif. If omitted, it defaults to .9 so that if, in effect, scaled=s, helvetica will be scaled to .9*s.
+
+Changes in version 1.18
+1. Corrected some misbehaviors under bigdelims.
+2. Added a number of new math accents and macros. See newtxdoc.pdf for details.
+
+Changes in version 1.17
+1. Corrected behavior of math mode < and > under bigdelims option.
+2. Corrected omlnxlmi.fd so that bold math italic option always corresponds to regular weight option.
+3. Added several glyphs to bold math that were missing because they are not available in the Libertine Semibold Italic. (Created bold math italic y, g, v.)
+3. Many changes to metrics in libertine math mode, responding to a detailed report of problems from Michel Senesi.
+
+Changes in version 1.16
+Added option liby to newtxmath, affecting only behavior with libertine option, under which liby sets the math italic y to Libertine italic y instead of the math italic y from  txfonts.
+
+Changes in version 1.151
+Changed handling of superiors so as not to ignore those in minipages.
+
+Changes in version 1.15
+Added minlibertine fonts and modified newtxmath.sty to improve behavior under XeLaTeX and LuaLaTeX.
+
+Changes in version 1.141
+Corrected two errors in definitions of math delimiters <,> under bigdelims option.
+
+Changes in version 1.14
+1. Many changes to largesymbols. There is a new option bigdelims which changes the default versions of the delimiters to ones that are bigger at the two smallest sizes, and more distinct.
+2. Modified definitions of integrals to conform to amsmath option intlimits.
+3. The package amsmath is now required, and is loaded by newtxmath, if necessary.
+4. Substantial changes to lettersA, adding a number of new glyphs for the bigdelims option.
+
+Changes in version 1.13
+1. Provides alternate versions of some math symbols. See newtxdoc.pdf for details.
+2. Corrected behavior of scaled in newtxmath.
+
+Changes in version 1.12:
+1. Changed newtxtext.sty so that Helvetica is scaled by .9 times newtx scale in all cases.
+
+Changes in version 1.11:
+1. Substantial further changes to math extension fonts to provide better size-matching. These changes are also required for use in newpxmath 1.01. 
+
+Changes in version 1.10:
+1. Modified the metrics for the comma in math mode in all flavors to correct spacing problems that were most obvious in subscripts.
+2. Changed upper-case Greeks to be mathord rather than mathalpha for consistency with later declarations. 
+3. Substantial changes to math extension fonts to improve behavior. Package amsmath.sty is now required, as its handling of extendable delimiters is much superior to the default (plain tex) macros.
+4. Changed name largesymbolsA in newtxmath.sty to largesymbolsTXA to avoid a conflict with the esint package.
+5. The file newtx.map has been changed to add two new entries. Be sure to run the appropriate version of updmap for your system after installation of the package.
+
+Changes in version 1.09
+1. Modified the \@makefnmark macro so it allows either the default use with Times superior figures, or custom footnote markers based on redefining \thefootnote.
+2. Corrected some minor errors in two fd files.
+
+Changes in version 1.08:
+All corrections affect the Times mode in text and math and the Libertine mode in math.
+1. Fixed problems with vector glyph in math italic.
+2. Added missing file ts1ntxrx.fd.
+3. Corrected problems in regular and bold math italic in sizes under 10pt.
+
+Changes in version 1.07:
+Added italic small caps font, with and without oldstyle figures, to newtxtext. Fixed some obscure errors in the accompanying fd files.
+
+Changes in version 1.06:
+Added code to add option garamondx to newtxmath. (Requires package garamondx from CTAN, non-free.)
+
+Changes in version 1.05:
+A number of the changes here were due to valued feedback from Volodya Shavrukov.
+0. As of this version, it is required that you install libertine-type1, which serves as a replacement for libertine-legacy. Note too that the map file name has changed to newtx.map from ntx.map.
+1. Fixed some remaining references to libertine-legacy fonts so they point now to the included fonts.
+2. Added a new option largelibfigs to [libertine]{newtxmath}, changing the figures used in math mode from the default Libertine figures, which are about 8% shorter than Libertine's CapHeight, to Libertine .cap figures, which are exactly match Libertine CapHeight. (The .cap figures in semibold weight required for math bold were created to match the regular style.) 
+3. The included fonts zxlr.pfb and zxlz.pfb (used only for math) were updated to include .cap figures.
+4. Additional metric changes in ntxmi, ntxmi1 and ntxmia.
+5. New OMS symbol virtual fonts tailored for used with the libertine option in newtxmath.
+6. Corrected a number of scaling issues due to incorrect macros.
+7. Added a new macro \equalht to newtxmath.sty. Applicable only within libertine, with largelibfigs options, making argument set digits and letters to same height.
+
+Change in version 1.042:
+1. Changed name libertine-nu.tfm to Libertine-nu.tfm, as it always should have been.
+
+Changes in version 1.041:
+1. Fixed ntx[b]mia.{tfm,vf} so they no longer refer to libertine-legacy.
+
+Changes in version 1.04:
+1. Adds separate stripped down versions of the Libertine-Legacy fonts (just the parts used in math) so that it is not necessary to install the now obsolete Libertine-legacy package. (The package libertine.sty now points to libertine-type1, its replacement.)
+2. Adds a more distinctive nu, activated with the altnu option.
+3. The 7pt and 5pt versions of libertine math have been overhauled and are more spread out than former versions. Upright numbers have been added to the math fonts for better rendering in scriptstyle and scriptscriptstyle and more adjustable spacing.
+4. Because there are a great many changes in this version, the chance of error is rather high, but the basic functionality is there for the libertine option.
+5. IMPORTANT NOTE for TeX Live users: the name of the main map file for this package has been changed to newtx.map from ntx.map. Make sure that there is no copy of the latter in your texmf trees. If you write
+
+kpsewhich ntx.map
+
+and do not get a blank response, you should manually remove the file and update your lsR database.
+Changes in version 1.03:
+1. Copied parentheses from Times and Libertine Roman txt fonts into ntxmia so that better spacing could be applied in math mode. (The text glyphs are very narrow.)
+2. Modified spacing in 7pt and 5pt Libertine math fonts to remove extraneous right side-bearings.
+Changes in version 1.02:
+1. Additions to newtxtext to provide better superior figures, principally used for footnote and endnote markers.
+2. Corrected an encoding error in the 7pt and 5pt math symbol fonts, ntxsy7 and ntxsy5, that prevented display of some glyphs (eg, \langle, \rangle) in subscripts.
+Changes in version 1.01:
+1. Many minor adjustments to metrics.
+2. Added new option libaltvw to newtxmath, which, in libertine math mode, substitutes v and w math italic glyphs manufactured using FontForge, starting from the Libertine upsilon glyphs.
+Changes in version 1.00:
+1. Added option minion to newtxmath, allowing those possessing a recent basic version of MinionPro to use its Latin and Greek letters to replace the corresponding letters in math mode. (Version 2 or later of MinionPro-Regular.otf, MinionPro-Bold.otf, MinionPro-It.otf and MinionPro-BoldIt.otf required.) Using this option requires installation of the package minion2newtx.
+2. Corrected issue with height of accents in bold versions.
+3. Added a fix, perhaps temporary, for bad Libertine Italic Theta in fxlri.pfb.
+4. Revised ntx.map---needs to be enabled if never previously enabled, or rerun updmap[-sys] to register changes.
+
+Changes in version 0.99
+1. Main change is to correct faulty Libertine 5 and 7 pt math fonts distributed with version 0.98.
+2. More corrections to sty file and to metrics.
+
+Changes in version 0.98:
+1. Many metric changes in bold and regular weights of Libertine Greek glyphs used in newtxmath.
+2. Reworked the cmintegrals option to newtxmath and fixed the alphabets loaded by the bold Libertine version.
+3. The updated newtxmath seems to be compatible with the recent XeLaTeX and LuaLaTeX.
+
+Changes in version 0.97:
+Many metric refinements to the libertine option in newtxmath. The bold math version now works much better though the math accents in bold are somewhat problematic (closer than desirable to the glyphs) because Libertine declares its x-height in semibold and bold to be considerably greater than the actual x-heights, presumably for the benefit of characters that are accented by traditional (OT1) means. The effect is that math accents are lowered substantially. The only option for the math version may be to construct a virtual font without the raised x-height---Ugh.
+
+Changes in version 0.96:
+Adds the 40 font support files (.tfm, .vf, .fd) that implement the osf option in newtxtext.sty.
+
+Changes in version 0.95:
+1. Copied (virtually) a number of useful glyphs from {\tt symbolsC} to {\tt lettersA} in an effort to reduce the number of mathgroups, which comes perilously close to exceeding 16.
+2. Added option nosymbolsc to newtxmath that allows you to not load symbolsC, gaining a mathgroup.
+3. Added macro \ShowMathFonts to newtxmath, allowing you to track the mathgroups in use at any stage of the manuscript.
+4. Copied (virtually) the STIX Blackboard Bold letters into lettersA in order to give more options for \mathbb without increasing the number of mathgroups, and added the option vvarbb to make it the default target for \mathbb.
+5. Expanded documentation, especially concerning mathgroups.
+6. The macros \coloneq and \eqcolon now point to the correct glyphs.
+7. A number of changes to math font metrics.
+
+Changes in version 0.94:
+1. Replaced upright italic glyphs in {\tt lettersA} by their Libertine equivalents, under the option libertine to newtxmath.
+2. Fixes to documentation and to my error in libertinealt.enc---thanks are due to Petri Lievonen for picking this up.
+3. Added option varbb to newtxmath to force the use of the variant BB alphabet.
+
+Changes in version 0.93:
+1. Added optical weights in math italic and math symbol fonts to improve rendering at small sizes.
+2. Changed the Linux Libertine math bold weight to their semibold (z) math italics and Greek.
+3. Commented out the old txfonts method for square roots---it did not space out as well as laTeX's method.
+4. Improved a number of math font metrics.
+
+
+Installation: Note that any existing ntx.map must be disabled before installation.
+
+Mac OS X: To install, open a Terminal window and cd to inside the downloaded TDS folder.
+
+Method A (recommended): type
+
+sudo cp -Rfp * /usr/local/texlive/texmf-local
+
+then
+
+sudo mktexlsr
+
+then
+
+sudo -H updmap-sys --enable Map=newtx.map
+
+Method B: If you insist on making your font installations in your home folder, potentially making your personal installation become out of sync with updates to TeXLive, use instead
+
+(i) if you checked Update for All Users in TeXLive utility
+
+cp -Rfp * ~/Library/texmf
+
+then
+
+updmap --enable Map=newtx.map
+
+(ii) otherwise
+
+cp -Rfp * ~/Library/texmf
+
+then
+
+sudo updmap-sys --enable Map=newtx.map
+
+Linux: Very similar to Mac OS X.
+
+MikTeX: Copy the newtx.tds.zip to the root of the folder you use for personal additions to the TeX trees, open a command window, chdir to that folder, and type
+
+unzip newtx.tds
+initexmf --update-fndb
+initexmf --edit-config-file updmap
+
+The latter command should open updmap.cfg in your default editor, commonly Notepad. Add the line 
+
+Map newtx.map 
+
+to updmap.cfg, save and close. Then, in the command window, type
+
+initexmf --mkmaps
+
+You can ignore error messages that may occur here. This should result in a properly enabled newtx.
+
+The underlying glyphs from txfonts are good, and I believe I've improved the metrics and the package substantially. 
+
+Please send comments and bug reports or suggestions for improvement to
+
+msharpe at ucsd dot edu

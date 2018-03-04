@@ -1,0 +1,687 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[11pt]{article} 
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}% Begin paragraphs with an empty line rather than an indent 
+\usepackage{graphicx} 
+\usepackage{url}
+\usepackage{trace}
+%SetFonts
+% newtxtext text and newtxmath
+\usepackage{amsthm}
+\newtheoremstyle{oldplain}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+\theoremstyle{oldplain}
+\newtheorem{oldthm}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]  
+%\pdfmapfile{=newtx.map}
+\usepackage[osf,largesc,theoremfont]{newtxtext}
+\usepackage[T1]{fontenc}
+\usepackage[varqu,varl]{zi4}
+%\traceon
+\usepackage{newtxmath}
+%\traceoff
+%\useosf
+\usepackage{bm}
+%SetFonts
+\makeatletter
+\DeclareMathSymbol{\Sumop}{\mathop}{largesymbols}{"50}
+\makeatother
+\usepackage{array,booktabs}
+\title{New TX font package}
+\author{Michael Sharpe}
+\date{\today}  % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Introduction}
+This package is meant to be a replacement for Young Ryu's {\tt txfonts}. It is  a complete text ({\tt newtxtext}) and math ({\tt newtxmath}) package with roman text font provided by  a Times clone, sans serif based on a \textsf{Helvetica} clone, typewriter faces, plus math symbol fonts whose math italic letters are from a Times Italic clone. As of version 1.4, {\tt newtxtext} no longer depends on {\tt txfonts} but is based on the richer source \textsf{TeXGyre Termes}, but {\tt newtxmath} continues to use the {\tt txfonts} math glyphs with many metric adjustments and some wholesale modifications.
+
+\textsc{Very Important:} The math package changed substantially as of version 1.5, changing a number of glyphs, adding an option to reduce the sizes of large operators, and changing the integral signs to a choice of upright and slanted forms, each available in twelve variants. The new options are {\tt upint} (upright integrals) and {\tt smallerops} (smaller large operators.) Some previously available options may no longer have any effect. The changes are described in detail in the section on math mode options. A summary of the changes in version 1.5 is given in the Appendix.
+
+
+
+This math package works, after possibly replacing its math Roman and Greek letters, with fonts other than Times that are intermediate in weight between Computer Modern and Times. The free font Linux Libertine is one particular target---it is of nearly the same x-height as Computer Modern, but, not being a \emph{modern} font, does not have a high contrast ratio, and so appears  denser than Computer Modern but not as much so as Times. It is meant as a replacement for Times, but  differs from it in many characteristics, more similar to MinionPro than Times, and provides a better range of variants than Times---three weights (regular, semi-bold and bold) rather than just two, and has expert features in all weights: old-style figures, more extensive and more interesting ligatures,  and  small caps. In my opinion, material typeset in Linux Libertine looks better than the corresponding material typeset in Times. This seems especially true on the screen. As of version 1.0, the package also offers support for MinionPro as a math font, but with limitations described in detail below. More recently, an option to provide math support for the \textsf{garamondx} text font package was added.
+
+The {\tt newtx} package differs from {\tt txfonts} in the following ways:
+\begin{itemize}
+\item
+the new package is split into separate text and math packages that do not need to be used in conjunction;
+\item both text and math packages offer options not present in the original package, described below, including the option to use \textsf{libertine} Latin and Greek letters to replace \textsf{Times}, as well as a similar option \textsf{minion};
+\item wide accent glyphs have been corrected (they should have zero depth) so that they no longer collide with the underlying glyph;
+\item for those who do not like the integral in \textsf{txfonts}, an emboldened version of the Computer Modern integral is made available, matching the weight of the \textsf{txfonts} symbols;
+\item an upright partial derivative symbol has been added, named \verb|\uppartial|;
+\item there is now an option to get braces more pleasing to older eyes;
+\item macros have been added to bring the calls to Greek symbols more into conformity with \textsc{psnfss} and Mathtime Pro~2;
+\item problems using \textsc{ams} macro packages before \textsf{txfonts} are settled;
+\item \verb|\coloneq| and \verb|\eqcolon| now point to the correct glyphs;
+\item The problem with the {\tt ogonek} accent  and tabular environments (bad definition of \verb|\k|) is fixed;
+\item The default encoding for \textsf{newtxtext} is now T$1$, but support is offered also for OT$1$ and LY$1$. As some add-on packages are available only in T$1$, that seems the best current choice.
+\item Sans serif is by default taken from TeXGyreHeros, and by default at 90\% of the scale factor (set by {\tt scaled}, default value {\tt1}). The option {\tt helvratio=.98} will change that to 98\%.
+\item \verb|\varkappa| $\varkappa$ has been moved from {\tt AMSb} to {\tt lettersA}, and is now accompanied by an upright form \verb|\upvarkappa| $\upvarkappa$ which behaves as it should when using the {\tt frenchmath} option.
+\end{itemize}
+\section{Text mode options}
+Beginning with version 1.4, the text font component of \textsf{newtx} is no longer dependent on the {\tt txfonts}, and is constructed entirely from \textsf{TeXGyre Termes} and some modifications thereof.
+
+The text mode environment invoked by
+\begin{verbatim}
+\usepackage{newtxtext}
+\end{verbatim}
+has several options, a number new to version 1.4: you may write
+\begin{verbatim}
+\usepackage[scaled=.93]{newtxtext}
+\end{verbatim}
+to load the roman and typewriter text fonts at 93\% of normal size, and the sans serif (\textsf{Helvetica} clone) at scale $0.9*0.93$. This is not of much utility if the package is used with the math package {\tt newtxmath} to which it is already matched, but may be with other math packages. The options
+\begin{verbatim}
+\usepackage[scaled=.95,helvratio=.96]{newtxtext}
+\end{verbatim}
+load roman and typewriter text fonts at 95\% of normal size, and the sans serif (\textsf{Helvetica} clone) at scale $0.95*0.96$.
+
+The option \texttt{osf} instructs the text fonts to use old-style figures \oldstylenums{1234567890} rather than the default lining figures $1234567890$. As of version $1.23$, {\tt newtxtext} loads initially with lining figures so the math package uses lining figures in math mode. The option {\tt osf} changes the default to old-style figures in text at the very end of the preamble, forcing the use of old-style figures in text, but not math. In earlier versions, it was necessary to run 
+\verb|\useosf| after loading {\tt newtxmath}. This is no longer required. 
+
+If you use the {\tt babel} package, you should load it before {\tt newtxtext}---for example:
+\begin{verbatim}
+\usepackage[<babel options>]{babel}
+\usepackage[osf]{newtxtext}
+\end{verbatim}
+More generally, the pattern of the preamble should be:
+\begin{verbatim}
+<encoding options>
+[optional] \usepackage{substitutefont} % so you can change babel's fonts
+[optional] \usepackage[<babel options>]{babel}
+\usepackage[p,osf]{newtxtext}% osf in text, lining figures in math
+<other font loading commands>
+\usepackage{newtxmath}
+<substitutefont commands>
+\end{verbatim}
+Here is a specific example following this pattern.
+\begin{verbatim}
+\usepackage[LGR,T1]{fontenc} % spell out all text encodings used
+\usepackage[utf8]{inputenc} % 
+\usepackage{substitutefont} % so we can use fonts other than those in babel
+\usepackage[greek.polutoniko,english]{babel}
+\usepackage[largesc,osf]{newtxtext} % 
+\usepackage[varqu,varl]{zi4}% inconsolata
+\usepackage{cabin}% sans serif
+\usepackage[vvarbb]{newtxmath}
+\useosf % use oldstyle figures except in math
+\substitutefont{LGR}{\rmdefault}{Tempora} % use Tempora to render Greek text
+\end{verbatim}
+
+As of version 1.4, there are four normal figure styles: tabular lining, tabular oldstyle, proportional lining and proportional oldstyle, the default figure alignment being \texttt{tabular}. To make \texttt{proportional} the default, use the option \texttt{p} or \texttt{proportional}.
+
+Option {\tt defaultsups} (same effect as {\tt defaultsups=true}) forces the package to use the \LaTeX\ default footnote markers (or, at least, those in force when the package is loaded) instead of those preferred by the package---Times Roman superior figures instead of spindly ordinary Times lining figures reduced to about 70\%. (Footnote markers in minipages use the default lowercase italic alphabetic characters, unless otherwise specified by redefining \verb|\thempfootnote|.) For better control over position and size of footnote markers, use the {\tt superiors} package after loading {\tt newtxtext}. The \verb|\sustyle| font switch and its related \verb|\textsu| macro know not only about figures, but also the lower case letters, including \texttt{egrave}, so that traditional French expressions like \textlf{1}\textsu{i\`ere} may be typeset correctly.
+
+Option \texttt{largesc} changes the small cap glyphs from the default petite caps defined in TeXGyre Termes (same size as in txfonts) to a larger size that, in upright shapes, is metrically compatible with Adobe's small caps. These are about 10\% larger than petite caps. For a comparison, \textsc{Small Caps}, {\usefont{T1}{qtm}{m}{sc}Petite Caps}, and \textsc{\textit{Italic Small Caps}}, {\usefont{T1}{qtm}{m}{scit}Italic Petite Caps}.
+
+Option \texttt{adobesc} is only for those who own licenses for \textsf{Adobe Times Small Caps} and install them into the \texttt{ptmsc} package downloaded from \textsc{ctan}. This option loads \texttt{largesc} and substitutes the Adobe glyphs, where available, including their larger Regular and Bold tabular oldstyle figures.
+
+The {\tt theoremfont} option changes the default font used for the {\tt plain} theoremstyle of {\tt amsthm}, keeping italic text but substituting upright figures and punctuation, and, provided you have loaded {\tt amsthm} before {\tt newtxtext}, it will redefine the plain theoremstyle.  For example, with this option, you get theorem statements like this:
+
+\begin{thm}
+This is Theorem Italic: text numbers are upright---12345; punctuation is in many cases upright (also, parens, braces \{\} and brackets []). What about question marks and exclamations? Also upright! [These fit better with math mode punctuation and figures, like: for all $x\in[0,1]$, let $f(x)\coloneq \exp(\alpha x)$].
+\end{thm}
+Compare this to traditional {\tt plain} theoremstyle with the same text:
+\begin{oldthm}
+This is Theorem Italic: text numbers are upright---12345; punctuation is in many cases upright (also, parens, braces \{\} and brackets []). What about question marks and exclamations? Also upright! [These fit better with math mode punctuation and figures, like: for all $x\in[0,1]$, let $f(x)\coloneq \exp(\alpha x)$].
+\end{oldthm}
+
+If you are using another theorem package (e.g., ntheorem, theorem) you will have to add your own descriptors as specified in the its documentation and set the body font to \verb|\slshape|.
+
+\section{Spacing issues}
+This new version of {\tt newtxtext} has spacing that is a little different, in its default state, from that of the old {\tt newtxtext}. In small part this is due to the finer kerning of TeXGyre Termes, but mostly because the three parameters that govern inter-word spacing are not the same.
+\begin{verbatim}
+                               txfonts     Termes
+fontdimen2 (interword space)   .25em       .25em
+fontdimen3 (interword stretch) .15em       .2em
+fontdimen4 (interword shrink)  .06em       .1em
+\end{verbatim}
+That is, {\tt Termes} has the same normal spacing as {\tt txfonts} but its spacing is more flexible in terms of both stretch and shrink. More frequently than not, a paragraph built with {\tt Termes} will occupy more space than the same built with {\tt txfonts}. For this reason, the package offers some ways to change the spacing parameters. This may be important if you are trying to imitate the pagination of a document built using~{\tt txfonts}.
+
+Option {\tt tighter} sets the three fontdimen values to those of {\tt txfonts}.  
+
+Option {\tt looser} sets the three fontdimen values to \verb|{.3em,.2em,.1em}| respectively. 
+
+If you want full control, the options {\tt spacing, stretch, shrink} allow you to modify one or more of the above fontdimens. For example,
+\begin{verbatim}
+\usepackage[stretch=.15em,shrink=.095em]{newtxtext}
+\end{verbatim}
+
+\section{Math mode options}
+The package invoked by
+\begin{verbatim}
+\usepackage{newtxmath}
+\end{verbatim}
+loads the math part of the {\tt txfonts} (with revised metrics and additional glyphs) and should be loaded \emph{after} the text font and its encoding have been specified, as it uses the text font settings to define how operators, numbers, math accents, \verb|\mathrm|, \verb|\mathbf| etc.\ are rendered. You should also load a Typewriter font so as not to generate mysterious error messages about \textsf{metafont} trying to generate \texttt{ectt10}. The package offers a number of options.
+\begin{itemize}
+\item {\tt upint} (new as of version 1.5) selects upright integrals---the default shape is slanted. Each shape/size of integral takes one of twelve form, illustrated below in the case of display size slanted integrals.
+\[\int\quad\oint\quad\iint\quad\iiint\quad\iiiint\quad\oiint\quad\oiiint\quad\varointclockwise\quad\ointctrclockwise\quad\fint\quad\sumint\quad\sqint\]
+named respectively
+\begin{verbatim}
+\int \oint \iint \iiint \iiiint \oiint 
+\oiiint \varointclockwise \ointctrclockwise \fint \sumint \sqint
+\end{verbatim}
+The three sizes of the upright integrals look like:
+\begin{center}
+  \begin{tabular}{@{} cl @{}}
+    \hline
+    Glyph & Command\\ 
+    \hline
+    $\smallintup$ & \verb|\smallint[up]|\\ 
+    $\intup$ & \verb|\int[up]|  \\ 
+    $\displaystyle{\intup}$ & \verb|\displaystyle{\int[up]}|\\ 
+    \hline
+  \end{tabular}
+\end{center}
+Note that the suffix {\tt up} is not required unless the document's integral style is slanted. You may find the \verb|\smallint| is useful for inline math mode when it is important not to change the line spacing.
+\item {\tt smallerops} (new as of version 1.5) causes big operators other than integrals to render up to 20\% less tall, so that displayed formulas may occupy less vertical space. For example, in the following display, the first operator is the usual \verb|\sum|, the second is what you would get with {\tt smallerops}, the third is \verb|\sum| and the fourth is \verb|\smallsum|, the latter being used mainly with inline math. 
+\[\sum \Sumop \sum \smallsum\]
+Similarly, there are \verb|\smallprod| and \verb|\smallcoprod| which, along with \verb|\smallsum|, are of class {\tt mathop}, unlike their Greek letter equivalents.
+\item (New as of version 1.5.) Two macros allow you to change {\tt fontdimen} values in math mode: \verb|\setSYdimens| and \verb|\setEXdimens|, which allow you to change the {\tt fontdimen} parameters for the {\tt symbol} and {\tt extension} fonts respectively. They may be used only in your preamble. Their arguments can be any valid \TeX\ commands to change {\tt fontdimen} values. For example:
+\begin{verbatim}
+\def\setSYdimens{\fontdimen16\font=2pt\fontdimen17\font=1.15\fontdimen17\font }
+\end{verbatim}
+Don't use these unless you know what you're doing.
+\item {\tt varg} causes the math italic letters \verb|g,v,w,y| to be replaced by versions which are more distinctive---eg, useful for distinguishing math italic \verb|v| from \verb|\nu|;
+\item {\tt varvw} causes the math italic letters \verb|v,w| to be replaced by versions which are more distinctive---eg, useful for distinguishing math italic \verb|v| from \verb|\nu|;
+\item {\tt libertine} loads different versions of math italic and bold math italic based on \textsf{Libertine} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default;
+\item {\tt minion} loads different versions of math italic and bold math italic based on \textsf{MinionPro} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default---see the extended discussion below;
+\item {\tt garamondx} loads different versions of math italic and bold math italic based on \textsf{garamondx} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default.
+\item {\tt baskervaldx} (or {\tt Baskervaldx}) loads different versions of math italic and bold math italic based on \textsf{Baskervaldx} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default.
+\item {\tt baskerville} (or {\tt Baskerville}, or {\tt baskervillef} or {\tt BaskervilleF}) loads different versions of math italic and bold math italic based on \textsf{BaskervilleF} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default.
+\item {\tt charter} (or {\tt xcharter}) loads different versions of math italic and bold math italic based on \textsf{XCharter} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default. \textbf{As of version 1.53, Greek letters in all styles are takenn from  new alphabets constructed to match the Charter style.}
+\item {\tt cochineal}  loads different versions of math italic and bold math italic based on \textsf{cochineal} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case.
+\item {\tt utopia} (or {\tt heuristica} or {\tt erewhon}) loads different versions of math italic and bold math italic based on \textsf{Utopia} rather than \textsf{Times}---the {\tt varg} and {\tt varvw} options are disabled in this case, as the equivalent variant forms are made available by default. The Heuristica or Erewhon font package must be installed to use this option. (Erewhon is based on Heuristica, but is 6\% smaller and has more complete figures styles and small cap styles, as well as a variety of smaller figures---superior, inferior, numerator, denominator.)  For example:
+\begin{verbatim}
+\usepackage[osf]{erewhon} %extension of Utopia
+\usepackage[varqu,varl]{inconsolata} % sans typewriter
+\usepackage[scaled=.95]{cabin} % sans serif
+\usepackage[utopia,vvarbb]{newtxmath}
+\end{verbatim}
+\item the {\tt libertine} option also replaces both slanted and upright Greek  symbols by the corresponding Libertine glyphs, and similarly for {\tt minion}, {\tt garamondx} and {\tt cochineal};
+\item
+{\tt cmintegrals} instructs \textsf{newtxmath} to load a thicker version of the Computer Modern integral in place of the \textsf{newtxmath} default---the txfonts integral (identical to the integral in the Wolfram fonts), which is not to everyone's taste---a consequence is that none of the special forms of \textsf{txfonts} integrals are available;
+\textbf{as of version 1.5, this option does nothing, as the new default is slanted integrals.}
+\item the combination
+\begin{verbatim}
+% The next line is no longer needed, as newtxmath Requires it
+%\usepackage{amsmath}% loads amstext, amsbsy, amsopn but not amssymb
+\usepackage{newtxmath}
+\end{verbatim}
+causes no error, unlike the same combination with {\tt txfonts}, but does nothing significant. (Recall that {\tt amsmath} is loaded automatically if you use an \textsc{ams} document class such as {\tt amsart} or {\tt amsbook}, as is {\tt amsthm}.) 
+%On the other hand,
+%\begin{verbatim}
+%%\usepackage{amsmath} % no longer needed
+%\usepackage[cmintegrals]{newtxmath}
+%\end{verbatim}
+%allows you to use the forms \verb|\iint|, \verb|\iiint|, \verb|\iiiint| and \verb|\idotsint| defined in {\tt amsmath}, but using the pumped-up Computer Modern integral loaded by {\tt newtxmath}. 
+\item If you wish to use \verb|\usepackage{amsthm}|, place it before loading {\tt newtxmath} or the result will  be
+\begin{verbatim}
+! LaTeX Error: Command \openbox already defined.
+\end{verbatim}
+\item {\tt uprightGreek} and {\tt slantedGreek} determine the form of Greek alphabet loaded---the default is {\tt uprightGreek}, which loads upright uppercase and slanted lowercase Greek symbols, as is customary in Anglo-American mathematical typesetting. With the option {\tt slantedGreek}, which you might want to use if you cared about ISO standards, all Greek symbols are slanted. No matter which is set, \verb|\Gammaup| (or \verb|\upGamma|) gives you upright \verb|\Gamma|, etc, and \verb|\Deltait|, \verb|\zetait| give you italic (i.e., slanted) versions of those letters. If you are using a text font family with properly constructed OT$1$--encoded versions, then, no matter what you chose as the default shape for upper case Greek letters, \verb|\mathnormal{\Omega}| etc will always produce the slanted version. (The macro \verb|\mathnormal| means essentially ``use the version of the symbol in {\tt letters}''---i.e., the math italic form. This did not always work as expected in versions prior to 1.45.) Currently, this works as expected with {\tt newtxtext} and {\tt libertine}. 
+\item Option {\tt frenchmath} sets the default style in math mode for rendering uppercase Roman and Greek letters to upright, and lowercase Greek letters to upright. (Introduced in v.\ 1.28.)
+\item The option {\tt cmbraces} instructs {\tt newtxmath} to ignore the brace collections from {\tt txfonts}, substituting a collection based on thickened versions of the Computer Modern braces, which I find much easier to distinguish from other delimiters. This works quite well in regular weight but looks a bit clunky in bold. The option {\tt bigdelims}, which superseded {\tt cmbraces}, is now not necessary---it is the default as of version 1.5.
+\item Option {\tt nonewtxmathopt} (or {\tt scale}, a mistake I cannot now erase) causes newtxmath to not make use of the optical math sizes (7{\tt pt}, 5{\tt pt}), as preferred by some.
+\item Option {\tt subscriptcorrection} enables the special spacing of some subscripts. (The default is {\tt nosubscriptcorrection}.)
+\item The \textsf{newtxmath} package contains three different Blackboard Bold alphabets, where original \textsf{txfonts} contained two. The default, triggered by \verb|\mathbb{}|, takes its glyphs from the font which replaces {\tt msbm} and has the same overall appearance of a hollowed-out text font, which I find neither bold nor blackboard-like. The second option, taken from \textsf{txfonts}, is triggered by \verb|\varmathbb{}|, is more geometric and, in my opinion, preferable but not optimal. The option {\tt varbb} makes \verb|\mathbb{}| synonymous with \verb|\varmathbb{}|. The third option is the double-struck glyphs from the STIX collection. See the expanded discussion below.
+\item {\tt nosymbolsc} causes the package to not load the {\tt symbolsC} fonts, saving  a math family. (This font contains mostly exotic symbols, along with some very useful, commonly used symbols like \verb|\coloneq| $\coloneq$, \verb|\eqcolon| $\eqcolon$, \verb|\notin| $\notin$, \verb|\notni| $\notni$, \verb|\neq| $\neq$, \verb|\nsubset| $\nsubset$ and \verb|\nsupset| $\nsupset$, but these have been moved (virtually) to {\tt lettersA} so they may continue to be used even if you use the option {\tt nosymbolsc}.) If this option is selected, then, as of version 1.53, new definitions are made for the missing negated symbols. The package {\tt centernot} is now required.
+\item {\tt amssymbols} (the default) and {\tt noamssymbols} determine whether the {\tt txfonts} versions of the \textsc{ams} symbols ({\tt AMSm}) are loaded---if so, they override previous settings in {\tt amsmath}. If you use the option {\tt noamssymbols}, then \verb|\mathbb{}| is set to mean the same as \verb|\varmathbb{}|. (One advantage of {\tt noamssymbols} is that you save two of your precious math families for other purposes, such as setting a couple of external math alphabets by means of the \textsf{mathalfa} package.) \textbf{Important note:} if you load an AMS class, like {\tt amsart}, then some trickery will be involved. The AMS classes have an option, {\tt noamsfonts} which currently (2017) does not work as advertised, but should be fixed in \TeX Live 2018. It is supposed to prevent the loading of {\tt AMSa} and {\tt AMSb}, which waste two slots. The following workaround seems like a reasonable stopgap until then.
+\begin{verbatim}
+\def\symAMSb{5}
+\documentclass[noamsfonts]{amsart} %or other AMS classes
+\let\symAMSb\@undefined
+\end{verbatim}
+This method of loading the AMS class will save you two slots.
+\item {\tt libaltvw} has effect only if the libertine option is selected---in this case, it substitutes for math italic v and w hand-crafted versions based on the Libertine upsilon glyphs.
+\item{\tt bigdelims} loads a different math extension font and redefines most of the small and big math delimiters to have larger sizes so that, for example, there is more of a distinction between \verb|(| and \verb|\big(| in math mode. If this option is specified, {\tt cmbraces} is ignored. (This option is unnecessary, as of version 1.5.)
+\item{\tt liby} has an effect only if the libertine option is selected---with this option, the math italic y is chosen to be Libertine's italic y instead of the default one from txfonts.
+\item As of version $1.18$ of {\tt newtxmath} (and version $1.07$ of {\tt newpxmath}) there are new math accents and macros available.
+\begin{itemize}
+\item
+\verb|\widehat| and \verb|\widetilde| have been extended from $3$ to $6$ sizes, and the smallest is now not as wide as in previous versions. In particular, you can now use, eg, \verb|$\widehat{X}^2$|, which gives $\widehat{X}^2$ without the hat colliding with the superscript.
+\item The math double bracket delimiters have been moved to another family so their use is less likely to cause a ``too many math families'' error. The ordinary sizes now have their own macros, \verb|\dlb| and \verb|\drb|, giving, eg, $\dlb 0,T\drb$, as commonly used in probability theory.
+\item The new macros \verb|\overgroup|, \verb|\undergroup|, \verb|\overgroupra|, \verb|\overgroupla|, \verb|\undergroupra| and \verb|\undergroupla| are intended as replacements for the \verb|\wideparen| and related macros from the \textsf{yhmath} and \textsf{fourier} packages. In fact, \verb|\overgroup| and \verb|\undergroup| are variants of the existing macros \verb|\overbrace| and \verb|\underbrace|, while the suffixes {\tt ra} and {\tt la} signify right arrow and left arrow respectively. The macro \verb|\widering| places a ring centered over an \verb|\overgroup|, not dissimilar from its use in {\tt yhmath}. Example:
+\begin{verbatim}
+\[\overgroup{ABC}\quad\overgroupra{ABC}\quad\undergroup{ABC}\quad
+\undergroupla{ABC}\quad \widering{ABCD}\] 
+\end{verbatim}
+gives
+\[\overgroup{ABC}\quad\overgroupra{ABC}\quad\undergroup{ABC}\quad\undergroupla{ABC}\quad\widering{ABCD}\] 
+\end{itemize}
+\item As of version $1.23$, the package contains new math accents \verb|\widearc| and \verb|\wideOarc| similar in effect to those from \textsf{fourier} and \textsf{kpfonts}. Example: 
+\begin{verbatim}
+\[\widearc{BC}\quad\widearc{ABC}\quad\widearc{ABCD}\quad
+\wideOarc{BC}\quad\wideOarc{ABC}\quad\wideOarc{ABCD}\]
+\end{verbatim}
+gives
+\[\widearc{BC}\quad\widearc{ABC}\quad\widearc{ABCD}\quad
+\wideOarc{BC}\quad\wideOarc{ABC}\quad\wideOarc{ABCD}\]
+%\item {largelibfigs} has effect only if the libertine option is selected---with this option, full-sized figures are substituted in math mode for the default Libertine figures, which are about 8\% below Libertine's Capheight.
+\item The option {\tt timesmathacc} changes the default selection of math accents from the Roman text font, forcing the use of the heavier Times accents. (Libertine has much lighter accents which can seem to almost disappear under some conditions.) If your language uses accented operator names, do not use this option.
+\end{itemize}
+\bigskip
+
+\subsection{Bold Math Italic macros}
+It can be a little awkward to specify bold math italic letters without using the \texttt{bm} package, which may have some unintended consequences for some users. The option \texttt{useBImacros} enables the definitions of macros of the form \verb|\BIA|---\verb|\BIz| that may be used instead, all based on the macro 
+\begin{verbatim}
+\DeclareRobustCommand{\BI@}[1]{%
+\begingroup\text{\mathversion{bold}$#1$}\endgroup}
+\end{verbatim}
+following which, the package conditionally defines, e.g.,
+\begin{verbatim}
+\DeclareRobustCommand{\BIA}{\BI@{A}}
+\end{verbatim}
+so that \verb|\BIA| works as expected in all math styles (display, text, script, scriptscript). These macros may be copied with minor changes so that other alphabets may be specified similarly.
+
+\textbf{IMPORTANT:} The Libertine text package is now once again named {\tt libertine}, but requires arguments that are different from the original {\tt libertine} package.
+
+\textsc{Example 1:}
+\begin{verbatim}
+\usepackage[osf]{newtxtext} % T1, lining figures in math, osf in text
+\usepackage{textcomp} % required for special glyphs
+%\usepackage{amsmath} % not needed, as it is Required by newtxmath
+\usepackage[varvf,vvarbb]{newtxmath}
+\usepackage{bm} % load after all math to give access to bold math
+%\useosf %no longer required if osf specified
+\end{verbatim}
+\textsc{Example 2:}
+\begin{verbatim}
+\usepackage[lining,semibold]{libertine} % a bit lighter than Times--no osf in math
+\usepackage[T1]{fontenc} % best for Western European languages
+\usepackage{textcomp} % required to get special symbols
+\usepackage[varqu,varl]{inconsolata}% a typewriter font must be defined
+\usepackage{amsthm}% must be loaded before newtxmath
+\usepackage[libertine,vvarbb]{newtxmath}
+\usepackage[scr=rsfso]{mathalfa}
+\usepackage{bm}% load after all math to give access to bold math
+%After loading math package, switch to osf in text.
+\useosf % for osf in normal text
+\end{verbatim}
+
+\textbf{Caution:} If your text font lacks an {\tt OT1} encoded version with uppercase Greek, \verb|\mathrm| and \verb|\mathit| applied to Greek letters won't give you what you expect.
+\section{Usage with Lua\LaTeX\ and Xe\LaTeX}
+As far as I can tell, \textsf{newtxmath} works with both, but requires a very specific loading order and choice of options. Briefly, except for {\tt libertine} text, the math options must all be loaded prior to loading and using {\tt fontspec}. Be aware that some text packages (eg, {\tt cabin}) may contain a line like
+\begin{verbatim}
+\RequirePackage{fontspec}
+\end{verbatim}
+which would prevent (``option clash'' error) a subsequent 
+\begin{verbatim}
+\usepackage[no-math]{fontspec}
+\end{verbatim}
+unless suppressed by an appropriate option. E.g., 
+\begin{verbatim}
+\usepackage[type1]{cabin}
+\end{verbatim}
+prevents the problem with the {\tt cabin} package.
+
+The following examples illustrate some general models, the most unintuitive being the first because it loads a small version, {\tt minlibertine}, of libertine text for use in math mode as numbers, basic symbols and operators.
+
+\textsc{Example 3:}
+\begin{verbatim}
+%load text components other than libertine text to be used in math
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.85]{beramono}% used only by \mathtt
+\usepackage[type1]{cabin}% used only by \mathsf
+\usepackage{amsthm}% must be loaded before newtxmath
+\usepackage[libertine]{newtxmath}
+% loads minlibertine because no other Roman text package was specified
+% so that \mathrm and \mathbf also use minlibertine
+\usepackage[scr=rsfso]{mathalfa}
+\usepackage{bm}% load after all math to give access to bold math
+%Now load the otf text fonts using fontspec---won't affect math
+\usepackage[no-math]{fontspec} % process with XeLaTeX or LuaLaTeX
+\usepackage{libertine}
+%\usepackage[osf,semibold]{libertine} for osf in text, semibold as bold
+\end{verbatim}
+The next example is similar, but in math mode, numbers, basic symbols, operator names, \verb|\mathrm| and \verb|\mathbf| will render with {\tt fbb-LF}, though  math italic and math Greek letters will be from {\tt libertine}. (Note that one specifies the encoding and redefines \verb|\rmdefault|. For reasons I don't yet understand, it may not work to load the font package---ie, don't substitute \verb|\usepackage{fbb}|, as that will mess up bold in the libertine text package.) 
+
+\textsc{Example 4:}
+\begin{verbatim}
+%load text components other than libertine text to be used in math
+\usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{fbb-LF}% Roman font for use in math mode
+\usepackage[scaled=.85]{beramono}% used only by \mathtt
+\usepackage[type1]{cabin}% used only by \mathsf
+\usepackage{amsthm}% load before newtxmath
+\usepackage[libertine,vvarbb]{newtxmath}
+% does not load minlibertine because another Roman text package was specified
+\usepackage[scr=rsfso]{mathalfa}
+\usepackage{bm}% load after all math to give access to bold math
+%Now load the otf text fonts using fontspec---won't affect math
+\usepackage[no-math]{fontspec} % process with XeLaTeX or LuaLaTeX
+\usepackage{libertine}
+\end{verbatim}
+
+
+\section{Alternate forms of glyphs}
+Prior to version 1.5, several math glyphs had alternate forms:
+\begin{center}
+  \begin{tabular}{@{} llll @{}}
+    \hline
+    Command & Result &  Alternate Commands & Alternate Forms\\ 
+    \hline
+    \verb|\emptyset| & $\emptyset$ & \verb|\varnothing, \emptysetAlt|& $\varnothing, \emptysetAlt$ \\ 
+    \verb|\forall| & $\forall$ & \verb|\forallAlt| & $\forallAlt$ \\ 
+    \verb|\exists| & $\exists$ & \verb|\existsAlt| & $\existsAlt$ \\ 
+    \verb|\nexists| & $\nexists$ & \verb|\nexistsAlt| & $\nexistsAlt$ \\ 
+    \hline
+  \end{tabular}
+\end{center}
+
+To use an alternate form throughout your document without changing all occurrences of the usual command, insert something like the following in your preamble after loading \texttt{newtxmath}:
+\begin{verbatim}
+\let\forall\forallAlt
+\end{verbatim}
+As of version 1.5, the old {\tt txfonts} versions of \verb|\forall|, \verb|\exists| and \verb|\nexists| have been removed and the {\tt Alt} versions substituted. Both \verb|\forall| and \verb|\forallAlt| generate $\forall$, and similarly with \verb|\exists| and \verb|\nexists|.
+
+\section{Conformity with amsmath}
+The {\tt newtxmath} package now contains a \verb|\RequirePackage{amsmath}|, as it uses a number of the macros defined there. To pass options to {\tt amsmath}, you can pass the options as options to \verb|\documentclass|. For example,
+\begin{verbatim}
+\documentclass[11pt,intlimits]{article}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\end{verbatim}
+will load {\tt amsmath} with option {\tt intlimits}. As of version 1.14, {\tt newtxmath} respects the {\tt amsmath} macros for placement of limits on integrals.
+
+\section{The {\tt minion} option}
+This option allows the use of MinionPro as math letters (Latin and Greek) within  the math font, but there are some caveats:
+\begin{itemize}
+\item
+you must use a recent version of MinionPro, such as the version that comes with recent versions of Adobe Reader. In addition, the fonts must installed under special names so they can be recognized by the support files---this is spelled out in the documentation for the minion2newtx package that must be downloaded from \url{CTAN.tug.org} and installed separately.
+\end{itemize}
+
+\section{The \TeX\ math font problem}
+Math font packages in \LaTeX\ are susceptible to the ``Too many math alphabets'' error, due to exceeding the limit of just sixteen math font families, or mathgroups, as they are called in \LaTeX. Put in oversimplified terms that do however correctly represent how this all works in \textsf{newtxmath}, the following math fonts are always loaded and permanently (if you didn't prevent loading of some features) occupying slots immediately following \verb|\begin{document}|, and others that may be called for in typesetting a mathematical expression can add to the list as the document grows.
+
+\textsc{Always loaded:}
+\begin{verbatim}
+0: operators
+1: letters
+2: symbols
+3: largesymbols
+4: AMSm (a combination of the old AMSa and AMSb)
+5: lettersA
+6: symbolsC
+7: largesymbolsTXA
+8: boldoperators
+9: boldletters
+10: boldsymbols
+11: boldlargesymbols
+\end{verbatim}
+\textsc{Notes:}
+\begin{itemize}
+\item
+The {\tt operators} font is essentially the Roman text font, used for names of operators and as the target for \verb|\mathrm|---its bold version is used as the target for \verb|\mathbf|;
+\item {\tt operators} is defined to be the OT$1$ encoded version of the text font in cases where that version is known to contain upright uppercase Greek letters in its forst eleven slots---eg, newtxtext, libertine.
+\item if you typeset an expression that, say, calls for a single bold glyph from  {\tt symbolsC}, that costs you an entire new slot, leaving only two remaining;
+\item same with, eg, \verb|\mathit|;
+\item same with an external Fraktur, Blackboard Bold or Script glyphs;
+\item if you run out of math alphabets, look first to dropping {\tt AMSm}  as well as {\tt symbolsC}, which can save you at least two slots;
+\item if space is tight, do not call bold versions of the fonts listed above where the bold version is not already loaded, to avoid loading a new mathgroup; 
+\item if you absolutely need a letter (not a math symbol) from some math font that would normally cost you another mathgroup, you might consider using as if it were text, with something like
+\begin{verbatim}
+\mbox{{\usefont{U}{ntxmia}{b}{n} X}}
+\end{verbatim}
+which allows you to use letter X from {\tt boldlettersA} but without any math features;
+\item there is a macro \verb|\ShowMathFonts| in {\tt newtxmath} which may be called at any point in your document, which will provide you a list of the mathgroups currently in use. This can be helpful in figuring out where problems occur. The output lines take the form
+\begin{verbatim}
+(<fam number>: <internal font id> = <tfm name> [newtx name])
+\end{verbatim}
+
+\end{itemize}
+\section{Bold math fonts}\label{sec:boldmath}
+Every math font in the {\tt txfonts} package, and in the {\tt newtx} package, is accompanied by a bold version. Some usage examples are given below. Generally, one may use either \verb|\boldmath| to change an entire formula to bold, or \verb|\boldsymbol| to change one symbol, but the spacing generally works better after loading the {\tt bm} package and using the \verb|\bm| macro.
+
+The text glyphs dotlessi (\verb|\i|) and dotlessj (\verb|\j|) are rarely needed in actual text---in many fonts, roman dotlessi is very similar to the numeral 1. They are however sometimes needed to build special math glyphs. The following table shows how to generate the mathematical forms of dotlessi and dotlessj. I illustrate with only dotlessi---dotlessj is entirely analogous.
+
+\begin{center}
+  \begin{tabular}{@{} llll @{}}
+    \hline
+    Type & Weight & Command & Result \\ 
+    \hline
+    Math Italic & Regular & \verb|$\hat{\imath}$| & $\hat{\imath}$ \\ 
+    Math Italic & Bold & \verb|$\bm{\hat{\imath}}$| & $\bm{\hat{\imath}}$ \\ 
+    Roman & Regular & \verb|$\hat{\textrm{\i}}$| & $\hat{\textrm{\i}}$\\ 
+    Roman & Bold & \verb|$\bm{\hat{\textbf{\i}}}$| & $\bm{\hat{\textbf{\i}}}$\\ 
+    \hline
+  \end{tabular}
+\end{center}
+\newcommand{\xyvec}[2]{\ensuremath{#1\mkern1.5mu\bm{\textbf{\i}}#2\mkern1.5mu\bm{\textbf{\j}}}}
+
+In math, bold roman characters are often used to indicate vector quantities, and for this one uses constructions like 
+\begin{itemize}
+\item
+\verb|$\mathbf{x}$| produces $\mathbf{x}$;
+\item
+\verb|$\bm{\mathrm{x}}$| produces $\bm{\mathrm{x}}$ (same as previous but may offer improved spacing);
+\item
+\verb|$\bm{x}$| produces $\bm{x}$ (not roman);
+\item
+\verb|$\bm{\hat{\mathbf{x}}}$| produces $\bm{\hat{\mathbf{x}}}$ (with a bold accent);
+\item \verb|$\bm{\dot{x}}$| produces $\bm{\dot{x}}$ (bold but not roman);
+\item the macro definition
+\begin{verbatim}
+\newcommand{\xyvec}[2]{%
+\ensuremath{#1\mkern1.5mu\bm{\textbf{\i}}#2\mkern1.5mu\bm{\textbf{\j}}}}
+\end{verbatim}
+allows you to write \verb|\xyvec{x}{+y}| to output $\xyvec{x}{+y}$;
+\item \verb|$\bm{\Gamma}$| produces $\bm{\Gamma}$ (bold Gamma);
+\item \verb|$\bm{\hat{\Gamma}}$| produces $\bm{\hat{\Gamma}}$ (bold Gamma with bold accent).
+\end{itemize}
+(The last two assume that you have effectively set the option {\tt uprightGreek}---the default.)
+
+\section{Blackboard bold}
+As mentioned briefly above, the package now has a new blackboard bold alphabet built-in, and some new macros to call the non-default versions. To summarize, the problems are:
+\begin{itemize}
+\item
+the default, called by \verb|\mathbb| is quite ugly and indistinct, but does cooperate with the bolding macros \verb|\bm| and \verb|\boldsymbol|;
+\item the original variant form called with the macro \verb|\varmathbb| is better, but the macro conflicts with \verb|\bm|. (In fact, the bold version is identical to the regular version, but it is still not right that it conflicts with them.) The problem stems from the part of the definition of \verb|\varmathbb| which allows you to insert an argument with more than one character, like \verb|\varmathbb{ABC}|. Another problem with \verb|\varmathbb| is that it conflicts with {\tt hyperref}---if you use the macro in a moveable argument such as a section heading, you will provoke a \LaTeX\ error message. The solution is to use macros that take a single character as argument, like \verb|\vmathbb{A}| and \verb|\vvmathbb{A}|, which both cooperate with \verb|\bm| and {\tt hyperref}.
+\item the third, new, alphabet is borrowed from the STIX fonts---it is sharp and quite clear, geometric in design. The only slight problem is that it lacks a full bold version, with only the letters C, D, H, N, P, Q, R, Z, d, e, i and j available. The macro \verb|\vvmathbb| provided to access this alphabet allows only a single character for its argument. The new option {\tt vvarbb} effectively makes \verb|\mathbb| mean the same as \verb|\vvmathbb|.
+(The reason for including these in the \textsf{newtx} package rather than calling them from the \textsf{mathalfa} package is that \textsf{newtx} leaves very little space for new math symbol fonts and math alphabets, and this way requires no additional such resources.
+\end{itemize}
+One interesting feature of the new alphabet is that it contains blackboard bold numbers, of which $0$ and $1$ will likely be the most useful, perhaps as operator names. I find $\vvmathbb{1}$=\verb|$\vvmathbb{1}$| useful in specifying an indicator, AKA characteristic function. Here are some examples:
+
+\begin{center}
+  \begin{tabular}{@{} llll @{}}
+    \toprule
+     & Regular & Bold & Remarks \\ 
+    \midrule
+Default  & \verb|$\mathbb{R}$| $\mathbb{R}$& \verb|$\bm{\mathbb{R}}$| $\bm{\mathbb{R}}$\\ 
+Variant 1     & \verb|$\varmathbb{R}$| $\varmathbb{R}$ &  & Bold is same as regular \\ 
+$\dots$or     & \verb|$\vmathbb{R}$| $\vmathbb{R}$ &  & Single char.\ argument\\ 
+Variant 2 & \verb|$\vvmathbb{R}}$| $\vvmathbb{R}$& \verb|{\boldmath $\vvmathbb{R}$}| {\boldmath $\vvmathbb{R}$} & Make a macro for this! \\ 
+%     & $\bm{\mathbb{AB}}$  & $\bm{\vmathbb{A}\vmathbb{B}}$ & $\bm{\vvmathbb{A}\vvmathbb{B}}$ \\ 
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\section{Samples from free Times and Libertine packages}
+\textsc{TXFONTS:}\\
+\begin{verbatim}
+\usepackage{txfonts}
+\end{verbatim}
+\[\includegraphics{sample-tx-crop}\]
+\begin{itemize}
+\item
+Complete match between text and math size and weight;
+\item first formula much too cramped;
+\item upper limit of integral much too close to integral sign;
+\item square on $t$ in integrand comes very close to colliding with it;
+\item square root in denominator aligned too far right.
+\end{itemize}
+
+\vspace{1pc}
+\textsc{NEWTXFONTS:}\\
+\begin{verbatim}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\end{verbatim}
+\[\includegraphics{sample-ntx-crop}\]
+\begin{itemize}
+\item
+Complete match between text and math size and weight;
+\item first formula much less cramped;
+\item upper limit of integral not too close to integral sign;
+\item square not too close to $t$ in exponent;
+\item better alignment of square root in denominator.
+\end{itemize}
+
+\vspace{1pc}
+\textsc{MathTimePro2:}\\
+\begin{verbatim}
+\usepackage{newtxtext}
+\usepackage[lite]{mtpro2}
+\end{verbatim}
+\[\includegraphics{sample-mtp-crop}\]
+\begin{itemize}
+\item
+Complete match between text and math size and weight;
+\item first formula quite spread out;
+\item upper limit of integral not too close to integral sign;
+\item plenty of space between square and $t$ in exponent.
+\end{itemize}
+
+\vspace{1pc}
+\textsc{Libertine and MathTimePro2:}\\
+\begin{verbatim}
+\usepackage{libertine}
+\usepackage[T1]{fontenc}
+\usepackage[lite]{mtpro2}
+\end{verbatim}
+\[\includegraphics{sample-libmtp-crop}\]
+\begin{itemize}
+\item
+Mismatch of weight between text and math;
+\item first formula quite spread out;
+\item upper limit of integral not too close to integral sign;
+\item plenty of space between square and $t$ in exponent.
+\end{itemize}
+
+\vspace{1pc}
+\textsc{Libertine and newtxmath:}\\
+\begin{verbatim}
+\usepackage{libertine}
+\usepackage[T1]{fontenc}
+\usepackage[libertine]{newtxmath}
+\end{verbatim}
+\[\includegraphics{sample-lib-crop}\]
+\begin{itemize}
+\item
+Very good match between text and math in size and weight;
+\item first formula not cramped;
+\item upper limit of integral not too close to integral sign;
+\item space between square and $t$ in exponent;
+\item better alignment of square root in denominator.
+\end{itemize}
+
+\vspace{1pc}
+\textsc{Mathptmx:}\\
+\begin{verbatim}
+\usepackage{mathptmx}
+\end{verbatim}
+\[\includegraphics{sample-ptmx-crop}\]
+\begin{itemize}
+\item
+Good match between text and math size and weight, though the summation symbol (from the system {\tt symbol} font) is too small and too dark;
+\item first formula well spread;
+\item upper limit of integral not too close to integral sign;
+\item space between square and $t$ in exponent;
+\item there are no upright Greek lowercase letters in this package;
+\item good alignment of square root in denominator;
+\item infinity symbol not sufficiently large?
+\item the package lacks a number of amenities that are present in other packages.
+\end{itemize}
+\section{Items installed} As well as a collection of PostScript fonts, virtual fonts, font definition files and the central {\tt newtxtext.sty} and {\tt newtxmath.sty} files, the package contains one map file {\tt newtx.map} that must be enabled for the package to function correctly. Its name was changed from {\tt ntx.map} to mirror the package name.) The file \texttt{implementation.pdf} in this distribution provides a manifest of all files installed together with a brief indication of the sources. (This file is somewhat outdated. The file {\tt mathnotes.pdf} adds details about the sources for the math fonts, though it is rather cursory.)
+
+The font files {\tt ntxexmods.pfb} and {\tt ntxbexmods.pfb} were derived from {\tt cmex10.pfb} by FontForgery, thickening the Computer Modern braces to match the weight of the \textsf{txfonts} braces. The pair {\tt ntxexb.pfb} and {\tt ntxbexb.pfb} were similarly derived from {\tt cmsy7.pfb} and {\tt cmex10.pfb} to produce more braces and matching integral signs based on Computer Modern. The {\tt.tfm} files {\tt rtx[b]mio.tfm} are simply unslanted versions of {\tt rtxmi}, from which we construct upright partial derivative symbols.
+The last two entries provide us with a way to access custom-encoded versions of {\tt fxlri.pfb} and {\tt fxlbi.map} in order to access some of the unencoded alternate characters---eg, Greek letters, {\tt J.alt} and {\tt v.alt}. The font file \textsf{LibertineTheta-Regular.pfb} was created from the Theta symbol in {\tt fxlri.pfb}, which requires some FontForge help to look correct.
+
+This version contains optical versions of the math italic and symbol fonts at 7\texttt{pt} and 5\texttt{pt}, allowing better rendering in \verb|\scriptstyle| and \verb|\scriptscriptstyle|. 
+\section{Appendix: Changes made in version 1.5}
+\begin{itemize}
+\item
+The large delimiters have been modified so match the heights in common usage by \texttt{cmex10} and other packages. (Those formerly used by \texttt{newtxmath} were somewhat shorter, resulting in unexpected behavior of \verb|\Big|, \verb|\bigg|, etc.)
+\item
+The integrals used in previous versions have been discarded and replaced by an upright and a slanted form, the latter being the default. The option {\tt upint} switches to the upright form. (The former option {\tt cmintegrals} now has no effect.) Integrals are of three types: small, textstyle and displaystyle. Each size is available in twelve variants. Assuming slanted (the default) is selected, there are 36 regular-weight forms:
+\setlength{\extrarowheight}{8pt}
+\begin{center}
+  \begin{tabular}{@{} llll @{}}
+    \toprule
+     Small && Text, Display& \\ 
+    \midrule
+$\smallint$  & \verb|$\smallint$|& $\int$, $\displaystyle{\int}$& \verb|$\int$|\\ 
+$\smalliint$  & \verb|$\smalliint$|& $\iint$, $\displaystyle{\iint}$&\verb|$\iint$|\\ 
+$\smalliiint$  & \verb|$\smalliiint$|& $\iiint$, $\displaystyle{\iiint}$& \verb|$\iiint$|\\ 
+$\smalliiiint$  & \verb|$\smalliiiint$|& $\iiiint$, $\displaystyle{\iiiint}$& \verb|$\iiiint$|\\ 
+$\smalloint$  & \verb|$\smalloint$|& $\oint$, $\displaystyle{\oint}$& \verb|$\oint$|\\ 
+$\smalloiint$  & \verb|$\smalloiint$|& $\oiint$, $\displaystyle{\oiint}$& \verb|$\oiint$|\\ 
+$\smalloiiint$  & \verb|$\smalloiiint$|& $\oiiint$, $\displaystyle{\oiiint}$& \verb|$\oiiint$|\\ 
+$\smallfint$  & \verb|$\smallfint$|& $\fint$, $\displaystyle{\fint}$& \verb|$\fint$|\\ 
+$\smallsqint$  & \verb|$\smallsqint$|& $\sqint$, $\displaystyle{\sqint}$& \verb|$\sqint$|\\ 
+$\smallsumint$  & \verb|$\smallsumint$|& $\sumint$, $\displaystyle{\sumint}$& \verb|$\sumint$|\\ 
+$\smallvarointclockwise$  & \verb|$\smallvarointclockwise$|& $\varointclockwise$, $\displaystyle{\varointclockwise}$& \verb|$\varointclockwise$|\\ 
+$\smallointctrclockwise$  & \verb|$\smallointctrclockwise$|& $\ointctrclockwise$, $\displaystyle{\ointctrclockwise}$& \verb|$\ointctrclockwise$|\\ 
+    \bottomrule
+  \end{tabular}
+\end{center}
+\item  The overly small delimiters ([\{ in Times are no longer used in math mode, being replaced by bigger versions. The former option {\tt bigdelims} no longer has any effect.
+\item There is a new option {\tt smallerops} which chooses smaller renditions (20\% smaller in displaystyle, 10\% smaller in textstyle) of the {\tt bigoperators}:
+\begin{verbatim}
+\bigsqcup
+\bigodot
+\bigoplus
+\bigotimes
+\sum
+\prod
+\bigcup
+\bigcap
+\biguplus
+\bigwedge
+\bigvee
+\bigcupdot
+\bigcapplus
+\bigsqcupplus
+\bigsqcapplus
+\bigsqcap
+\bigtimes
+\coprod
+\end{verbatim}
+\item The dot accents are now taken from a slightly larger series, making available \verb|\dot|, \verb|\ddot|, \verb|\dddot| and \verb|\ddddot|. For best horizontal alignment with other accents, choose the option {\tt timesmathacc} when loading {\tt newtxmath}.
+\item New accents have been added and the old vector accent has been replaced. The new accents are:
+\verb|\vec|$\quad\vec{}$\\
+\verb|\lvec|$\quad\lvec{}$\\
+\verb|\lrvec|$\quad\lrvec{}$\\
+\verb|\harpoonacc|$\quad\harpoonacc{}$\\
+\verb|\lharpoonacc|$\quad\lharpoonacc{}$\\
+\verb|\lrharpoonacc|$\quad\lrharpoonacc{}$\\
+\verb|\barbar|$\quad\barbar{}$\\
+\verb|\bartilde|$\quad\bartilde{}$\\
+\verb|\barhat|$\quad\barhat{}$\\
+\verb|\tildebar|$\quad\tildebar{}$\\
+\verb|\tildetilde|$\quad\tildetilde{}$\\
+\verb|\tildehat|$\quad\tildehat{}$\\
+\verb|\hatbar|$\quad\hatbar{}$\\
+\verb|\hattilde|$\quad\hattilde{}$\\
+\verb|\hathat|$\quad\hathat{}$\\
+\item New glyphs: (B denotes bigger, S denotes smaller)\\
+\verb|\cdotB| $\quad\cdotB$ (cf. \verb|\cdot| $\quad\cdot$)\\
+\verb|\cdotBB| $\quad\cdotBB$\\
+\verb|\circS| $\quad\circS$ (cf. \verb|\circ| $\quad\circ$)\\
+\verb|\bulletS| $\quad\bulletS$ (cf. \verb|\bullet| $\quad\bullet$)\\
+\verb|\bulletSS| $\quad\bulletSS$\\
+\verb|\bulletSSS| $\quad\bulletSSS$\\
+\verb|\primeS| $\quad\primeS$ (cf. \verb|\prime| $\quad\prime$)\\
+
+\item New macros \verb|\setSYdimens| and \verb|\setEXdimens| allow experts to modify some math font dimensions.
+
+\end{itemize}
+\end{document}  

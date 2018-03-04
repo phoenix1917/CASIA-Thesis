@@ -1,0 +1,66 @@
+%Filename: omlntxmi.fd
+%Created by: tex mi-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+\ProvidesFile{omlntxmi.fd}
+   [2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+\def\tx@donoopt{\newif\iftx@noopt}
+\expandafter\ifx\csname tx@nooptfalse\endcsname\relax
+  \tx@donoopt
+\fi
+
+\DeclareFontFamily{OML}{ntxmi}{\skewchar\font127 }
+
+
+\ifx\X@s@v@rg\undefined
+\iftx@noopt % no optical sizes
+\DeclareFontShape{OML}{ntxmi}{m}{it}{
+   <-> \ntxmath@scaled ntxmi
+}{}
+\DeclareFontShape{OML}{ntxmi}{b}{it}{
+   <-> \ntxmath@scaled ntxbmi
+}{}
+\else % optical sizes
+\DeclareFontShape{OML}{ntxmi}{m}{it}{
+   <-6.3> \ntxmath@scaled ntxmi5
+   <6.3-8.6> \ntxmath@scaled ntxmi7 % from 6.3 up to, but not including, 8.6
+   <8.6-> \ntxmath@scaled ntxmi%
+}{}
+\DeclareFontShape{OML}{ntxmi}{b}{it}{
+   <-6.3> \ntxmath@scaled ntxbmi5
+   <6.3-8.6> \ntxmath@scaled ntxbmi7 % from 6.3 up to, but not including, 8.6
+   <8.6-> \ntxmath@scaled ntxbmi%
+}{}
+\fi %tx@noopt
+\else %\X@s@v@rg is defined---values 0 (subst vw), 1(subst gvwy)
+\iftx@noopt
+\DeclareFontShape{OML}{ntxmi}{m}{it}{
+   <-> \ntxmath@scaled ntxmi\X@s@v@rg
+}{}
+\DeclareFontShape{OML}{ntxmi}{b}{it}{
+   <-> \ntxmath@scaled ntxbmi\X@s@v@rg
+}{}
+\else
+\DeclareFontShape{OML}{ntxmi}{m}{it}{
+   <-6.3> \ntxmath@scaled ntxmi\X@s@v@rg 5
+   <6.3-8.6> \ntxmath@scaled ntxmi\X@s@v@rg 7 % from 6.3 up to, but not including, 8.6
+   <8.6-> \ntxmath@scaled ntxmi\X@s@v@rg%
+}{}
+\DeclareFontShape{OML}{ntxmi}{b}{it}{
+   <-6.3> \ntxmath@scaled ntxbmi\X@s@v@rg 5
+   <6.3-8.6> \ntxmath@scaled ntxbmi\X@s@v@rg 7 % from 6.3 up to, but not including, 8.6
+   <8.6-> \ntxmath@scaled ntxbmi\X@s@v@rg%
+}{}
+\fi %tx@noopt
+\fi %\X@s@v@rg
+
+
+\DeclareFontShape{OML}{ntxmi}{l}{it}{<->ssub * ntxmi/m/it}{}
+\DeclareFontShape{OML}{ntxmi}{bx}{it}{<->ssub * ntxmi/b/it}{}
+
+\endinput

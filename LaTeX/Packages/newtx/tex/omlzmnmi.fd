@@ -1,0 +1,29 @@
+%Filename: omlzmnmi.fd
+%Created by: tex mi-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{omlzmnmi.fd}
+   [2012/06/23 Fontinst v1.933 font definitions for OML/zmnmi.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{OML}{zmnmi}{\skewchar \font =127}
+
+\DeclareFontShape{OML}{zmnmi}{m}{it}{
+   <-> \ntxmath@scaled zmnmi
+}{}
+
+\DeclareFontShape{OML}{zmnmi}{b}{it}{
+   <-> \ntxmath@scaled zmnbmi
+}{}
+
+\DeclareFontShape{OML}{zmnmi}{m}{sl}{<->ssub * zmnmi/m/it}{}
+\DeclareFontShape{OML}{zmnmi}{bx}{it}{<->ssub * zmnmi/b/it}{}
+\DeclareFontShape{OML}{zmnmi}{b}{sl}{<->ssub * zmnmi/b/it}{}
+\DeclareFontShape{OML}{zmnmi}{bx}{sl}{<->ssub * zmnmi/b/sl}{}
+
+\endinput

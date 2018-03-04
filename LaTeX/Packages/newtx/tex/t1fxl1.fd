@@ -1,0 +1,67 @@
+\ProvidesFile{t1fxl1.fd}[2012/07/30 T1/fxlr-sups]
+\expandafter\ifx\csname fxl@scale\endcsname\relax
+   \let\fxl@@scale\@empty%
+\else
+   \edef\fxl@@scale{s*[\csname fxl@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T1}{fxl1}{}
+\DeclareFontShape{T1}{fxl1}{m}{n}{
+  <->  \fxl@@scale  rfxlr-sups
+}{}
+\DeclareFontShape{T1}{fxl1}{b}{it}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{b}{n}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{z}{it}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{z}{n}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{m}{sc}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{b}{sc}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{z}{sc}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{m}{it}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{b}{sl}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{sb}{n}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{sb}{it}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{sb}{sc}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{sb}{sl}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{z}{sl}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{m}{sl}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{bx}{it}{
+  <-> ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{bx}{n}{
+  <->  ssub * fxl1/m/n
+}{}
+\DeclareFontShape{T1}{fxl1}{bx}{sl}{
+  <->  ssub * fxl1/m/n
+}{}
+
+\endinput

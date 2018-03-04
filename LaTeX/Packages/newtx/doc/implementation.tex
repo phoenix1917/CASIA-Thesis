@@ -1,0 +1,387 @@
+\documentclass[10pt]{amsart}
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}
+%SetFonts
+% libertine text and newtxmath
+\usepackage{libertine}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[scaled=.85]{beramono}
+\usepackage{amsmath,amsthm}
+\usepackage[libertine]{newtxmath}
+%\usepackage[bb=boondox,frak=boondox,scr=boondoxo]{mathalfa}
+\usepackage{bm}
+\useosf
+%\renewcommand*{\rmdefault}{fxlj} %old-style figures in text, not math
+%\def\libertine{\fontfamily{fxlj}\selectfont}
+%SetFonts
+\usepackage{longtable,booktabs}
+%\usepackage[dvipsnames]{pstricks}
+%\usepackage{pstricks-add}
+
+\title{Implementation notes and manifest}
+\author{Michael Sharpe}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+\subsection{Issues using \textsf{rtxmi} from the \textsf{txfonts} collection.} This font supplies all the non-alphabetic glyphs (ie, everything except A--Z and a--z) in the \textsf{OML} encoding, but, not using the same names as in {\tt oml.etx}. To get around this, we must base \textsf{fontinst} constructions not on its \textsf{afm}, but instead, use what may be thought of as an anonymous metric file constructed from its \textsf{tfm} via
+\begin{verbatim}
+tftopl -charcode-format=octal rtxmi rtxmi
+\end{verbatim}
+so that {\tt rtxmi.pl} identifies slots only by octal codes, not names, and identifies the encoding as \textsf{FONTSPECIFIC}, which usually means ``as specified in the header of {\tt rtxmi.pfb}.'') By including in the \textsf{fontinst} driver script a line
+\begin{verbatim}
+\declareencoding{FONTSPECIFIC}{oml}
+\end{verbatim}
+we force the slots in {\tt rtxmi} to be interpreted using the names in {\tt oml.etx} so that, at the end, we have no problems using {\tt oml} as the encoding for composite fonts built from {\tt rtxmi}.
+
+
+The original version of \textsf{txfonts} made use of whatever Times font was installed in \TeX\ Live, and as a non-free font, it was not available for modification. In this updated version, we use instead the alphabetic glyphs from  TeXGyreTermes or LinLibertine, each of which presents no licensing issues. This allows us to make optical sizes of the math italic and symbol fonts, with a  boost to the appearance and readability of subscripts, sub-subscripts and superscripts. (Unfortunately the STIX math italic letters are much heavier than Times, by nearly 15\% in stem thickness of uppercase letters, and do not make a good substitute.)  
+\section{Making {\tt7pt} and {\tt5pt} versions}
+\begin{itemize}
+\item
+The strokes in 7{\tt pt} type are (mostly) relatively thicker than those in the 10{\tt pt} type;
+\item the side-bearings are a bit bigger in 7{\tt pt} type---about 30{\tt em} on the left and about 20{\tt em} on the right;
+\item the 7{\tt pt} glyphs are (relatively) wider than those in the 10{\tt pt} size. 
+\end{itemize}
+What we seek is a way to transform 10{\tt pt} glyphs into 7{\tt pt} glyphs using some simple FontForge transformations. The following seems to work fairly well:
+\begin{itemize}
+\item
+Open the {\tt.pfb} in FontForge---you need to have the {\tt.afm} or the {\tt.pfm} in the same folder to get the correct metrics;
+\item select all glyphs (\textsc{Cntrl}-A) and select from the Element menu, Style/Change glyph---this brings up a window with 3 tabs, the first named Stems, where you should select \textsf{Separate ratios for horizontal and vertical stems} and check the box marked \textsf{Activate diagonal stem processing}, then enter 100\%+0 for Horizontal Stems and 108\%+0 for Vertical Stems;
+\item press \textsf{OK}, which should thicken all non-horizontal stems in the font, but most likely cause some validation issues which must be dealt with before proceeding;
+\item select the menu item Element/Validate/Validate to check for problems---there may be many, and the simplest way to proceed is to right click on one of them and choose the contextual menu items at the bottom of the list, one by one;
+\item some glyphs may require manual adjustments to smaller stems to make them more uniform---the glyphs M, W, V needed help in my case;
+\item assuming your font validates, the next step is the menu item Element/Style/Change Glyph, and in this round we choose the second tab, named Horizontal, selecting \textsf{Uniform scaling...}, entering 107\%+0 for the Counter Size, then press \textsf{OK}; 
+\item validate the transformed font, just as described above, and, after it validates, select the menu item \textsf{File/Generate Fonts} to export the result to a new pfb/afm combination, say {\tt xxx7}, from which you may generate a tfm using
+\begin{verbatim}
+afm2tfm xxx7 -O xxx7
+\end{verbatim}
+\end{itemize}
+Iterating the same sequence of operations starting from {\tt xxx7.sfd} will produce fonts and metric files suitable for 5{\tt pt}. 
+\section{Converting Libertine}
+Making Libertine text italic and Greek glyphs into math italic and Greek glyphs requires some preparation. In a number of cases, we want to substitute (virtually) Greek glyphs from Libertine into a math italic (or mia) font. As the Greek glyphs are not encoded, we proceed as follows:
+\begin{verbatim}
+afm2tfm fxlri -T libertinealt.enc -v fxlri-alt rfxlri-alt
+\end{verbatim}
+which creates {\tt rfxlri-alt.tfm} and {\tt fxlri-alt.vpl} containing the Greek glyphs in the order they should be for \TeX, and which outputs, for the map file, the line
+\begin{verbatim}
+rfxlri-alt LinLibertineI " LibertineAltEncoding ReEncodeFont " <libertinealt.enc
+\end{verbatim}
+and then
+\begin{verbatim}
+tftopl rfxlri-alt rfxlri-alt
+\end{verbatim}
+makes {\tt rfxlri-alt.pl}, from which \textsf{fontinst} may construct {\tt rfxlri-alt.mtx}. The other {\tt -alt} versions were constructed in a similar manner.
+
+There is a tfm in the \TeX Live distribution named {\tt fxlri-8r.tfm} which provides the {\tt fxlri} in {\tt 8r} encoding, which of course includes all the Roman letters. To get an equivalent for 7{\tt pt} and 5{\tt pt} requires us to open the original {\tt fxlri.{pfb,afm}} in FontForge and subject them to the two stages of thickening and extending described above. The result should be 
+\begin{verbatim}
+fxlri-7letters.{pfb,afm}
+fxlri-5letters.{pfb,afm}
+fxlzi-7letters.{pfb,afm}
+fxlzi-5letters.{pfb,afm}
+\end{verbatim}
+from which we produce four corresponding tfm files using, eg, 
+\begin{verbatim}
+afm2tfm fxlri-7letters
+\end{verbatim}
+which must be referenced in the {\tt ntx.map} file with four lines like
+\begin{verbatim}
+fxlri-7letters LinLibertineI7 <fxlri-7letters.pfb
+\end{verbatim}
+The same fonts are now used with a different encoding to tease out Greek letters and some other unencoded glyphs like alternate versions of J, g, v and y. Note that these are not available in the semibold font---we have to resort to other tricks for that. First, run four commands similar to
+\begin{verbatim}
+afm2tfm fxlri-7letters -T libertinealt.enc -v fxlri-7alt
+\end{verbatim}
+which produces {\tt fxlri-7alt.tfm} (must be referenced in the map file) and {\tt fxlri-7alt.vpl} which will be used only in the creation of the virtual font {\tt nxlmi7.{tfm,vf}} by \textsf{fontinst}. 
+\subsection{Making bold J and bold v}
+These glyphs are missing in \textsf{fxlzi.pfb}, the semibold Linux Libertine that matched bold TX better than bold Linux Libertine, which seems to be a quite different font, more like bold Palatino. So, we take the Jcircumflex glyph and remove the circumflex to make a J and take the v.alt glyph from \textsf{fxlri} and embolden it by 40{\tt em} to make a bold version of the math italic v. From this next font \textsf{fxlzi-jv.pfb} with just two glyphs, we make a tfm with
+\begin{verbatim}
+afm2tfm fxlzi-jv 
+\end{verbatim}
+which makes {\tt fxlzi-jv.tfm}, a reference to which we must add to a {\tt .map} file with
+\begin{verbatim}
+fxlzi-jv fxlzi-Jv <fxlzi-jv.pfb
+\end{verbatim}
+assuming of course that in the course of making your font, you had given the internal name also as {\tt fxlzi-Jv}. Finally, we have to make versions that work as 7{\tt pt} and 5{\tt pt} fonts using the same methods as described above, resulting in \verb|fxlzi-jz{5,7}.{pfb,afm,tfm}| for our later use. For each {\tt afm}, make a {\tt tfm} using lines like
+\begin{verbatim}
+afm2tfm fxlzi-jv
+\end{verbatim}
+and then, for each {\tt.tfm}, make a {\tt .pl} with 
+\begin{verbatim}
+tftopl fxlzi-jv fxlzi-jv
+\end{verbatim}
+and so on. 
+\section{Issues with math italic v and w}
+Linux Libertine contains a glyph named {\tt v.alt} that is distinct from Greek \verb|\nu|, and that glyph is used as the default math italic v. It is certainly problematic---it just doesn't fit in with other Libertine glyphs, though it is surely distinctive. The recent versions of \textsf{newtx} offer the option {\tt libaltvw} which provides substitute glyphs for math italic v and w (based on Linux Libertine \textsf{upsilon}, with some serious modifications) so that one has glyphs that appear to be in the same family, with v distinct from \verb|\nu|.
+
+After constructing the glyphs using FontForge, the same procedure described above for {\tt7pt} and {\tt5pt} sizes was applied, and new virtual fonts constructed.
+\section{Files in the distribution}
+This list is current as of June 13, 2012. The following abbreviations are used in the remarks:\\
+\textbf{FF} means FontForge;\\
+\textbf{EW} means ``thicken vertical stems by 8\% and extend width by a further 7\% using FontForge'';\\
+\textbf{EW}${}^2$ means ``perform EW twice''.
+
+\newpage
+\textbf{PostScript font files:}
+
+\begin{center}
+  \begin{tabular}{@{} rlrrll @{}}
+    \toprule
+    Size & Date &  &  & File &Remarks\\ 
+    \midrule
+706160&May&19&13:58&fxlri-5letters.pfb& EW${}^2$ applied to fxlri\\
+700152&May&19&13:58&fxlri-7letters.pfb& EW applied to fxlri\\
+718693&May&19&14:03&fxlzi-5letters.pfb& EW${}^2$ applied to fxlzi\\
+711100&May&19&14:01&fxlzi-7letters.pfb& EW applied to fxlri\\
+7981&May&19&20:33&fxlzi-jv.pfb& alt letters J and v using FF from fxlzi\\
+7993&May&19&20:57&fxlzi-jv5.pfb& alt letters J and v using FF from fxlzi5-letters\\
+7988&May&19&20:58&fxlzi-jv7.pfb& alt letters J and v using FF from fxlzi7-letters\\
+4520&Apr&30&17:46&ntxbexb.pfb& integrals for cmsy7, cmex10, FF-thickened\\
+5904&May&6&15:49&ntxbexmods.pfb& derived from cmex10.pfb, braces FF-thickened\\
+3969&Apr&30&17:46&ntxexb.pfb& derived from cmex10.pfb, braces FF-thickened\\
+5540&May&6&15:53&ntxexmods.pfb& derived from cmex10.pfb, braces FF-thickened\\
+13201&May&16&14:14&rntxbmi.pfb& Alphabetic glyphs from TeXGyreTermes-BI\\
+13273&May&16&14:23&rntxbmi5.pfb& EW${}^2$ applied to rntxbmi\\
+13288&May&16&14:21&rntxbmi7.pfb& EW applied to rntxbmi\\
+12935&May&16&11:20&rntxmi.pfb& Alphabetic glyphs from TeXGyreTermes\\
+17791&May&16&14:13&rntxmi5.pfb& EW${}^2$ applied to rntxmi\\
+17726&May&16&14:11&rntxmi7.pfb& EW applied to rntxmi\\
+16562&May&15&21:49&rtxbmi5.pfb& EW${}^2$ applied to rtxbmi\\
+16605&May&15&21:51&rtxbmi7.pfb& EW applied to rtxbmi\\
+20920&May&15&21:47&rtxmi5.pfb& EW${}^2$ applied to rtxmi\\
+21083&May&15&21:44&rtxmi7.pfb& EW applied to rtxmi\\
+28831&May&15&17:43&txbsy5.pfb& EW${}^2$ applied to txbsy\\
+28622&May&15&10:58&txbsy7.pfb& EW applied to txbsy\\
+29142&May&15&17:42&txsy5.pfb& EW${}^2$ applied to txsy\\
+29124&May&14&18:33&txsy7.pfb& EW applied to txsy\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\textbf{Font metric files:}
+
+\begin{center}
+
+  \begin{longtable}{@{} rlrrll @{}}
+    \toprule
+    Size & Date &  &  & File & Remarks \\ 
+    \midrule
+1064&May&20&13:21&fxlri-5alt.tfm& from fxlri-5letters with libertinealt.enc\\
+2088&May&20&12:56&fxlri-5letters.tfm& from fxlri-5letters with 8r.enc\\
+1072&May&20&13:15&fxlri-7alt.tfm& from fxlri-7letters with libertinealt.enc\\
+2080&May&20&13:55&fxlri-7letters.tfm& from fxlri-7letters with 8r.enc\\
+1064&May&20&13:21&fxlzi-5alt.tfm& from fxlzi-5letters with libertinealt.enc\\
+2048&May&20&12:56&fxlzi-5letters.tfm& from fxlzi-5letters with 8r.enc\\
+1052&May&20&13:21&fxlzi-7alt.tfm& from fxlzi-7letters with libertinealt.enc\\
+2092&May&20&12:56&fxlzi-7letters.tfm& from fxlri-7letters with 8r.enc\\
+344&May&19&20:41&fxlzi-jv.tfm& from fxlri-jv.pfb with J.alt, v.alt\\
+344&May&19&21:01&fxlzi-jv5.tfm& from fxlri-jv5.pfb with J.alt, v.alt\\
+344&May&19&21:00&fxlzi-jv7.tfm& from fxlri-jv7.pfb  with J.alt, v.alt\\
+1168&May&18&14:00&ntxbex.tfm& from ntxbex.pfb with metric changes\\
+984&May&18&14:00&ntxbex.vf& ditto\\
+728&Apr&30&17:31&ntxbexa.tfm& from txbexa.pfb with metric changes\\
+668&Apr&30&17:31&ntxbexa.vf& ditto\\
+512&May&1&21:16&ntxbexb.tfm&  from ntxbexb.pfb\\
+816&May&6&16:13&ntxbexmods.tfm& from ntxbexmods.pfb\\
+1192&May&19&23:12&ntxbexv.tfm& from txbex, braces from ntxbexmods\\
+1020&May&19&23:12&ntxbexv.vf& ditto\\
+2184&May&17&13:23&ntxbmi.tfm& from txbmi with metric changes\\
+1640&May&17&13:23&ntxbmi.vf& ditto\\
+2188&May&17&13:21&ntxbmi1.tfm& from rtxbmi, rntxbmi with metric changes\\
+1636&May&17&13:21&ntxbmi1.vf& ditto\\
+2244&May&19&13:07&ntxbmi15.tfm& from rtxbmi5, rntxbmi5 with metric changes \\
+2276&May&19&13:07&ntxbmi15.vf\\
+2232&May&19&13:07&ntxbmi17.tfm& from rtxbmi7, rntxbmi7 with metric changes\\
+2160&May&19&13:07&ntxbmi17.vf\\
+2228&May&18&21:06&ntxbmi5.tfm& from rtxbmi5, rntxbmi5 with metric changes\\
+2272&May&18&21:06&ntxbmi5.vf\\
+2220&May&19&17:17&ntxbmi7.tfm& from rtxbmi7, rntxbmi7 with metric changes\\
+2156&May&19&17:17&ntxbmi7.vf\\
+2424&May&4&10:07&ntxbmia.tfm& from txbmia, txb, ntxbexb, rtxbmio, txbsyc, zxxbl7z\\
+1308&May&4&10:07&ntxbmia.vf\\
+1596&Apr&30&17:31&ntxbsy.tfm& from txbsy with metric changes\\
+1020&Apr&30&17:31&ntxbsy.vf\\
+1512&May&18&16:11&ntxbsy5.tfm& from txbsy5 with metric changes\\
+1568&May&18&16:11&ntxbsy5.vf\\
+1520&May&18&16:47&ntxbsy7.tfm& from txbsy7 with metric changes\\
+1448&May&18&16:47&ntxbsy7.vf\\
+1000&Apr&30&17:31&ntxbsya.tfm& from txbsya with metric changes\\
+1020&Apr&30&17:31&ntxbsya.vf\\
+1008&Apr&30&17:31&ntxbsyb.tfm& from txbsyb with metric changes\\
+868&Apr&30&17:31&ntxbsyb.vf\\
+1100&Apr&30&17:31&ntxbsyc.tfm& from txbsyc with metric changes\\
+1436&Apr&30&17:31&ntxbsyc.vf\\
+1160&May&18&14:00&ntxex.tfm& from txex with metric changes\\
+984&May&18&14:00&ntxex.vf\\
+708&Apr&30&17:31&ntxexa.tfm& from txexa with metric changes\\
+664&Apr&30&17:31&ntxexa.vf\\
+176&May&1&21:16&ntxexb.tfm& from ntxexb.pfb\\
+800&May&6&16:13&ntxexmods.tfm& from ntxexmods.pfb\\
+1172&May&19&23:12&ntxexv.tfm& from txex, braces from ntxexmods\\
+1016&May&19&23:12&ntxexv.vf\\
+2172&May&17&13:23&ntxmi.tfm& from txmi with metric changes\\
+1640&May&17&13:23&ntxmi.vf\\
+2184&May&17&13:21&ntxmi1.tfm& from rtxmi, rntxmi with metric changes\\
+1640&May&17&13:21&ntxmi1.vf\\
+2236&May&19&13:06&ntxmi15.tfm& from rtxmi5, rntxmi5 with metric changes\\
+2276&May&19&13:06&ntxmi15.vf\\
+2216&May&19&13:06&ntxmi17.tfm& from rtxmi7, rntxmi7 with metric changes\\
+2160&May&19&13:06&ntxmi17.vf\\
+2220&May&18&21:06&ntxmi5.tfm& from rtxmi5, rntxmi5 with metric changes\\
+2272&May&18&21:06&ntxmi5.vf\\
+2200&May&19&17:17&ntxmi7.tfm& from rtxmi7, rntxmi7 with metric changes\\
+2156&May&19&17:17&ntxmi7.vf\\
+2380&May&3&22:27&ntxmia.tfm& from txmia, txr, ntxexb, rtxmio, txsyc, zxxrl7z\\
+1304&May&3&22:27&ntxmia.vf\\
+1556&Apr&30&17:31&ntxsy.tfm& from txsy with metric changes\\
+1068&Apr&30&17:31&ntxsy.vf\\
+1528&May&18&16:12&ntxsy5.tfm& from txsy5 with metric changes\\
+1620&May&18&16:12&ntxsy5.vf\\
+1504&May&18&16:47&ntxsy7.tfm& from txsy7 with metric changes\\
+1484&May&18&16:47&ntxsy7.vf\\
+984&Apr&30&17:31&ntxsya.tfm& from txsya with metric changes\\
+1020&Apr&30&17:31&ntxsya.vf\\
+996&Apr&30&17:31&ntxsyb.tfm& from txsyb with metric changes\\
+864&Apr&30&17:31&ntxsyb.vf\\
+1088&Apr&30&17:31&ntxsyc.tfm& from txsyc with metric changes\\
+1436&Apr&30&17:31&ntxsyc.vf\\
+2876&May&20&14:47&nxlbmi.tfm& from txbmi, fxlzi-8r, fxlzi-jv, rfxlzi-alt\\
+1800&May&20&14:47&nxlbmi.vf\\
+2048&May&20&14:47&nxlbmi5.tfm& from rtxbmi5, fxlzi-5letters, fxlzi-jv5, fxlzi-5alt\\
+2448&May&20&14:47&nxlbmi5.vf\\
+2036&May&20&14:47&nxlbmi7.tfm& from rtxbmi7, fxlzi-7letters, fxlzi-jv7, fxlzi-7alt\\
+2304&May&20&14:47&nxlbmi7.vf\\
+2480&May&23&14:16&nxlbmia.tfm& from txbmia, txb, ntxbexb, rtxbmio, rfxlz-alt, zxxbl7z\\
+1420&May&23&14:16&nxlbmia.vf\\
+2852&May&20&14:47&nxlmi.tfm& from txmi, fxlri-8r (Roman), rfxlri-alt (Greek)\\
+1792&May&20&14:47&nxlmi.vf\\
+2008&May&20&14:47&nxlmi5.tfm& from rtxmi5, fxlri-5letters (Roman), rfxlri-5alt (Greek)\\
+2296&May&20&14:47&nxlmi5.vf\\
+2020&May&20&14:47&nxlmi7.tfm& from rtxmi7, fxlri-7letters (Roman), rfxlri-7alt (Greek)\\
+2296&May&20&14:47&nxlmi7.vf\\
+2400&May&23&14:16&nxlmia.tfm& from txmia, txr, ntxexb, rtxmio, rfxlr-alt, zxxrl7z\\
+1416&May&23&14:16&nxlmia.vf\\
+%404&May&5&10:32&rfxlbi-alt.tfm\\
+884&May&22&20:58&rfxlr-alt.tfm& from fxlr with libertinealt.enc\\
+1072&May&5&10:32&rfxlri-alt.tfm& from fxlri with libertinealt.enc\\
+916&May&22&21:22&rfxlz-alt.tfm& from fxlz with libertinealt.enc\\
+1052&May&19&17:30&rfxlzi-alt.tfm& from fxlzi with libertinealt.enc\\
+592&May&17&13:45&rntxbmi.tfm& from rntxbmi.pfb (Times BI)\\
+760&May&17&13:46&rntxbmi5.tfm& from rntxbmi5.pfb\\
+740&May&17&13:46&rntxbmi7.tfm& from rntxbmi7.pfb\\
+600&May&16&14:49&rntxmi.tfm& from rntxmi (Times Italic)\\
+772&May&17&13:46&rntxmi5.tfm& from rntxmi5.pfb\\
+764&May&17&13:47&rntxmi7.tfm& from rntxmi7.pfb\\
+1112&May&17&13:48&rtxbmi5.tfm& from rtxbmi5.pfb\\
+1100&May&17&13:48&rtxbmi7.tfm&from rtxbmi7.pfb\\
+992&Apr&22&20:44&rtxbmio.tfm& unslanted rtxbmi\\
+1116&May&17&13:48&rtxmi5.tfm& from rtxmi5.pfb\\
+1100&May&17&13:48&rtxmi7.tfm& from rtxmi7.pfb\\
+992&Apr&22&20:41&rtxmio.tfm& unslanted rtxmi\\
+1156&May&18&16:02&txbsy5.tfm& from txbsy5.pfb\\
+1160&May&18&15:52&txbsy7.tfm& from txbsy7.pfb\\
+1172&May&18&16:03&txsy5.tfm& from txsy5.pfb\\
+1156&May&18&15:52&txsy7.tfm& from txsy7.pfb\\
+6812&Apr&22&15:16&t1xbij.tfm& items below (suffix j) from tx with osf\\
+2152&Apr&22&15:16&t1xbij.vf\\
+6892&Apr&22&15:18&t1xbj.tfm\\
+2176&Apr&22&15:18&t1xbj.vf\\
+7136&Apr&22&15:13&t1xbslj.tfm\\
+2184&Apr&22&15:13&t1xbslj.vf\\
+6956&Apr&22&15:17&t1xij.tfm\\
+2148&Apr&22&15:17&t1xij.vf\\
+6716&Apr&22&13:56&t1xrj.tfm\\
+2168&Apr&22&13:56&t1xrj.vf\\
+6928&Apr&22&15:14&t1xslj.tfm\\
+2184&Apr&22&15:14&t1xslj.vf\\
+2524&Apr&22&15:16&txbij.tfm\\
+936&Apr&22&15:16&txbij.vf\\
+2452&Apr&22&15:18&txbj.tfm\\
+932&Apr&22&15:18&txbj.vf\\
+2680&Apr&22&15:14&txbslj.tfm\\
+940&Apr&22&15:14&txbslj.vf\\
+2584&Apr&22&15:17&txij.tfm\\
+936&Apr&22&15:17&txij.vf\\
+2408&Apr&22&13:55&txrj.tfm\\
+932&Apr&22&13:55&txrj.vf\\
+2636&Apr&22&15:14&txslj.tfm\\
+936&Apr&22&15:14&txslj.vf\\
+4428&Apr&22&15:16&tyxbij.tfm\\
+1744&Apr&22&15:16&tyxbij.vf\\
+4520&Apr&22&15:18&tyxbj.tfm\\
+1740&Apr&22&15:18&tyxbj.vf\\
+4724&Apr&22&15:13&tyxbslj.tfm\\
+1748&Apr&22&15:13&tyxbslj.vf\\
+4424&Apr&22&15:17&tyxij.tfm\\
+744&Apr&22&15:17&tyxij.vf\\
+4332&Apr&22&13:56&tyxrj.tfm\\
+11740&Apr&22&13:56&tyxrj.vf\\
+4536&Apr&22&15:15&tyxslj.tfm\\
+1744&Apr&22&15:15&tyxslj.vf\\
+    \bottomrule
+  \end{longtable}
+\end{center}
+
+\textbf{Miscellaneous, other than documentation:}
+
+\begin{center}
+  \begin{longtable}{@{} rlrrll @{}}
+    \toprule
+    Size & Date &  &  & File & Remarks \\ 
+    \midrule
+2533&May&22&19:16&libertinealt.enc& special encoding for libertine alt and Greek\\
+1467&Apr&30&17:30&ly1ntxr.fd& font definitions for LY1 encoded newtx text\\
+1520&Apr&30&17:30&ly1ntxss.fd& font definitions for LY1 encoded newtx sans\\
+1516&Apr&30&17:30&ly1ntxtt.fd& font definitions for LY1 encoded newtx typewriter\\
+56340&May&23&16:44&newtxmath.sty\\
+3264&May&23&16:48&newtxtext.sty\\
+1914&May&23&10:09&ntx.map& map file that must be enabled\\
+1287&May&19&13:13&omlntxmi.fd& font definitions for newtxmath letters\\
+917&May&19&22:21&omlnxlmi.fd& font definitions for newtxmath libertine letters\\
+765&May&18&16:10&omsntxsy.fd& font definitions for newtxmath symbols\\
+561&Apr&30&19:42&omxntxex.fd& font definitions for newtxmath largesymbols\\
+572&Apr&30&19:42&omxntxexv.fd& font definitions for newtxmath largesymbols variant\\
+1478&Apr&30&17:30&ot1ntxr.fd& font definitions for OT1 encoded newtx text\\
+1523&Apr&30&17:30&ot1ntxss.fd& font definitions for OT1 encoded newtx sans\\
+1494&Apr&30&17:30&ot1ntxtt.fd& font definitions for OT1 encoded newtx typewriter\\
+1449&Apr&30&17:30&t1ntxr.fd& font definitions for T1 encoded newtx text\\
+1504&Apr&30&17:30&t1ntxss.fd& font definitions for T1 encoded newtx sans\\
+1500&Apr&30&17:30&t1ntxtt.fd& font definitions for T1 encoded newtx typewriter\\
+1460&Apr&30&17:30&ts1ntxr.fd& font definitions for TS1 encoded newtx text\\
+1504&Apr&30&17:30&ts1ntxss.fd& font definitions for TS1 encoded newtx sans\\
+1483&Apr&30&17:30&ts1ntxtt.fd& font definitions for TS1 encoded newtx typewriter\\
+558&Apr&22&15:55&untxexa.fd& font definitions for newtxmath largesymbolsA\\
+957&May&22&22:15&untxmia.fd& font definitions for newtxmath lettersA\\
+558&Apr&30&17:30&untxsya.fd& font definitions for newtxmath AMSa\\
+558&Apr&30&17:30&untxsyb.fd& font definitions for newtxmath AMSb\\
+558&Apr&30&17:30&untxsyc.fd& font definitions for newtxmath symbolsC\\
+1460&Apr&30&17:30&untxtt.fd& font definitions for newtx typewriter\\
+1421&Apr&22&15:36&ly1ntxrj.fd& font definitions for LY1 newtx, osf\\
+1432&Apr&22&15:37&ot1ntxrj.fd& font definitions for OT1 newtx, osf\\
+1404&Apr&22&15:35&t1ntxrj.fd& font definitions for T1 newtx, osf\\
+1487&Apr&22&12:57&ts1ntxrj.fd& font definitions for TS1 newtx, osf\\
+    \bottomrule
+  \end{longtable}
+\end{center}
+\section{Sources for some files in the distribution}
+ For every line in the table below, there is also a bold version--eg, {\tt rntxbmi.sfd}.
+\begin{verbatim}
+Source          Output              Method
+TeXGyreTermes   rntxmi.sfd          FF to copy A--Z, a--z
+rntxmi.sfd      rntxmi.{pfb,afm}    Generated by FF
+rntxmi.afm      rntxmi.tfm          afm2tfm rntxmi rntxmi
+rntxmi.sfd      rntxmi-2.sfd        EW
+rntxmi-2.sfd    rntxmi7.{pfb,afm}   Generated by FF
+rntxmi7.afm     rntxmi7.tfm         afm2tfm rntxmi7 rntxmi7
+rntxmi-2.sfd    rntxmi-4.sfd        EW
+rntxmi-4.sfd    rntxmi5.{pfb,afm}   Generated by FF
+rntxmi5.afm     rntxmi5.tfm         afm2tfm rntxmi5 rntxmi5
+rtxmi.{pfb,afm} rtxmi.sfd           Open pfb+afm in FF
+rtxmi.sfd       rtxmi-2.sfd         EW
+rtxmi-2.sfd     rtxmi7.{pfb,afm}    Generated from FF
+rtxmi7.afm      rtxmi7.tfm          
+\end{verbatim}
+
+\end{document}  

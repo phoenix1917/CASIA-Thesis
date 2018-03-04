@@ -1,0 +1,263 @@
+%%
+%% This is file `test-fontaxes.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% fontaxes.dtx  (with options: `test')
+%% 
+%% Copyright (c) 2007 by Andreas Buehmann
+%% Copyright (c) 2014 by Michael Ummels <michael.ummels@rwth-aachen.de>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Michael Ummels.
+%% 
+%% This work consists of the files fontaxes.dtx, fontaxes.ins and
+%% the derived files fontaxes.sty, test-fontaxes.tex and fontaxes.pdf.
+%% 
+\documentclass[a4paper]{article}
+\usepackage{MinionPro}
+\usepackage[T1]{fontenc}
+
+\usepackage{longtable}
+\usepackage{fontaxes}
+\usepackage{hyperref}
+
+\makeatletter
+\newcommand\showshape{\hphantom{\normalfont\textsuperscript{sscsw}}%
+  \llap{\expandafter\normalfont\expandafter\textsuperscript
+  \expandafter{\f@shape}}}
+
+\newcommand\shapecmdlist{\upshape,\itshape,\slshape,\swshape,%
+  \ulcshape,\scshape,\sscshape}
+\newcommand\reacheableshapes{}
+\newtoks\tab
+\newcommand\atab[1]{%
+  \tab\expandafter{\the\tab#1}%
+}
+\newcommand\etab[1]{%
+  \edef\line{#1}%
+  \expandafter\atab\expandafter{\line}%
+}
+\newif\ifadded
+\newcommand\testall{%
+  \edef\reacheableshapes{\shapedefault}
+  \addedtrue
+  \@whilesw\ifadded\fi{%
+    \addedfalse
+    \@for\@sh:=\reacheableshapes\do{%
+      \begingroup
+        \fontshape\@sh\relax
+        \@for\@cmd:=\shapecmdlist\do{%
+          \@cmd\relax
+          \@expandtwoargs\in@{,\f@shape,}{,\reacheableshapes,}%
+          \ifin@\else
+            \xdef\reacheableshapes{\reacheableshapes,\f@shape}%
+            \global\addedtrue
+          \fi
+        }%
+      \endgroup
+    }%
+  }
+  \tab{\begin{longtable}[t]{ll}}
+  \@for\@sh:=\reacheableshapes\do{%
+    \etab{\noexpand\fontshape{\@sh}}%
+    \atab{\selectfont\showshape Am Anfang &}%
+    \etab{\noexpand\fontshape{\@sh}}%
+    \atab{\begin{tabular}[t]{ll}}%
+    \@for\@cmd:=\shapecmdlist\do{%
+      \atab{\normalfont\ttfamily}%
+      \etab{\expandafter\string\@cmd &
+        \expandafter\noexpand\@cmd\noexpand\showshape war das Wort%
+        \noexpand\\\relax}%
+    }%
+    \atab{\end{tabular} \\\relax}%
+  }
+  \atab{\end{longtable}\endgraf}%
+  \the\tab
+}
+
+\makeatother
+\parindent=0pt
+
+\begin{document}
+
+\section{Shape}
+\subsection{Switches}
+\fontbasefamily{MinionPro}\selectfont
+\figureversion{text,proportional}%
+\testall
+
+\subsection{Text font commands}
+
+\makeatletter
+\def\amp{&}
+\def\visible#1#2\\{%
+  #1#2 \amp {\def\@tempa{#1}\edef\@tempa{\expandafter
+  \strip@prefix\meaning\@tempa}\normalfont\ttfamily{\@tempa}}\\}
+\makeatother
+\begin{tabular}{ll}
+Am \visible{\textit{Anfang \textsc{war}}} das Wort\\
+Am \visible{\textsl{Anfang \textulc{war}}} das Wort\\
+Am \visible{\textsw{Anfang \textssc{war}}} das Wort\\
+Am \visible{\textsc{Anfang \textsl{war}}} das Wort\\
+Am \visible{\textssc{Anfang \textit{war}}} das Wort\\
+\end{tabular}
+
+\section{Figure version}
+
+\tracingmacros=2
+\begin{tabular}{lll}
+\visible\txfigures 12345 \visible\lnfigures 67890\\
+\visible\txfigures 12345 \visible\tbfigures 67890\\
+\visible\txfigures 12345 \visible\prfigures 67890\\
+\visible\txfigures 12345 \visible\txfigures 67890\\
+\visible\lnfigures 12345 \visible\lnfigures 67890\\
+\visible\lnfigures 12345 \visible\tbfigures 67890\\
+\visible\lnfigures 12345 \visible\prfigures 67890\\
+\visible\lnfigures 12345 \visible\txfigures 67890\\
+\visible\tbfigures 12345 \visible\lnfigures 67890\\
+\visible\tbfigures 12345 \visible\tbfigures 67890\\
+\visible\tbfigures 12345 \visible\prfigures 67890\\
+\visible\tbfigures 12345 \visible\txfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\lnfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\tbfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\prfigures 67890\\
+\visible{\tbfigures\lnfigures}12345
+  \visible\txfigures 67890\\
+\end{tabular}
+
+\begingroup
+\figureversion{osf,lf,tab,prop,  tabular,proportional   ,  text  ,lining,
+non-existent}
+\endgroup
+
+\subsection{Switch base family}
+
+\begingroup
+\def\nums{1234567890\par}
+\txfigures MinionPro \nums
+\fontbasefamily{ppl}\selectfont
+Palatino \nums
+\lnfigures
+lining \nums
+\fontbasefamily{MinionPro}\selectfont
+MinionPro \nums
+\figureversion{lining,tabular}%
+lining and tabular \nums
+\fontbasefamily{ppl}\selectfont
+Palatino \nums
+\txfigures
+text \nums
+\fontbasefamily{MinionPro}\selectfont
+MinionPro again, should be text \emph{and tabular} \nums
+\endgroup
+
+\subsection{Text font commands}
+
+\def\nums{t123 $m123$}
+\begin{tabular}{lll}
+\nums\quad\visible{(\textfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\liningfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\proportionalfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\liningfigures{\nums}})}\quad \nums\\
+\end{tabular}
+
+\begingroup Same but start from lining tabular figures\par
+\lnfigures\tbfigures
+\begin{tabular}{lll}
+\nums\quad\visible{(\textfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\liningfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\proportionalfigures{\nums})}\quad \nums\\
+\nums\quad\visible{(\tabularfigures{\liningfigures{\nums}})}\quad \nums\\
+\end{tabular}
+\endgroup
+
+\subsection{In moving argument: o123 \liningfigures{l456}
+  \tabularfigures{t789}
+  \figureversion{text,text,lining,text,proportional}op012 \textsw{Swash}
+  \textssc{Spaced \textulc{Small} Caps}}
+
+\tableofcontents
+
+\section{Math version}
+
+\def\formula{$123 + a - \sqrt{\beta}$}
+\begin{tabular}{lll}
+\visible\unboldmath \formula\quad \visible\boldmath \formula\\
+\visible\unboldmath \formula\quad \visible\tabularmath \formula\\
+\visible\unboldmath \formula\quad \visible\proportionalmath \formula\\
+\visible\unboldmath \formula\quad \visible\unboldmath \formula\\
+\visible\boldmath \formula\quad \visible\boldmath \formula\\
+\visible\boldmath \formula\quad \visible\tabularmath \formula\\
+\visible\boldmath \formula\quad \visible\proportionalmath \formula\\
+\visible\boldmath \formula\quad \visible\unboldmath \formula\\
+\visible\tabularmath \formula\quad \visible\boldmath \formula\\
+\visible\tabularmath \formula\quad \visible\tabularmath \formula\\
+\visible\tabularmath \formula\quad \visible\proportionalmath \formula\\
+\visible\tabularmath \formula\quad \visible\unboldmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\boldmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\tabularmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\proportionalmath \formula\\
+\visible{\tabularmath\boldmath}\formula\quad \visible\unboldmath \formula\\
+\end{tabular}
+
+\section{Recovery}
+
+\makeatletter
+\def\showfont{\edef\@tempa{\curr@fontshape}\hfill
+{\normalfont\ttfamily\@tempa}}
+\def\showmath{$123xyz$ \edef\@tempa{\math@version}\hfill
+{\normalfont\ttfamily\@tempa}}
+\makeatother
+
+\begingroup
+\scshape scshape \showfont\par
+\fontshape{scit}\selectfont selecting scit explicitly \showfont\par
+\sscshape Sscshape should adapt\showfont\par
+\endgroup
+
+\bigskip
+\begingroup
+\boldmath boldmath \showmath\par
+\mathversion{tabular} selecting tabular explicitly \showmath\par
+\boldmath boldmath \showmath\par
+\endgroup
+
+\bigskip
+\begingroup
+\fontfamily{MinionPro-LF}\selectfont selecting MinionPro-LF explicitly \showfont\par
+\tbfigures tabularfigures 1234 \showfont\par
+\endgroup
+
+\bigskip
+\begingroup
+\tbfigures tabularfigures 1234 \showfont\par
+\fontfamily{pplx}\selectfont selecting pplx explicitly \showfont\par
+\txfigures textfigures 1234 \showfont\par
+\fontbasefamily{MinionPro}\selectfont
+Back to MinionPro (is tabular still there?) 1234 \showfont\par
+\fontfamily{ptm}\selectfont selecting ptm explicitly \showfont\par
+\lnfigures liningfigures 1234 \showfont\par
+\tbfigures tabularfigures 1234 \showfont\par
+\fontbasefamily{MinionPro}\selectfont Back \dots 1234 \showfont\par
+\endgroup
+
+\end{document}
+%% 
+%%
+%% End of file `test-fontaxes.tex'.

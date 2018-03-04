@@ -1,0 +1,29 @@
+%Filename: uzmnmia.fd
+%Created by: tex mia-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{uzmnmia.fd}
+   [2012/06/23 Fontinst v1.933 font definitions for U/zmnmia.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{U}{zmnmia}{\skewchar \font =127}
+
+\DeclareFontShape{U}{zmnmia}{m}{it}{
+   <-> \ntxmath@scaled zmnmia
+}{}
+
+\DeclareFontShape{U}{zmnmia}{b}{it}{
+   <-> \ntxmath@scaled zmnbmia
+}{}
+
+\DeclareFontShape{U}{zmnmia}{m}{sl}{<->ssub * zmnmia/m/it}{}
+\DeclareFontShape{U}{zmnmia}{bx}{it}{<->ssub * zmnmia/b/it}{}
+\DeclareFontShape{U}{zmnmia}{b}{sl}{<->ssub * zmnmia/b/it}{}
+\DeclareFontShape{U}{zmnmia}{bx}{sl}{<->ssub * zmnmia/b/sl}{}
+
+\endinput

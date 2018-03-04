@@ -1,0 +1,49 @@
+%%
+%% This is file `binhex.drv',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% binhex.dtx  (with options: `driver')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from binhex.drv.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file binhex.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+ \documentclass{ltxdoc}
+ \usepackage{amsmath}
+ \input binhex.tex
+ \def\verbatize#1{\begingroup
+    \toks0{#1}\edef\next{\the\toks0}%
+    \dimen0\the\fontdimen2\font
+    \fontdimen2\font=0pt
+    \expandafter\stripit
+    \meaning\next
+    \fontdimen2\font=\dimen0
+    \endgroup}
+ \def\next{}
+ \expandafter\def\expandafter\stripit\meaning\next{}
+ \newcommand\showeffect[1]{%
+     \text{\verbatize{#1}}\quad&\rightarrow\quad\text{#1}%
+     \\}
+ \def\samples{\begingroup\MacroFont\[\begin{aligned}\nextsample}
+ \def\nextsample#1#2{%
+     \if.\noexpand#2\expandafter\endsamples\fi
+     \showeffect{#1{#2}}\nextsample{#1}}
+ \def\endsamples#1\nextsample#2{\end{aligned}\]\endgroup}
+ \begin{document}
+ \DocInput{binhex.dtx}
+ \end{document}
+\endinput
+%%
+%% End of file `binhex.drv'.

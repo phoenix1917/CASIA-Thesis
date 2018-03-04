@@ -1,0 +1,257 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2015 by Scott Pakin <scott+bmp2e@pakin.org>
+% -------------------------------------------------------
+%
+% This file may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3c of this license
+% or (at your option) any later version.  The latest version of this
+% license is in:
+%
+%    http://www.latex-project.org/lppl/
+%
+% and version 1.3c or later is part of all distributions of LaTeX version
+% 2008/05/04 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{boxedminipage2e.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{boxedminipage2e}
+%<*package>
+    [2015/03/09 v1.0 Boxed LaTeX2e minipages]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{boxedminipage2e}[2015/03/09]
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{boxedminipage2e.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{62}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2015/03/09}{Initial version}
+%
+% \GetFileInfo{boxedminipage2e.dtx}
+%
+% \DoNotIndex{\begin,\def,\else,\end,\fi,\ifx,\ifx,\newcommand}
+% \DoNotIndex{\newenvironment,\relax,\the}
+%
+% ^^A  Define a shortcut for typesetting package names.
+% \let\pkgname=\textsf
+%
+%
+% \title{The \pkgname{boxedminipage2e} package\thanks{This document
+%   corresponds to \pkgname{boxedminipage2e}~\fileversion, dated \filedate.}}
+% \author{Scott Pakin \\ \textit{scott+bmp2e@pakin.org}}
+%
+% \maketitle
+% \sloppy
+%
+% \section{Introduction}
+%
+% This is a very simple package.  It defines a single environment,
+% |boxedminipage| that is essentially equivalent to
+% |\fbox{\begin{minipage}|\dots |\end{minipage}}|.  The difference is
+% that the width of a |boxedminipage| includes the width of the frame,
+% while the width of the |\fbox|~$+$ |minipage| combination is wider
+% than the width specified to the |minipage|.
+%
+% The following example exaggerates the effect by setting
+% |\fboxrule=8pt| and |\fboxsep=4pt| and defining |minipage|s of width
+% |\linewidth|:
+%
+% \begin{center}
+%   \setlength{\fboxrule}{8pt}
+%   \setlength{\fboxsep}{4pt}
+%   \begin{minipage}{0.8\linewidth}
+%     \setlength{\parindent}{2em}
+%     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+%     condimentum id elit in fringilla. Vivamus tempus magna non tortor
+%     aliquet, ac porta justo venenatis. Suspendisse quis efficitur
+%     nibh.
+%
+%     \noindent\fbox{%
+%     \begin{minipage}[t]{\linewidth}
+%       This box was created by putting a |minipage| within an
+%       \cs{fbox}.  Notice how the frame is aligned with the left margin
+%       of the surrounding text but juts out into the right margin.
+%     \end{minipage}}
+%
+%     Suspendisse pulvinar vel elit at dapibus. Interdum et malesuada
+%     fames ac ante ipsum primis in faucibus. Cras nibh orci, posuere
+%     quis viverra a, gravida nec velit. Pr\ae{}sent porta semper
+%     tellus, eu pulvinar ante mollis faucibus.
+%
+%     \noindent
+%     \begin{boxedminipage}[t]{\linewidth}
+%       This box was created with the |boxedminipage| environment.
+%       Notice how the frame is aligned properly with both margins of
+%       the surrounding text.
+%     \end{boxedminipage}
+%
+%     Duis est neque, aliquet at augue a, auctor condimentum orci. Donec
+%     arcu magna, eleifend a consequat in, vehicula non elit. Sed id est
+%     sed ipsum interdum posuere.
+%   \end{minipage}
+% \end{center}
+%
+% There exists a package called \pkgname{boxedminipage} that also
+% defines a |boxedminipage| environment.  However, the
+% \pkgname{boxedminipage} package, last updated in~1992, lacks support
+% for the \LaTeXe\ |minipage|'s \meta{height} and \meta{inner-pos}
+% arguments.  \pkgname{boxedminipage2e} is an attempt to augment
+% \pkgname{boxedminipage} with support for |minipage|'s complete
+% functionality.  That said, \pkgname{boxedminipage2e} is a complete
+% rewrite; the two packages have no code in common.
+%
+%
+% \section{Usage}
+%
+% \DescribeEnv{boxedminipage}
+% The \pkgname{boxedminipage2e} package defines a single environment,
+% |boxedminipage|.  It takes the same parameters as \LaTeXe's |minipage|
+% environment:
+%
+% \bigskip
+% \DeleteShortVerb{\|}
+% \hspace*{-2em}%
+% \begin{tabular}{|l|}
+%   \hline
+%     \verb|\begin{boxedminipage}|
+%     \oarg{pos} \oarg{height} \oarg{inner-pos} \marg{width} \\
+%       \quad\meta{text} \\
+%     \verb|\end{boxedminipage}| \\
+%   \hline
+% \end{tabular}
+% \MakeShortVerb{\|}
+% \bigskip
+%
+% The semantic difference is that the values specified by the \meta{height}
+% and \meta{width} arguments are reduced to accommodate the space needed
+% by the surrounding frame.
+%
+%
+% \section{Implementation}
+%
+% \begin{macro}{\bmp@box}
+% The contents of the |minipage| are collected into |\bmp@box|.
+%    \begin{macrocode}
+\newsavebox{\bmp@box}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\bmp@width}
+% \begin{macro}{\bmp@height}
+% The adjusted width and height of the |minipage| are stored in
+% |\bmp@width| and |\bmp@height|, respectively.
+%    \begin{macrocode}
+\newlength{\bmp@width}
+\newlength{\bmp@height}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\bmp@relax}
+% We determine if the |minipage|'s \meta{height} argument contains only
+% |\relax| by comparing it to |\bmp@relax|.
+%    \begin{macrocode}
+\def\bmp@relax{\relax}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{boxedminipage}
+% The |boxedminipage| environment is the only environment exposed by the
+% \pkgname{boxedminipage2e} package.  It takes the same parameters as
+% \LaTeXe's ordinary |minipage| environment:\par
+% \smallskip
+% \begin{tabular}{lcccc}
+%   \emph{Arguments}: & \oarg{pos} & \oarg{height} & \oarg{inner-pos} & \marg{width} \\
+%   \emph{Default values}: & |c| & |\relax| & |s| & --- \\
+% \end{tabular}
+%    \begin{macrocode}
+\newcommand{\boxedminipage}[1][c]{%
+  \@ifnextchar[{\bminipage@i[#1]}{\bminipage@i[#1][\relax]}%
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\bminipage@i}
+% The top-level |boxedminipage| environment invokes |\bminipage@i| with
+% the \meta{pos} and \meta{height} arguments.  |\bminipage@i| checks for
+% an \meta{inner-pos} argument and provides ``|s|'' if absent.
+%    \begin{macrocode}
+\def\bminipage@i[#1][#2]{%
+  \@ifnextchar[{\bminipage@ii[#1][#2]}{\bminipage@ii[#1][#2][s]}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\bminipage@ii}
+% The |\bminipage@ii| macro is passed all four of |boxedminipage|'s
+% arguments.  It subtracts two |\fboxrule| and two |\fboxsep| lengths
+% from each of the \meta{height}~(|#2|) and \meta{width}~(|#4|)
+% arguments to make room for the lines and padding that |\fbox|
+% introduces.  |\bminipage@ii| then begins a |minipage| with the
+% appropriate parameters and prepares to store it in box |\bmp@box|.
+%    \begin{macrocode}
+\def\bminipage@ii[#1][#2][#3]#4{%
+  \setlength{\bmp@width}{#4}%
+  \addtolength{\bmp@width}{-2\fboxrule}%
+  \addtolength{\bmp@width}{-2\fboxsep}%
+  \def\bmp@heighttext{#2}%
+  \begin{lrbox}{\bmp@box}%
+    \ifx\bmp@heighttext\bmp@relax
+      \begin{minipage}[#1][#2][#3]{\the\bmp@width}%
+    \else
+      \setlength{\bmp@height}{\bmp@heighttext}%
+      \addtolength{\bmp@height}{-2\fboxrule}%
+      \addtolength{\bmp@height}{-2\fboxsep}%
+      \begin{minipage}[#1][\bmp@height][#3]{\the\bmp@width}%
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\endboxedminipage}
+% When the document invokes |\end{boxedminipage}| we typeset the
+% |minipage| we just created within an |\fbox|.
+%    \begin{macrocode}
+\def\endboxedminipage{%
+    \end{minipage}%
+  \end{lrbox}%
+  \fbox{\usebox{\bmp@box}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput

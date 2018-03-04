@@ -1,0 +1,29 @@
+%Filename: omlzutmi.fd
+%Created by: tex ut-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{omlzutmi.fd}
+   [2014/04/14 Fontinst v1.933 font definitions for OML/zutmi.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{OML}{zutmi}{\skewchar \font =127}
+
+\DeclareFontShape{OML}{zutmi}{m}{it}{
+   <-> \ntxmath@scaled zutmi
+}{}
+
+\DeclareFontShape{OML}{zutmi}{b}{it}{
+   <-> \ntxmath@scaled zutbmi
+}{}
+
+\DeclareFontShape{OML}{zutmi}{m}{sl}{<->ssub * zutmi/m/it}{}
+\DeclareFontShape{OML}{zutmi}{bx}{it}{<->ssub * zutmi/b/it}{}
+\DeclareFontShape{OML}{zutmi}{b}{sl}{<->ssub * zutmi/b/it}{}
+\DeclareFontShape{OML}{zutmi}{bx}{sl}{<->ssub * zutmi/b/sl}{}
+
+\endinput

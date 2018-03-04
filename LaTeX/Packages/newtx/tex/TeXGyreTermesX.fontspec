@@ -1,0 +1,8 @@
+\defaultfontfeatures[TeXGyreTermesX]
+  {
+  Extension = .otf ,
+  UprightFont = TeXGyreTermesX-Regular,
+  BoldFont = TeXGyreTermesX-Bold,
+  ItalicFont = TeXGyreTermesX-Italic,
+  BoldItalicFont = TeXGyreTermesX-BoldItalic
+  }

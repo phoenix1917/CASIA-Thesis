@@ -1,0 +1,20 @@
+\ProvidesFile{t1minlibertine.fd}[2013/10/12 v1.0]
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+    \DeclareFontFamily{T1}{minlibertine}{}
+    \DeclareFontShape{T1}{minlibertine}{m}{n}{
+      <->  \ntxmath@scaled  MinLibReg-t1
+    }{}
+    \DeclareFontShape{T1}{minlibertine}{b}{n}{
+      <->  \ntxmath@scaled  MinLibBol-t1
+    }{}
+    \DeclareFontShape{T1}{minlibertine}{m}{it}{
+      <->  \ntxmath@scaled  MinLibIta-t1
+    }{}
+    \DeclareFontShape{T1}{minlibertine}{b}{it}{
+      <->  \ntxmath@scaled  MinLibBolIta-t1
+    }{}
+
+\endinput

@@ -1,0 +1,30 @@
+\ProvidesFile{ot1ntxlf.fd}[2015/01/19 v1.0 font definition file for OT1/ntx/lf]
+
+\expandafter\ifx\csname ntx@scaled\endcsname\relax
+  \let\ntx@scaled\@empty%
+\fi
+\def\ntx@lsfx{}
+\def\ntx@makelsfx{\ifntx@largesc\def\ntx@lsfx{l}\fi}
+\ifdefined\ntx@largescfalse \ntx@makelsfx\fi
+\ifdefined\ntx@spacing \else\global\let\ntx@spacing\@empty\fi
+
+\DeclareFontFamily{OT1}{ntxlf}{\ntx@spacing}
+\DeclareFontShape{OT1}{ntxlf}{b}{sc}{<-> \ntx@scaled ntx-Bold-lf-sc\ntx@lsfx-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{b}{n}{<-> \ntx@scaled ntx-Bold-lf-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{b}{scit}{<-> \ntx@scaled ntx-BoldItalic-lf-sc\ntx@lsfx-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{b}{it}{<-> \ntx@scaled ntx-BoldItalic-lf-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{sc}{<-> \ntx@scaled ntx-Regular-lf-sc\ntx@lsfx-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{n}{<-> \ntx@scaled ntx-Regular-lf-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{scit}{<-> \ntx@scaled ntx-Italic-lf-sc\ntx@lsfx-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{it}{<-> \ntx@scaled ntx-Italic-lf-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{sc}{<->ssub * ntxlf/b/sc}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{n}{<->ssub * ntxlf/b/n}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{scit}{<->ssub * ntxlf/b/scit}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{it}{<->ssub * ntxlf/b/it}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{sl}{<-> \ntx@scaled ntx-Italic-tlf-th-ot1}{}
+\DeclareFontShape{OT1}{ntxlf}{b}{sl}{<->ssub * ntxlf/m/sl}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{sl}{<->ssub * ntxlf/m/sl}{}
+\DeclareFontShape{OT1}{ntxlf}{b}{scsl}{<->ssub * ntxlf/b/scit}{}
+\DeclareFontShape{OT1}{ntxlf}{bx}{scsl}{<->ssub * ntxlf/b/scit}{}
+\DeclareFontShape{OT1}{ntxlf}{m}{scsl}{<->ssub * ntxlf/m/scit}{}
+\endinput

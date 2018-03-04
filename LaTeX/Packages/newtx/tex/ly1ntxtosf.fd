@@ -1,0 +1,32 @@
+\ProvidesFile{ly1ntxtosf.fd}[2015/01/17 v1.0 font definition file for LY1/ntx/tosf]
+
+\expandafter\ifx\csname ntx@scaled\endcsname\relax
+  \let\ntx@scaled\@empty%
+\fi
+\def\ntx@asfx{}
+\def\ntx@lsfx{}
+\def\ntx@makelsfx{\ifntx@largesc\def\ntx@lsfx{l}\fi}
+\def\ntx@makeadobesc{\ifntx@adobesc\def\ntx@lsfx{l}\def\ntx@adobesc{a}\else\ntx@makelsfx\fi}
+\ifdefined\ntx@adobescfalse\ntx@makeadobesc\fi
+\ifdefined\ntx@spacing \else\global\let\ntx@spacing\@empty\fi
+
+\DeclareFontFamily{LY1}{ntxtosf}{\ntx@spacing}
+\DeclareFontShape{LY1}{ntxtosf}{b}{sc}{<-> \ntx@scaled ntx-Bold-tosf-sc\ntx@lsfx\ntx@asfx-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{b}{n}{<-> \ntx@scaled ntx-Bold-tosf-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{b}{scit}{<-> \ntx@scaled ntx-BoldItalic-tosf-sc\ntx@lsfx-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{b}{it}{<-> \ntx@scaled ntx-BoldItalic-tosf-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{sc}{<-> \ntx@scaled ntx-Regular-tosf-sc\ntx@lsfx\ntx@asfx-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{n}{<-> \ntx@scaled ntx-Regular-tosf-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{scit}{<-> \ntx@scaled ntx-Italic-tosf-sc\ntx@lsfx-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{it}{<-> \ntx@scaled ntx-Italic-tosf-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{sc}{<->ssub * ntxtosf/b/sc}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{n}{<->ssub * ntxtosf/b/n}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{scit}{<->ssub * ntxtosf/b/scit}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{it}{<->ssub * ntxtosf/b/it}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{sl}{<-> \ntx@scaled  ntx-Italic-osf-th-ly1}{}
+\DeclareFontShape{LY1}{ntxtosf}{b}{sl}{<->ssub * ntxtosf/m/sl}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{sl}{<->ssub * ntxtosf/m/sl}{}
+\DeclareFontShape{LY1}{ntxtosf}{b}{scsl}{<->ssub * ntxtosf/b/scit}{}
+\DeclareFontShape{LY1}{ntxtosf}{bx}{scsl}{<->ssub * ntxtosf/b/scit}{}
+\DeclareFontShape{LY1}{ntxtosf}{m}{scsl}{<->ssub * ntxtosf/m/scit}{}
+\endinput

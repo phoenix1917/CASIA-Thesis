@@ -1,0 +1,30 @@
+\ProvidesFile{t1ntxtlf.fd}[2015/01/17 v1.0 font definition file for T1/ntx/tlf]
+
+\expandafter\ifx\csname ntx@scaled\endcsname\relax
+  \let\ntx@scaled\@empty%
+\fi
+\def\ntx@lsfx{}
+\def\ntx@makelsfx{\ifntx@largesc\def\ntx@lsfx{l}\fi}
+\ifdefined\ntx@largescfalse \ntx@makelsfx\fi
+\ifdefined\ntx@spacing \else\global\let\ntx@spacing\@empty\fi
+
+\DeclareFontFamily{T1}{ntxtlf}{\ntx@spacing}
+\DeclareFontShape{T1}{ntxtlf}{b}{sc}{<-> \ntx@scaled ntx-Bold-tlf-sc\ntx@lsfx-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{b}{n}{<-> \ntx@scaled ntx-Bold-tlf-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{b}{scit}{<-> \ntx@scaled ntx-BoldItalic-tlf-sc\ntx@lsfx-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{b}{it}{<-> \ntx@scaled ntx-BoldItalic-tlf-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{sc}{<-> \ntx@scaled ntx-Regular-tlf-sc\ntx@lsfx-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{n}{<-> \ntx@scaled ntx-Regular-tlf-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{scit}{<-> \ntx@scaled ntx-Italic-tlf-sc\ntx@lsfx-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{it}{<-> \ntx@scaled ntx-Italic-tlf-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{sc}{<->ssub * ntxtlf/b/sc}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{n}{<->ssub * ntxtlf/b/n}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{scit}{<->ssub * ntxtlf/b/scit}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{it}{<->ssub * ntxtlf/b/it}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{sl}{<-> \ntx@scaled ntx-Italic-tlf-th-t1}{}
+\DeclareFontShape{T1}{ntxtlf}{b}{sl}{<->ssub * ntxtlf/m/sl}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{sl}{<->ssub * ntxtlf/m/sl}{}
+\DeclareFontShape{T1}{ntxtlf}{b}{scsl}{<->ssub * ntxtlf/b/scit}{}
+\DeclareFontShape{T1}{ntxtlf}{bx}{scsl}{<->ssub * ntxtlf/b/scit}{}
+\DeclareFontShape{T1}{ntxtlf}{m}{scsl}{<->ssub * ntxtlf/m/scit}{}
+\endinput

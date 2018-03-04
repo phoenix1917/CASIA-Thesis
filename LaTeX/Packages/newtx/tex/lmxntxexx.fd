@@ -1,0 +1,18 @@
+%Filename: lmxntxexx.fd
+%Created by: tex tx-ex-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{lmxntxexx.fd}
+   [2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.]
+
+\providecommand{\ntxmath@scaled}{}
+
+\DeclareFontFamily{LMX}{ntxexx}{\providecommand{\setEXdimens}{}\setEXdimens}
+\DeclareFontShape{LMX}{ntxexx}{m}{n}{<-> \ntxmath@scaled ntxexx}{}
+\DeclareFontShape{LMX}{ntxexx}{b}{n}{<-> \ntxmath@scaled ntxbexx}{}
+\DeclareFontShape{LMX}{ntxexx}{bx}{n}{<->ssub ntxexx/b/n}{}
+
+
+\endinput

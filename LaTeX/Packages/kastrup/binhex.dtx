@@ -1,0 +1,518 @@
+% \iffalse
+% Copyright(c) 2001 by David Kastrup
+% Any use of the code is permitted as long as this copyright notice is
+% preserved in the code.
+%
+% In case of an emergency (no LaTeX available), you may rename this
+% file to binhex.tex.  In all other cases, use the accompanying
+% binhex.ins in order to extract binhex.drv (run LaTeX on it for
+% getting the documentation) and binhex.tex.  If binhex.ins is
+% missing, you can regenerate it by running docstrip on this file with
+% the option ``installer'' set.
+% \fi
+% \CheckSum{251}
+% \title{The \texttt{binhex.tex} package for expansible conversion
+%        into binary-based number systems}
+% \author{David Kastrup\thanks
+%    {David.Kastrup@neuroinformatik.ruhr-uni-bochum.de}}
+% \maketitle
+% \tableofcontents
+%
+% \section{Usage}
+% This is a file for expandably converting numbers into binary, octal
+% and hexadecimal.  All constructs \TeX\ accepts as an argument to its
+% |\number| primitive are valid.  This holds for all numeric arguments
+% of the macros presented in here.
+% 
+% You use this package by simply inputting it with
+% \begin{verbatim}
+%\input binhex
+% \end{verbatim}
+% It will work equally well under \LaTeX\ and plain \TeX.  It does not
+% even use plain \TeX, but only \TeX\ primitives.  Simply setting the
+% correct |\catcode| values for |{}#| and end of line will make it
+% load and work under ini\TeX.
+% 
+% The following macros are defined:
+% \DescribeMacro{\binary}
+% |\binary{|\meta{number}|}| will convert \meta{number} into its binary
+% representation.
+% \samples\binary{0}{\maxdimen}{-"7EE6}.
+%
+% \DescribeMacro{\nbinary}
+% |\nbinary{|\meta{size}|}{|\meta{number}|}| will convert \meta{number}
+% into a binary representation of at least \meta{size} digits length,
+% filling up with leading zeros where necessary.  The |-| sign of
+% negative numbers is not counted.  If both \meta{size} and
+% \meta{number} are zero, an empty string is generated.  This should
+% please some computer scientists in some situations.
+% \samples{\nbinary{3}}{3}{-2}{-12}.
+%
+% \DescribeMacro{\hex}
+% |\hex{|\meta{number}|}| converts \meta{number} into its hexadecimal
+% representation, using uppercase letters.
+% \samples\hex{34}{-4711}.
+%
+% \DescribeMacro{\nhex}
+% |\nhex{|\meta{size}|}{|\meta{number}|}| will convert \meta{number}
+% into a hexadecimal representation of at least \meta{size} digits length,
+% filling up with leading zeros where necessary.  The |-| sign of
+% negative numbers is not counted.  If both \meta{size} and
+% \meta{number} are zero, an empty string is generated.  This should
+% please some computer scientists in some situations.
+% \samples{\nhex{3}}{3}{-\maxdimen}.
+%
+% \DescribeMacro{\oct}
+% |\oct{|\meta{number}|}| converts \meta{number} into its octal
+% representation.
+% \samples\oct{34}{-4711}.
+%
+% \DescribeMacro{\noct}
+% |\noct{|\meta{size}|}{|\meta{number}|}| will do the right thing.
+% \samples{\noct{3}}{13}{-\maxdimen}.
+%
+% \DescribeMacro{\tetra}
+% |\tetra{|\meta{number}|}| is for people counting with arms and legs
+% instead of fingers, or for quadrupeds.
+% \samples\tetra{34}{-4711}.
+%
+% \DescribeMacro{\ntetra}
+% |\ntetra{|\meta{size}|}{|\meta{number}|}| is for those of the same
+% count which have minimum requirements.
+% \samples{\ntetra{3}}{3}{-\maxdimen}.
+%
+% \DescribeMacro{\nbinbased}
+% |\nbinbased{|\meta{logbase}|}{|\meta{size}|}{|\meta{number}|}| will
+% convert \meta{number} into number base $2^{\text{\meta{logbase}}}$ and
+% generate at least \meta{size} digits.  Only supported values of
+% \meta{logbase} are 1, 2, 3, 4.  This is called by all other macros
+% except of the faster binary conversion macros.
+% \samples{\nbinbased{3}{3}}{13}{-\maxdimen}.
+% \samples{\nbinbased{2}{4}}{13}{-\maxdimen}.
+% 
+% That's it, have fun!
+% \StopEventually{}
+% \section{Implementation}
+% Now the implementation.  First save catcode of |@| and old contents of
+% |\toks0| in |\toks0|, then make |@| a letter to enable internal
+% macros.
+%    \begin{macrocode}
+%<*style>
+\edef\next{\toks0=%
+   {\catcode`\noexpand\@=\the\catcode`\@\toks0{\the\toks0}}%
+}
+\next
+\catcode`\@11
+%    \end{macrocode}
+% 
+% \subsection{Binary conversions}
+% \subsubsection{Basics}
+% \begin{macro}{\bb@00}
+% \begin{macro}{\bb@01}
+% \begin{macro}{...}
+% \begin{macro}{\bb@19}
+% We now define the work horse macros for conversion of binary
+% commands.  If numbers were allowed in macro names, one of those
+% definitions would be
+% \begin{verbatim}
+%\def\bb@13#1{6\csname bb@1#1\endcsname}
+% \end{verbatim}
+% That is, the macro divides the decimal two-digit number (up to~19)
+% embedded into its name by~2, spews out the result and starts up the
+% next macro with the first digit of the name of \emph{that} being the
+% remainder from its own division, and the second digit being the next
+% following one.
+%    \begin{macrocode}
+\def\next#1#2#3{\expandafter \def \csname bb@#1\endcsname##1%
+  {#2\csname bb@#3##1\endcsname}}
+\next{00}00 \next{01}01 \next{02}10 \next{03}11
+\next{04}20 \next{05}21 \next{06}30 \next{07}31
+\next{08}40 \next{09}41 \next{10}50 \next{11}51
+\next{12}60 \next{13}61 \next{14}70 \next{15}71
+\next{16}80 \next{17}81 \next{18}90 \next{19}91
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\bb@0+}
+% \begin{macro}{\bb@1+}
+% Now we need to end such a conversion.  For no particular reason at
+% all (well, some sneakiness might explain it later), we use |+| as an
+% end marker for the decimal digits.  After the |+|, we collect the
+% resulting binary digits, from last to first.  So here are two macros
+% to deal with the last digit produced.  Simply tacks them on after
+% replacing the gobbled |+|.
+%    \begin{macrocode}
+\expandafter \def \csname bb@0+\endcsname {+0}
+\expandafter \def \csname bb@1+\endcsname {+1}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% 
+% Now all that remains to be done is to initiate the process, and to
+% end it again.  The process ends when the decimal number reaches~0.
+% Since we want to produce one digit even when starting out, and we
+% check the end of recursion by comparing the result with~|0|, we have a
+% problem here.  We solve it by comparing two letters, and looking for
+% the complete |0+| sequence, and we start out by prepending a trivial |0|
+% before the number to convert, so that at the first run it will be |00|
+% instead of |0| if the number in question is~0.
+%
+% \begin{macro}{(\binary)}
+% \begin{macro}{(\bb@dobinary)}
+% Actually, this is how we \emph{could} do things.  The actual, slightly
+% different version used can be shared by the other converters, but
+% we'll keep this listed for reference.
+% \begin{verbatim}
+%\def\binary#1{\expandafter \bb@dobinary \expandafter 0\number#1+}
+%\def\bb@dobinary#1#2{\if0#1\if+#2\bb@endbinary \fi\fi
+%    \expandafter \bb@dobinary \number \csname bb@0#1\endcsname #2}
+% \end{verbatim}
+% Notice that |\number| here serves multiple purposes.  It will
+% initiate expansion that will only be stopped once the macros
+% generating the next binary digit will crank out a space or anything
+% else stopping expansion.  Its second purpose is to get rid of any
+% leading zeros that might remain from the last loop through.
+%
+% \begin{macro}{\bb@endbinary}
+%   |\bb@endbinary| can
+% be used as written, though.  It scraps everything up to the tack
+% mark |+|, leaving only the converted results accumulated behind
+% that.  Since this means scrapping |\fi\fi| as well, it reinserts
+% it in order to properly finish the conditional.
+%    \begin{macrocode}
+\def\bb@endbinary#1+{\fi\fi}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsubsection{Negative numbers} 
+% We would like negative numbers to work, too.  The semantics for
+% defined field widths are unclear (so we basically just tack a |-| on
+% and convert the remaining number to the full width).  Since the sign
+% of the number is easy to discern, further massaging of the number to
+% replace leading zeros by spaces, insert |+| signs and similar folderol
+% are easy to do and left as an exercise to the reader.  We mostly
+% implement this to have the conversion not fail on any number.
+% 
+% \begin{macro}{\bb@0-}
+% The following one-liner achieves that.  Figure out why.  It is easy.
+%    \begin{macrocode}
+\expandafter \def \csname bb@0-\endcsname {0+-\bb@dobinary}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Minimum field widths}
+% \begin{macro}{\bb@0m}
+% \begin{macro}{\bb@1m}
+% We often have the situation that we want to produce a number that is
+% at least of a certain length.  We specify this by tagging on an
+% appropriate number of |m| characters to the decimal as sort of a
+% format string.  If we match such an~|m| at the end of the conversion,
+% we produce a digit and remove one~|m|, leaving all other |m| intact (or
+% whatever else happens to be before our |+| sign).
+%    \begin{macrocode}
+\expandafter\def\csname bb@0m\endcsname#1+{#1+0}
+\expandafter\def\csname bb@1m\endcsname#1+{#1+1}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{macro}{(\nbinary)}
+% We call |\nbinary| with the number of digits as first argument, the number
+% itself as second.
+% 
+% This now becomes trivial:
+% \begin{verbatim}
+%\def \nbinary#1#2{%
+%   \binary{\number #2\romannumeral \number \number #1 000}%
+%}
+% \end{verbatim}
+% 
+% Whoa, what about all these calls of |\number|?  First notice the space
+% after |#1|.  We need that in case |#1| happens to be octal or whatever,
+% since the |000| at the end is supposed to multiply by 1000 \emph{decimal}.
+% If |#1| were something like |'13| (11 decimal), the last |\number| will
+% expand |'13|, the |\number| before that will remove the blank we
+% inserted in case it was not needed to finish the number of digits,
+% we multiply by~1000 and turn this into a roman numeral consisting of
+% the appropriate amount of |m| letters.  The very first |\number| ensures
+% that in case |#2| is a complete number without the need of trailing
+% spaces, still |\romannumeral| will be expanded when |\binary| first sets
+% sight on the whole thing.
+% \end{macro}
+%
+% \begin{macro}{\nbinary}
+% \begin{macro}{\binary}
+% \begin{macro}{\bb@dobinary}
+% Actually, since there is a certain logic to returning
+% an empty string when 0 is to be converted into a number at least 0
+% characters long, we redefine the stuff the other way round, |\binary|
+% as a special case of |\nbinary|.  We check the end by testing against
+% |0| followed by anything but~|m|.  This has reasons\dots
+% 
+%    \begin{macrocode}
+\def\bb@dobinary#1#2{\if#10\if m\string#2\else\bb@endbinary\fi\fi
+ \expandafter\bb@dobinary\number\csname bb@0#1\endcsname#2}
+\def\nbinary#1#2{\expandafter\bb@dobinary\number\number#2%
+ \romannumeral\number\number#1 000+}
+\def\binary{\nbinary1}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
+% \subsection{Hexadecimal and the rest}
+% 
+% Ok, stop with the small fry.  Now we want to convert into
+% hexadecimal and octal as well.  We do this by first converting into
+% binary, then into the wanted base whenever enough binary digits have
+% accumulated.  In the following, we will talk about hex digits
+% exclusively for simplicity, even though they might indeed be octal
+% instead.
+% 
+% \begin{macro}{\bb@h0}
+% \begin{macro}{\bb@h1}
+% \begin{macro}{\bb@h10}
+% \begin{macro}{...}
+% \begin{macro}{\bb@h1111}
+% 
+% The following defines the equivalents of
+% \begin{verbatim}
+%\def \bb@h110#1+{\bb@dohex #1+6}
+% \end{verbatim}
+% This is a macro that appends 6, the representation of the binary
+% number in its name, after the tack mark |+|.  So what's with the
+% |\number+|?  Actually, here it does nothing but disappear.  We just
+% write this to remind us of how the macros will be called.  When the
+% macros are called, we use the same construct, and then |\number|
+% will disappear together with the~|+| (that we use as a tack mark)
+% and take along any leading zeros.  We drop leading zeros so that we
+% can share the conversion macros for hex and octal (and quaternary?)
+% where they overlap.
+% 
+%    \begin{macrocode}
+\def \next #1#2{\expandafter \def
+ \csname bb@h\number +#1\endcsname ##1+{\bb@dohex ##1+#2}%
+}
+\next   {0}0 \next   {1}1 \next  {10}2 \next  {11}3
+\next {100}4 \next {101}5 \next {110}6 \next {111}7
+\next{1000}8 \next{1001}9 \next{1010}A \next{1011}B
+\next{1100}C \next{1101}D \next{1110}E \next{1111}F
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{macro}{\bb@dohex}
+% |\bb@dohex| is the magic macro that initiates accumulation of enough
+% binary digits for one hexadecimal one.  It is called in
+% the following form:
+% \begin{quote}
+%   |\bb@dohex| \meta{m\{\#rhex\}} |\endcsname| \meta{m\{\#bin\}} |+|
+% \end{quote}
+% Where |+| is the tack after which hex digits will accumulate,
+% \meta{m\{\#rhex\}} is a sequence of |m|, one for every remaining hex
+% digit we want to force out (same convention as with |\nbinary| above),
+% and \meta{m\{\#bin\}} is a sequence of |m| corresponding in length to
+% the number of binary digits we need to accumulate for one hexadecimal
+% (or octal) digit.
+%    \begin{macrocode}
+\def\bb@dohex #1{\csname bb@x#1\endcsname}
+%    \end{macrocode}
+% 
+% Eeek! What is that?  Ok, let's split it into the two cases, one with
+% forced digits remaining, one without any remaining forced digits.
+% If no forced digits remain, we get
+% \begin{quote}
+% |\bb@x \endcsname \endcsname| \meta{m\{\#bin\}}
+% \end{quote}
+% \end{macro}
+% 
+% \begin{macro}{\bb@x}
+% |\bb@x| is defined as
+%    \begin{macrocode}
+\def\bb@x\endcsname#1{ \bb@xm{m\endcsname}}
+%    \end{macrocode}
+% 
+% Notice the space at the start of the macro!  It will stop
+% expansion.  Furthermore, the |\endcsname| that |\bb@dohex| inserted is
+% scrapped, as well as the first |m| from
+% \meta{m\{\#bin\}}.\footnote{Why do we match |\string\endcsname| explicitly
+%   for scrapping?  The answer is debugging.  We know it should always
+%   be |\string\endcsname|, so let \TeX\ assert that it is indeed so.  But we
+%   also know that the next character will be |m|, why don't we match
+%   \emph{that} explicitly?  The answer is that we cannot be sure about the
+%   |\string\catcode| of the matched~|m|.  A hand-entered |m| has
+%   |\string\catcode|~11, a \TeX-generated one (with |\string\string| or
+%   |\string\romannumeral| or such) has |\string\catcode|~12.  You'll
+%   find that all the code here has been carefully 
+%   designed so that it will not care which it gets, so we don't make
+%   an exception here.
+% }
+% \end{macro}
+% 
+% \begin{macro}{\bb@xm}
+% The argument fed to |\bb@xm| is part of some jiggery-pokery we want
+% to happen when |\bb@dobinary| resumes expansion.  First, however, it
+% will take a look and decide whether it will stop generating digits
+% altogether.  As |\string \bb@xm| does not start with |m|, |\bb@dobinary|
+% will stop expansion when the decimal to convert has shrunk to 0.
+% Fine.  Now what does |\bb@xm| do?
+%    \begin{macrocode}
+\def\bb@xm #1\endcsname #2#3+{#2#3%
+ \csname bb@h\number+\endcsname
+ #1\endcsname m#3+}
+%    \end{macrocode}
+% \end{macro}
+% 
+% This is rather straightforward for the case of forced digits: the
+% number of binary digits is encoded in the form of \meta{m\{\#bin\}} in
+% |#2#3|.  After the conversion of those digits, the appropriate hex
+% digit macro is called and sets up |\bb@dohex| again for the next hex
+% digit.  Piece of cake.  Now what happens in the case we have resumed
+% from |\do@binary| having had its option of stopping expansion?
+% 
+% In that case, we get called with the next \meta{digit}
+% already arriving.  This looks more or less like
+% \begin{quote}
+%   |\csname bb@|\meta{digit}|\bb@xm \endcsname{m\endcsname}|
+%   \meta{m\{\#bin-1\}}
+% \end{quote}
+% See what happens?  This expands |\bb@xm|, after which a command of the
+% name |\bb@|\meta{digit}|m| (\meta{digit} being 0 or~1) gets executed.
+% It stashes away \meta{digit} after
+% the conveniently provided |+| sign, and \meta{\#bin-1} digits remain for
+% conversion.
+% 
+% You think this contrived?  Well, buster, let me tell you that the
+% previous version was way more insane.  Have it still in RCS.
+% 
+% \begin{macro}{\bb@nbinbased}
+% The following macro needs to get |#1|, the decimal number to convert,
+% in text form already.  This is so that |\number#1| will continue
+% expanding after |#1|, expanding |\bb@dohex| exactly once.  This problem
+% does not exist for the |\romannumeral| calls for |#2| and |#3|, so
+% spurious expansion with |\number\number| does no harm, since it is
+% stopped readily at the hard |\endcsname| and |+| thresholds.
+%    \begin{macrocode}
+\def\bb@nbinbased #1#2#3{\expandafter \bb@dobinary \number#1%
+ \expandafter \bb@dohex
+ \romannumeral \number\number #2 000\expandafter\endcsname
+ \romannumeral \number\number #3 000+}
+%    \end{macrocode}
+% \end{macro}
+%                                 
+% \begin{macro}{\nbinbased}
+% The following macro gets 3~arguments, the number of binary digits the
+% output digits shall be based on, the number of digits to produce at
+% least, and the number itself.  It expands the number into text
+% form.  If the number is not space-terminated, the closing brace
+% reliably stops expansion nevertheless, so that |\bb@nbinbased| gets a
+% clean number.
+%    \begin{macrocode}
+\def\nbinbased #1#2#3{\expandafter\bb@nbinbased
+ \expandafter {\number#3}{#2}{#1}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\nhex}
+% \begin{macro}{\noct}
+% \begin{macro}{\ntetra}
+% \begin{macro}{\hex}
+% \begin{macro}{\oct}
+% \begin{macro}{\tetra}
+% Now follow the obvious definitions:
+%    \begin{macrocode}
+\def\nhex{\nbinbased4}
+\def\noct{\nbinbased3}
+\def\ntetra{\nbinbased2}
+\def\hex{\nhex1}
+\def\oct{\noct1}
+\def\tetra{\ntetra1}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \subsection{The end}
+% Restore |\catcode`\@| and |\toks0| and finish.
+%    \begin{macrocode}
+\the\toks0
+%</style>
+%    \end{macrocode}
+% And that was that!
+% \section{Various drivers}
+% The installer, in case it is missing.
+%    \begin{macrocode}
+%<installer> \input docstrip
+%<installer> \generate{
+%<installer>    \file{binhex.drv}{\from{binhex.dtx}{driver}}
+%<installer>    \usedir{tex/generic/misc}
+%<installer>    \file{binhex.tex}{\from{binhex.dtx}{style}}
+%<installer> }
+%<installer> \endbatchfile
+%    \end{macrocode}
+% And here comes the documentation driver.
+%    \begin{macrocode}
+%<driver> \documentclass{ltxdoc}
+%<driver> \usepackage{amsmath}
+%<driver> \input binhex.tex
+%    \end{macrocode}
+% \begin{macro}{\verbatize}
+% |\detokenize| is available in e\TeX, but we may not have that\dots
+% The |\fontdimen| folderol makes spaces temporarily disabled.  Looks
+% prettier.  Sorry for that.
+%    \begin{macrocode}
+%<driver> \def\verbatize#1{\begingroup
+%<driver>    \toks0{#1}\edef\next{\the\toks0}%
+%<driver>    \dimen0\the\fontdimen2\font
+%<driver>    \fontdimen2\font=0pt
+%<driver>    \expandafter\stripit
+%<driver>    \meaning\next
+%<driver>    \fontdimen2\font=\dimen0
+%<driver>    \endgroup}
+%<driver> \def\next{}
+%<driver> \expandafter\def\expandafter\stripit\meaning\next{}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\showeffect}
+% |\showeffect|\meta{Stuff} will put out a one-line correspondence of
+% the verbatim source of \meta{Stuff} with its expansion, to be used
+% in a |aligned| environment or similar.
+%    \begin{macrocode}
+%<driver> \newcommand\showeffect[1]{%
+%<driver>     \text{\verbatize{#1}}\quad&\rightarrow\quad\text{#1}%
+%<driver>     \\}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\samples}
+% |\samples| gets one parameter, and a following expression list ended
+% by a period.  It applies that parameter to each of the expressions
+% in the list and generates a correspondance table for each.  For
+% example,
+% \begin{verbatim}
+%\samples{\nbinary{3}}{3}{-2}{-12}.
+% \end{verbatim}
+% was used in this document to produce
+% \samples{\nbinary{3}}{3}{-2}{-12}.
+%    \begin{macrocode}
+%<driver> \def\samples{\begingroup\MacroFont\[\begin{aligned}\nextsample}
+%<driver> \def\nextsample#1#2{%
+%<driver>     \if.\noexpand#2\expandafter\endsamples\fi
+%<driver>     \showeffect{#1{#2}}\nextsample{#1}}
+%<driver> \def\endsamples#1\nextsample#2{\end{aligned}\]\endgroup}
+%    \end{macrocode}
+% \end{macro}
+% Now all that remains is inputting the stuff.
+%    \begin{macrocode}
+%<driver> \begin{document}
+%<driver> \DocInput{binhex.dtx}
+%<driver> \end{document}
+%    \end{macrocode}
+% \Finale{}

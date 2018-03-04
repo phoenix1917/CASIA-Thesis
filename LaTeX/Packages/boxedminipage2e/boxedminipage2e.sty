@@ -1,0 +1,58 @@
+%%
+%% This is file `boxedminipage2e.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% boxedminipage2e.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2015 by Scott Pakin <scott+bmp2e@pakin.org>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl/
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX version
+%% 2008/05/04 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{boxedminipage2e}
+    [2015/03/09 v1.0 Boxed LaTeX2e minipages]
+\newsavebox{\bmp@box}
+\newlength{\bmp@width}
+\newlength{\bmp@height}
+\def\bmp@relax{\relax}
+\newcommand{\boxedminipage}[1][c]{%
+  \@ifnextchar[{\bminipage@i[#1]}{\bminipage@i[#1][\relax]}%
+}
+\def\bminipage@i[#1][#2]{%
+  \@ifnextchar[{\bminipage@ii[#1][#2]}{\bminipage@ii[#1][#2][s]}%
+}
+\def\bminipage@ii[#1][#2][#3]#4{%
+  \setlength{\bmp@width}{#4}%
+  \addtolength{\bmp@width}{-2\fboxrule}%
+  \addtolength{\bmp@width}{-2\fboxsep}%
+  \def\bmp@heighttext{#2}%
+  \begin{lrbox}{\bmp@box}%
+    \ifx\bmp@heighttext\bmp@relax
+      \begin{minipage}[#1][#2][#3]{\the\bmp@width}%
+    \else
+      \setlength{\bmp@height}{\bmp@heighttext}%
+      \addtolength{\bmp@height}{-2\fboxrule}%
+      \addtolength{\bmp@height}{-2\fboxsep}%
+      \begin{minipage}[#1][\bmp@height][#3]{\the\bmp@width}%
+    \fi
+}
+\def\endboxedminipage{%
+    \end{minipage}%
+  \end{lrbox}%
+  \fbox{\usebox{\bmp@box}}%
+}
+\endinput
+%%
+%% End of file `boxedminipage2e.sty'.

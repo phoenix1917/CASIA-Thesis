@@ -1,0 +1,29 @@
+%Filename: omlzbvmi.fd
+%Created by: tex bv-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{omlzbvmi.fd}
+   [2014/04/06 Fontinst v1.933 font definitions for OML/zbvmi.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{OML}{zbvmi}{\skewchar \font =127}
+
+\DeclareFontShape{OML}{zbvmi}{m}{it}{
+   <-> \ntxmath@scaled zbvmi
+}{}
+
+\DeclareFontShape{OML}{zbvmi}{b}{it}{
+   <-> \ntxmath@scaled zbvbmi
+}{}
+
+\DeclareFontShape{OML}{zbvmi}{m}{sl}{<->ssub * zbvmi/m/it}{}
+\DeclareFontShape{OML}{zbvmi}{bx}{it}{<->ssub * zbvmi/b/it}{}
+\DeclareFontShape{OML}{zbvmi}{b}{sl}{<->ssub * zbvmi/b/it}{}
+\DeclareFontShape{OML}{zbvmi}{bx}{sl}{<->ssub * zbvmi/b/sl}{}
+
+\endinput

@@ -1,0 +1,110 @@
+\documentclass[a4paper]{article}
+\usepackage{miscdoc}
+\begin{document}
+\title{The \Package{threeparttable} package\thanks{This documentation
+    covers version 3.0 of the package, dated 2006-06-13}}
+\author{Donald Arseneau\thanks{Documentation put together by Robin
+    Fairbairns}}
+\maketitle
+
+\section{Outline}
+
+This package facilitates tables with titles (captions) and notes.  The
+title and notes are given a width equal to the body of the table (a
+tabular environment).  By itself, a \environment{threeparttable} does
+not float, but you can put it in a \environment{table} or a
+\environment{table*} or some other floating environment.  (This causes
+extra typing, but gives more flexibility.)
+
+Inside a \environment{threeparttable} there should be a caption,
+followed by a tabular environment (\environment{tabular},
+\environment{tabular*}, \environment{tabularx} or the like), possibly
+followed by a series of itemized \emph{tablenotes}.  (The caption may
+also go after the tabular environment.)
+
+For example:
+\begin{quote}
+\begin{verbatim}
+\begin{table}
+  \begin{threeparttable}[b]
+    \caption{...}
+    \begin{tabular}...% or {tabular*}
+      ...42\tnote{1}&....  ...
+    \end{tabular}
+    \begin{tablenotes}
+    \item [1] the first note ...
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+\end{verbatim}
+\end{quote}
+
+The {threeparttable} environment takes an optional vertical-placement
+parameter, \option[t], \option[b], or \option[c]; the default is
+\option[t].
+
+There is nothing automatic about the notes; you must specify the
+identifier in the body of the table (``\cmdinvoke{tnote}{a}'') and in
+the notes below the table (``\cmdinvoke{item}[a]\texttt{...}'').  The
+author chose this method because automatic numbering with \cs{footnote} would be very hard to use, particularly because many tables make
+repeated reference to a single note\footnote{If someone has a
+  convenient, elegant, automatic system, the author promises to
+  listen!}.  \cs{tnote} commands may be given in the caption too, and
+they will \textbf{not} appear in the list of tables.
+
+There are several commands which should be redefined for customizing the
+behaviour of \Package{threeparttable}, especially the table notes.
+Some options are provided for common variations of the table notes:
+\begin{description}
+\item[\option{para}]      Notes come one-after-another without line breaks
+\item[\option{flushleft}] No hanging indentation on notes
+\item[\option{online}]    \cs{item} tag is printed normal size, not superscript
+\item[\option{normal}]    restores default formatting
+\end{description}
+These options can be given to the \cs{usepackage} command or to each
+individual \environment{tablenotes} environment.  The
+\option[normal] option is intended to reverse the whole-document
+options for a particular table; e.g.
+\begin{quote}
+\begin{verbatim}
+\usepackage[para]{threeparttable}
+... document rambles on ...
+\begin{tablenotes}[normal,flushleft]
+\end{verbatim}
+\end{quote}
+These few options will not give you every format you might want, so
+you may find that you need to redefine one or more of the
+configuration commands.  Note that mixing options with redefinitions
+is unlikely to work smoothly: Please submit your redefinitions to be
+used as options in future versions!
+
+Configuration commands:
+\begin{itemize}
+\item \cs{TPTminimum}: command givining minimum caption width.
+  Default \texttt{4em}; change with \cs{def} or \cs{renewcommand}.
+\item \cs{TPTrlap}: A command with one argument, to make notes go out
+  of the column, into the column separation (for right-aligning)
+\item \cs{TPTtagStyle}: Command with one argument to set appearance of
+  the tag (number) in \cmdinvoke{tnote}{tag}.  It defaults to nil.  It
+  could be \cs{textit}.
+\item \cs{tnote}: Yes, you can redefine the \cs{tnote} command.
+\item \cs{TPTnoteLabel}: Command with one argument to format the item
+  label in the tablenotes list (\cs{makelabel}); default uses
+  \cs{tnote}.
+\item \cs{TPTnoteSettings}: A command to issue all the
+  list-environment setup commands for the tablenotes.
+\item \cs{tablenotes} or \cs{TPTdoTablenotes}: Yes, you can redefine
+  the whole tablenotes environment. (\cs{tablenotes} processes
+  optional parameters, then invokes \cs{TPTdoTablenotes}; the
+  \option[para] option replaces \cs{TPTdoTablenotes}).
+\end{itemize}
+For figures, there is an equivalent \environment{measuredfigure}
+environment. It is fairly fragile though, and should be used only for
+a single graphic above a single caption.
+
+Note that the \cs{caption} formatting is \emph{not} adjusted by
+\Package{threeparttable}.  You should use one of the caption-control
+packages to get captions that work well as table titles.  In truth,
+\Package{threeparttable} sets \cs{abovecaptionskip} to zero for
+captions above the table, but more complete changes are called for.
+\end{document}

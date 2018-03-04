@@ -1,0 +1,30 @@
+%Filename: lmsntxsy.fd
+%Created by: tex tx-sy-drv
+%Created using fontinst v1.933
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{lmsntxsy.fd}
+   [2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.]
+
+\expandafter\ifx\csname ntxmath@scaled\endcsname\relax
+  \let\ntxmath@scaled\@empty%
+\fi
+
+\DeclareFontFamily{LMS}{ntxsy}{\providecommand {\setSYdimens}{}\setSYdimens\skewchar\font =120}
+
+\DeclareFontShape{LMS}{ntxsy}{m}{n}{
+     <-6.3> \ntxmath@scaled ntxsy5
+     <6.3-8.6> \ntxmath@scaled ntxsy7 % from 6.3 up to, but not including, 8.6
+     <8.6-> \ntxmath@scaled ntxsy
+}{}
+
+\DeclareFontShape{LMS}{ntxsy}{b}{n}{
+     <-6.3> \ntxmath@scaled ntxbsy5
+     <6.3-8.6> \ntxmath@scaled ntxbsy7
+     <8.6-> \ntxmath@scaled ntxbsy
+}{}
+
+\DeclareFontShape{LMS}{ntxsy}{bx}{n}{<->ssub * ntxsy/b/n}{}
+
+\endinput
