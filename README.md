@@ -9,7 +9,7 @@ Clone or download -> Download Zip
 ```
 
 ## 鸣谢
-本模版LaTeX部分基于UCASThesis(https://github.com/mohuangrui/ucasthesis)制作，特别感谢原作者吴凌云和莫晃锐二位的辛勤劳动。
+本模版LaTeX部分基于[UCASThesis](https://github.com/mohuangrui/ucasthesis)制作，特别感谢原作者吴凌云和莫晃锐二位的辛勤劳动。
 
 2018.3 更新：黄国平，施祺。
 

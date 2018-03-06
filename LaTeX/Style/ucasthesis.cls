@@ -285,8 +285,10 @@
         {\UCAS@value@declare@creativity}
 
         \vspace*{3ex}
-        {\hfill{} {\UCAS@value@declare@s \hspace*{14em}}}
-        {\hfill{} {\UCAS@value@declare@d \hspace*{14em}}}
+        \begin{flushright}
+  			{\UCAS@value@declare@s \hspace*{8em}} \\
+			{\UCAS@value@declare@d \hspace*{8em}}
+  		\end{flushright}
 
         \vspace*{6ex}
         \begin{center}
@@ -296,8 +298,10 @@
         {\UCAS@value@declare@rule}
 
         \vspace*{3ex}
-        {\hfill{} {\UCAS@value@declare@s \hspace*{10em} \UCAS@value@declare@t \hspace*{9em}}}
-        {\hfill{} {\UCAS@value@declare@d \hspace*{10em} \UCAS@value@declare@d \hspace*{9em}}}
+        \begin{flushright}
+			\hfill{} {\UCAS@value@declare@s \hspace*{10em}{\UCAS@value@declare@t}\hspace*{8em}} \\
+  			\hfill{} {\UCAS@value@declare@d \hspace*{10em}{\UCAS@value@declare@d}\hspace*{8em}}
+  		\end{flushright}
 
         \vspace*{3ex}
     }
